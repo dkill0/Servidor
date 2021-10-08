@@ -24,7 +24,7 @@
  }
  for ($i=0; $i <= $numero1 ; $i++) { 
     for ($j=0; $j <$i ; $j++) { 
-        echo (" ");
+        echo ("&nbsp;&nbsp;");
      }
     for ($j=$numero1; $j > $i ; $j--) { 
        echo ("*");
