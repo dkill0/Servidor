@@ -26,22 +26,41 @@ $result = mysqli_query($conn ,$consulta);
 echo mysqli_error($conn);
 
 
-
+print("<table border='1'>");
+print("<caption> Pruebas <caption>");
+print("<tr>");
+	print("<th>NOMBRE</th>");
+	print("<th>APELLIDOS</th>");
+	print("<th>PROVINCIA</th>");
+	print("<th>EDAD</th>");
+	print("<th>PROFESION</th>");
+	print("<th>SEXO</th>");
+	
+	
+	print("</tr>");
+	
 while($row = mysqli_fetch_array($result))
 {
-	print("Forma1: " . $row[0] . " || " . $row[1]);
-	print("<br>");
 	
-	print("Forma2: " . $row['NOMBRE']. " || " . $row['APELLIDOS']);
-	print("<br>");
+	print("<tr>");
+	print("<td>" . $row['NOMBRE']."</td>");
+	print("<td>" . $row['APELLIDOS']."</td>");
+	print("<td>" . $row['PROVINCIA']."</td>");
+	print("<td>" . $row['EDAD']."</td>");
+	print("<td>" . $row['PROFESION']."</td>");
+	print("<td>" . $row['SEXO']."</td>");
 	
-	print("------------------------------");
-	print("<br>");
+	
+	print("</tr>");
+	
+	
+
 	
 	//Imprimos el error si se ha producido. mysql_error siempre va a mostrar el error de la última función mysql ejecutada
 	mysqli_error($conn);
 	
 }
+print("</table>");
 
 mysqli_close($conn);
 
