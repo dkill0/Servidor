@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +11,7 @@
 </head>
 <body>
     <?php
-    setcookie("NombreUsuario", Juan, time() + 31536000);
-
-    print("Las cookies se han guardado correctamente");
-
+    print("Error. ".$_SESSION['usuario']." no tiene permisos para estar aquí.");
     ?>
 </body>
 </html>
