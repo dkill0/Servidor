@@ -21,7 +21,7 @@
 </head>
 <body>
 <h3>Introduce un numero</h3>
-<form method="post" action="Ejercicio 04.php">
+<form method="post" action="Ejercicio04.php">
     <input name="num1" type="text" maxlength="30" size="40">
     <br>
     <input type="submit" value="Enviar"> 
