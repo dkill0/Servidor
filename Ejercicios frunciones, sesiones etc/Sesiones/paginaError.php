@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-    print("Error. ".$_SESSION['usuario']." no tiene permisos para estar aquí.");
+    print("Error. ".$_SESSION['login']." no tiene permisos para estar aquí.");
     ?>
 </body>
 </html>

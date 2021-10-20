@@ -12,7 +12,7 @@
 <body>
    <?php
    
-    print("Bienvenido".$_SESSION['usuario']." con contraseña ".$_SESSION['contrasena']);
+    print("Bienvenido ".$_SESSION['login']." con contraseña ".$_SESSION['password']);
    ?>
 </body>
 </html>

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <?php
 session_start();
-$usuario=" ";
-$contrasena=" ";
         if(isset($_SESSION['usuario'])&& isset($_SESSION['contrasena'])){
-            $usuario = $_SESSION['usuario'];
-            $contrasena = $_SESSION['contrasena'];
+            $_SESSION['login']=$_POST['usuario'];
+            $_SESSION['password'] = $_POST['contrasenqa'];
         }
 
-        if(($usuario="admin")&&($contrasena="admin")){
-            header("Location:paginaAdmin.php");
+        if(($_SESSION['login']="admin")&&($_SESSION['password']="admin")){
+            header("Location: paginaAdmin.php");
         }else{
-            header("Location:paginaError.php");
+            header("Location: paginaError.php");
         }
 
     ?>
