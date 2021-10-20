@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <?php
 session_start();
-        if(isset($_SESSION['usuario'])&& isset($_SESSION['contrasena'])){
+        if(isset($_POST['usuario'])&& isset($_POST['contrasena'])){
+
             $_SESSION['login']=$_POST['usuario'];
-            $_SESSION['password'] = $_POST['contrasenqa'];
+            $_SESSION['password']=$_POST['contrasena'];
+
+            if(($_POST['usuario']=="admin")&&($_POST['contrasena']=="admin")){
+               
+                header("Location: paginaAdmin.php");
+            }else{
+                header("Location: paginaError.php");
+             
+            }
+           
+
         }
 
-        if(($_SESSION['login']="admin")&&($_SESSION['password']="admin")){
-            header("Location: paginaAdmin.php");
-        }else{
-            header("Location: paginaError.php");
-        }
+      
 
     ?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +30,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="Ejercicio09.php">
+    <form method="post" action="">
     <h3>Nombre de usuario</h3>
     <input name="usuario" type="text" maxlength="30" size="40" required>
     <br>
