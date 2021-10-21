@@ -26,6 +26,8 @@
 	</tr>
 	</table>
 	</form>
-	<p><a href="menu.php"> Volver al menu</a></p>
+	<?php
+include("listado.php");
+?>
 </body>
 </html>
