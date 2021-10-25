@@ -7,7 +7,7 @@
 		<td colspan="4">MODIFICACION DE PRODUCTOS </td>
 	</tr>
 	<tr>
-		<td>Codigo</td> <td><input type="text" name="codigo"/></td>
+		<td>Codigo</td> <td><input type="text" name="codigoCambio"/></td>
 		<td>Producto</td> <td><input type="text" name="producto"/></td>
 	</tr>
 	<tr>

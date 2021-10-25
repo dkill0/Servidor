@@ -3,14 +3,26 @@
 //Estableciendo la conexión
 include ("conexion.php");
 //recogida de datos
-
-$cod=$_POST['codigo'];
+// Cambiar las variables
+if(isset($_POST['codC'])&& !empty($_POST['codC'])){
+    $codC=$_POST['codigoCambio'];
+}
+if(isset($_POST['codC'])&& !empty($_POST['codC'])){
 $pro=$_POST['producto'];
+}
+if(isset($_POST['codC'])&& !empty($_POST['codC'])){
 $det=$_POST['detalle'];
+}
+if(isset($_POST['codC'])&& !empty($_POST['codC'])){
 $pre=$_POST['precio'];
+}
+if(isset($_POST['codC'])&& !empty($_POST['codC'])){
 $des=$_POST['descuento'];
+}
+if(isset($_POST['codC'])&& !empty($_POST['codC'])){
 $ima="images/".$cod.".jpg";
-$consulta = "UPDATE productos SET (producto='$pro',detalle='$det', precio='$pre',descuento='$des',imagen='$ima') WHERE codigo='$cod'";
+}
+$consulta = "UPDATE productos SET (codigoCambio= '$codC',producto='$pro', detalle='$det', precio='$pre', descuento='$des', imagen='$ima') WHERE codigo='$cod'";
 //ejecutamos la sentencia SQL
 mysqli_query($conn,$consulta);
 //copiamos la imagen que nos ha llegado a su carpeta.
