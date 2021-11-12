@@ -1,12 +1,14 @@
-
+<?php
+   session_start();
+   ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lentejas los Jueves</title>
-
+    <title>Document</title>
+    <link href="css/EstilosIndex.css" rel="stylesheet" type="text/css">
     <?php
     include("conexion.php");
 
@@ -36,18 +38,20 @@
                     //Guardamos lo que nos interese para todo el portal en variables de sesión
                     $_SESSION['idUsuario']=$rowUsu['idUser'];
                     $_SESSION['name']=$rowUsu['nombre'];
+                    $_SESSION['email']=$rowUsu['email'];
+                    $_SESSION['password']=$rowUsu['contrasena'];
 
                     $tipo=$rowUsu['tipo'];
 
                     if ($tipo==1) {
-                        header("Location:./admin/admin.php");
+                        header("Location:./admin/IndexAdmin.php");
                     }
                     elseif ($tipo==2){
-                        header("Location:./camarero/camarero.php");
+                        header("Location:./camarero/indexCam.php");
 
                     }
                     elseif ($tipo==3){
-                        header("Location:./cliente/cliente.php");
+                        header("Location:./cliente/indexCli.php");
                         
                     }
                      else {
@@ -62,16 +66,12 @@
         ?>
 </head>
 <body>
-    <header>
-        <h1>Lentejas los jueves</h1>
-        <figure>
-            <img src="" alt="">
-        </figure>
-    </header>
-    <h2>Iniciar sesión</h2>
-    <form action="" method="POST">
-        <section>
+    <?php
+    include("headerIndex.php");
+    ?>
+<section>
             <article>
+            <form action="" method="POST">
                 <div>
                 <p>Email</p>
                 <input name="email" type="text" maxlength="25" size="30"> 
@@ -79,14 +79,12 @@
                 <input name="contrasena" type="password" maxlength="25" size=30>
                 <br><br>
                 <input type="submit" value="Enviar">
-                <a href="registroCliente.php">Registrarse</a>
+                <a href="registroCli.php">Registrarse</a>
                 </div>
+                </form>
             </article>
 
         </section>
      
-
-    
-    <p></p>
 </body>
 </html>

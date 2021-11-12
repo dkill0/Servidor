@@ -7,23 +7,18 @@
           echo mysqli_error($conn);
           
           
-                  print("<table border=1>");
-                  print("<tr>
-               
-                  <th>Nombre</th>
-                  <th>Descripcion</th>
-                  <th>Precio</th>
-                  </tr>");
+                  
           
           while($row = mysqli_fetch_array($result)){
               
-              print("<tr>");
-             
-              print("<td>".$row['nombre']."</td>");
-              print("<td>".$row['descripcion']."</td>");
-              print("<td>".$row['precio']."</td>");
-              print("</tr>");
+              
+                print("<div>");
+                print("<h3>".$row['nombre']."</h3>");
+                print("<h4>Descripción</h4>");
+                print("<p>".$row['descripcion']."</p>");
+                print("<p>".$row['precio']."</p>");
+                print("</div>");
               }
-              print("</table>");
+              
           
     ?>
