@@ -11,10 +11,21 @@
     <title>Lentejas los Jueves</title>
 </head>
 <body>
+ 
     <?php
-        echo "Holaaaaaaa camarero";
+    include("headerCli.php");
+    include("./barranav.php");
+    ?>
+    <?php
+        echo "Holaaaaaaa cliente";
         echo '<br>';
         echo $_SESSION['name'];
-        ?>
+    ?>
+
+
+    
+  
+          
+
 </body>
 </html>
