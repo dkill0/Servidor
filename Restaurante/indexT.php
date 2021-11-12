@@ -8,16 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lentejas los Jueves</title>
-    <script>
-        function aceptado() {
-            alert("Hola");
-          
-        }
 
-        function noAceptado() {
-            alert("Registrate");
-        }
-        </script>
     <?php
     include("conexion.php");
 
@@ -90,7 +81,7 @@
                 <input name="contrasena" type="password" maxlength="25" size=30>
                 <br><br>
                 <input type="submit" value="Enviar">
-                <a href="#">Registrarse</a>
+                <a href="registroCliente.php">Registrarse</a>
                 </div>
             </article>
 
