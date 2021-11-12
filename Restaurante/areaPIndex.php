@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="css/EstilosIndex.css" rel="stylesheet" type="text/css">
     <?php
     include("conexion.php");
 
@@ -37,6 +38,8 @@
                     //Guardamos lo que nos interese para todo el portal en variables de sesión
                     $_SESSION['idUsuario']=$rowUsu['idUser'];
                     $_SESSION['name']=$rowUsu['nombre'];
+                    $_SESSION['email']=$rowUsu['email'];
+                    $_SESSION['password']=$rowUsu['contrasena'];
 
                     $tipo=$rowUsu['tipo'];
 
@@ -76,7 +79,7 @@
                 <input name="contrasena" type="password" maxlength="25" size=30>
                 <br><br>
                 <input type="submit" value="Enviar">
-                <a href="#">Registrarse</a>
+                <a href="registroCli.php">Registrarse</a>
                 </div>
                 </form>
             </article>
