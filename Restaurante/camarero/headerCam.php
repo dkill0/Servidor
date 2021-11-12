@@ -4,6 +4,11 @@
             <img src="" alt="">
         </figure>
     </header>
+    <?php
+    $nom=$_SESSION['name'];
+        echo "<p>Hola,  $nom.</p>";
+     
+    ?>
     <nav>
     <ul>
         <li><a href="mesasCam.php">Mesas</a></li>

@@ -47,7 +47,7 @@
                         header("Location:./admin/IndexAdmin.php");
                     }
                     elseif ($tipo==2){
-                        header("Location:./camarero/indexCam.php");
+                        header("Location:./camarero/mesasCam.php");
 
                     }
                     elseif ($tipo==3){
