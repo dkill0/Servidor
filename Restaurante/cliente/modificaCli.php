@@ -18,12 +18,12 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
     $email=$_POST['email'];
     $pass=$_POST['contra'];
     $idUs=$_SESSION['idUsuario'];
-    $consulta = "UPDATE usuario SET (email='$email',nombre= '$nom', contrasena='$pass') WHERE idUser='$idUs'";
+    $consulta = "UPDATE usuario SET nombre='$nom' WHERE idUser='$idUs'";
     //ejecutamos la sentencia SQL
     mysqli_query($conn,$consulta);
    
     echo mysqli_error($conn );
-    
+    $_SESSION['name']=$nom;
     header ("LOCATION:areaPCli.php");
 }
 

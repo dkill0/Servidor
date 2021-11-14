@@ -23,15 +23,18 @@
     include("headerCli.php");
     ?>
     <?php
+
     include ("../conexion.php");
     if(isset($_GET['w1'])){
        
         $nom=$_GET['w1'];
         $idUs=$_SESSION['idUsuario'];
 
-        $consulta = "UPDATE usuario SET (nombre='$nom') WHERE idUser='$idUs'";
+        $consulta = "UPDATE usuario SET nombre='$nom' WHERE idUser='$idUs'";
    //ejecutamos la sentencia SQL
    mysqli_query($conn,$consulta);
+   $_SESSION['name']=$nom;
+   
    
    echo mysqli_error($conn );
    
@@ -67,7 +70,7 @@
                 <p></p>
             </div>
         </article>
-
+<footer><p><a href="cierre.php">Cierre de sesión</a></p></footer>
         
     </section>
 </body>

@@ -17,11 +17,7 @@
     include("headerCli.php");
 
     ?>
-    <?php
-    $nom=$_SESSION['name'];
-        echo "<h2>Bienvenidx,  $nom </h2>";
-     
-    ?>
+   
 
 
     

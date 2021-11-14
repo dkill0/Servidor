@@ -4,3 +4,6 @@ div{
     width: 300px;
     text-align: center;
 }
+footer{
+    clear: both;
+}
