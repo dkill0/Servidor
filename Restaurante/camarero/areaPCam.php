@@ -14,7 +14,7 @@
     <section>
         <article>
             <h3>Datos Personales</h3>
-            <div>
+            <div class="inicioS">
                 <p>Nombre</p>
                 <p><?php echo $_SESSION['name']?></p>
                 <p>Email</p>
@@ -25,7 +25,7 @@
         </article>
         <article>
             <h3>Pedidos</h3>
-            <div>
+            <div class="inicioS">
                 <p>Total pedidos:</p>
                 <p></p>
                 <p>Pedidos en curso:</p>

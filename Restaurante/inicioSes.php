@@ -69,7 +69,7 @@
 <section>
             <article>
             <form action="" method="POST">
-                <div>
+                <div class="inicioS">
                 <p>Email</p>
                 <input name="email" type="text" maxlength="25" size="30"> 
                 <p>Contraseña</p>

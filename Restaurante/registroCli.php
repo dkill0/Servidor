@@ -35,7 +35,7 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
     ?>
     <section>
         <article>
-            <div>
+            <div class="inicioS">
                 <form action="" method="post">
                     <p>Nombre</p>
                     <input type="text" name="nombre">

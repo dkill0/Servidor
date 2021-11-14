@@ -13,7 +13,7 @@ include("headerAd.php");
 ?>  
 <article class="usuarios2">
 <h2>Empleados</h2>
-<div>
+<div class="inicioS">
 <?php
             include("../conexion.php");
           $consulta= "SELECT idUser, nombre FROM usuario WHERE tipo=2";
@@ -23,9 +23,11 @@ include("headerAd.php");
           echo mysqli_error($conn);
           
           while($row = mysqli_fetch_array($result)){
+            $idUs=$row['idUser'];
+            $nom=$row['nombre'];
             print('<div class="usuarios"');
-            print("<p>".$row['idUser']." - ");
-            print("".$row['nombre']."</p>");
+            print("<p><a href='$idUs$nom.php'>".$row['idUser']." - ");
+            print("".$row['nombre']."</a></p>");
             print('</div>');
               }
               
@@ -36,7 +38,7 @@ include("headerAd.php");
 
 <article class="usuarios2">
     <h2>Clientes</h2>
-    <div>
+    <div class="inicioS">
     <?php
             include("../conexion.php");
           $consulta= "SELECT idUser, nombre FROM usuario WHERE tipo=3";

@@ -3,7 +3,7 @@
 
 }
 div {
-    float: left;
+float:left;
 }
 div.productos {
     float: left;
@@ -16,4 +16,17 @@ div.productos {
 div.sesion p {
     float: left;
     margin: 4px;
+}
+
+.inicioS{
+    float:left;
+    border: 1px solid black;
+    width: 300px;
+    text-align: center;
+}
+.usuarios2{
+    float:left;
+}
+.usuarios{
+    clear:both;
 }
