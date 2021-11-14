@@ -12,10 +12,11 @@
     <p><a href="../cierre.php">Cierre de sesión</a></p>
     <nav>
     <ul>
-        <li><a href="indexCli.php">Inicio</a></li>
-        <li><a href="cartaCli.php">Carta</a></li>
-        <li><a href="areaPCli.php">Area Personal</a></li>
-        <li><a href="contactoCli.php">Contacto</a></li>
+        <li><a href="mesasAd.php">Mesas</a></li>
+        <li><a href="cartaAd.php">Carta</a></li>
+        <li><a href="usuariosAd.php">Usuarios</a></li>
+        <li><a href="pedidosAd.php">Pedidos</a></li>
+        <li><a href="areaPAd.php">Area Personal</a></li>
     </ul>
 
 </nav>

@@ -70,7 +70,7 @@
                 <p></p>
             </div>
         </article>
-<footer><p><a href="cierre.php">Cierre de sesión</a></p></footer>
+<footer></footer>
         
     </section>
 </body>

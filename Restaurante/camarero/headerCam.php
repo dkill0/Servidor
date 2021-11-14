@@ -9,6 +9,7 @@
         echo "<p>Hola,  $nom.</p>";
      
     ?>
+    <p><a href="../cierre.php">Cierre de sesión</a></p>
     <nav>
     <ul>
         <li><a href="mesasCam.php">Mesas</a></li>

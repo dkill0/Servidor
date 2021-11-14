@@ -44,7 +44,7 @@
                     $tipo=$rowUsu['tipo'];
 
                     if ($tipo==1) {
-                        header("Location:./admin/IndexAdmin.php");
+                        header("Location:./admin/mesasAd.php");
                     }
                     elseif ($tipo==2){
                         header("Location:./camarero/mesasCam.php");
