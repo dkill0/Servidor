@@ -4,12 +4,15 @@
             <img src="" alt="">
         </figure>
     </header>
+    <div class="sesion">
     <?php
     $nom=$_SESSION['name'];
         echo "<p>Hola,  $nom. </p>";
      
     ?>
-    <p><a href="../cierre.php">Cierre de sesión</a></p>
+    
+    <p><a href="../cierre.php">Salir</a></p>
+    </div>
     <nav>
     <ul>
         <li><a href="indexCli.php">Inicio</a></li>
