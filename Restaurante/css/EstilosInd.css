@@ -10,6 +10,7 @@ div.productos {
     border: 1px solid black;
     width: 300px;
     text-align: left;
+
  
 }
 
@@ -29,4 +30,8 @@ div.sesion p {
 }
 .usuarios{
     clear:both;
+}
+
+article{
+    clear: both;
 }

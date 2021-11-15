@@ -57,17 +57,6 @@
                 <a href="modificaCli.php">Modificar datos</a>
             </div>
         </article>
-        <article>
-            <h3>Pedidos</h3>
-            <div>
-                <p>Total pedidos:</p>
-                <p></p>
-                <p>Pedidos en curso:</p>
-                <p></p>
-                <p>Pedidos finalizados: </p>
-                <p></p>
-            </div>
-        </article>
 <footer></footer>
         
     </section>

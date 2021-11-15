@@ -6,6 +6,13 @@
 <head>
 <?php include("../cliente/meta2.php");?>
     <title>Carta</title>
+    <script>
+      function prueba() {
+       
+  window.open("https://javascript.info");
+};
+ 
+    </script>
 </head>
 <body>
 <?php
@@ -19,7 +26,7 @@ include("headerAd.php");
     <div>
     <?php
             include("../conexion.php");
-          $consulta= "SELECT * FROM productos";
+          $consulta= "SELECT * FROM productos WHERE tipo=5";
           //Ejecutamos la sentencia SQL
           $result = mysqli_query($conn ,$consulta);
           //Imprimos el error si se ha producido. mysql_error siempre va a mostrar el error de la última función mysql ejecutada
@@ -49,7 +56,7 @@ include("headerAd.php");
     <div>
     <?php
             include("../conexion.php");
-          $consulta= "SELECT * FROM productos";
+          $consulta= "SELECT * FROM productos WHERE tipo=6";
           //Ejecutamos la sentencia SQL
           $result = mysqli_query($conn ,$consulta);
           //Imprimos el error si se ha producido. mysql_error siempre va a mostrar el error de la última función mysql ejecutada
@@ -79,7 +86,7 @@ include("headerAd.php");
     <div>
     <?php
             include("../conexion.php");
-          $consulta= "SELECT * FROM productos";
+          $consulta= "SELECT * FROM productos WHERE tipo=7";
           //Ejecutamos la sentencia SQL
           $result = mysqli_query($conn ,$consulta);
           //Imprimos el error si se ha producido. mysql_error siempre va a mostrar el error de la última función mysql ejecutada
@@ -109,7 +116,7 @@ include("headerAd.php");
     <div>
     <?php
             include("../conexion.php");
-          $consulta= "SELECT * FROM productos";
+          $consulta= "SELECT * FROM productos WHERE tipo=4";
           //Ejecutamos la sentencia SQL
           $result = mysqli_query($conn ,$consulta);
           //Imprimos el error si se ha producido. mysql_error siempre va a mostrar el error de la última función mysql ejecutada
