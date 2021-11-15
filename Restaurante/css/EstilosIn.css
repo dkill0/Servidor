@@ -35,3 +35,6 @@ div.sesion p {
 article{
     clear: both;
 }
+button{
+    width: 300px;
+}

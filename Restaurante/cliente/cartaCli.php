@@ -11,7 +11,35 @@
 <body>
 <?php
     include("headerCli.php");
-  include("productos.php");?>
+    ?>
+    <section>
+    <div class="productos"><a href="entrantes.php">
+    <h2>Entrantes</h2>
+    </a>
+    </div>
+
+    
+    <div class="productos"><a href="platos.php">
+    <h2>Platos</h2>
+    </a>
+    </div>
+
+
+    
+    <div class="productos"><a href="postres.php">
+    <h2>Postres</h2>
+    </a>
+    </div>
+
+    
+    <div class="productos"><a href="bebidas.php">
+    <h2>Bebidas</h2>
+    </a>
+    </div>
+
+    
+</section>
+
  
 </body>
 </html>
