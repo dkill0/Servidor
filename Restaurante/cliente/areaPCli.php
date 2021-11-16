@@ -54,7 +54,7 @@
                 <p>Contraseña</p>
                 <p><?php echo $_SESSION['password']?></p>
                 
-                <a href="modificaCli.php">Modificar datos</a>
+
             </div>
         </article>
 <footer></footer>

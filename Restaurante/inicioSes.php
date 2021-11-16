@@ -24,7 +24,9 @@
                 echo $consulta1;
 
                 $result = mysqli_query($conn ,$consulta1);
-                echo mysqli_error($conn );               
+                if (mysqli_error($conn )){
+                    echo "Error. Registrese";
+                }
                 
                 mysqli_close($conn);
                 echo '<br>';
