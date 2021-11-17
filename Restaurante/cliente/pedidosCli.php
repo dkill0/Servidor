@@ -33,13 +33,12 @@
             $NumFilas=mysqli_num_rows($result);
             echo mysqli_error($conn );
 
+   
             if($NumFilas==0){
                 echo ('<div><a href="nuevoPedido.php">Nuevo pedido</a></div>');
-                
-                
             }
             else {
-                echo ('<div><a href=cartaCli.php?codPed=$result>Continuar pedido</a></div>');
+                echo ('<div><a href=cartaCli.php?codPed=$codPed>Continuar pedido</a></div>');
             }
             
         ?>
