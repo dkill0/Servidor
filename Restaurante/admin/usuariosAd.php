@@ -24,9 +24,9 @@ include("headerAd.php");
           
           while($row = mysqli_fetch_array($result)){
             $idUs=$row['idUser'];
-            $nom=$row['nombre'];
+            
             print('<div class="usuarios"');
-            print("<p><a href='$idUs$nom.php'>".$row['idUser']." - ");
+            print("<p><a href='fichaUsuario.php?usuario=$idUs'>".$row['idUser']." - ");
             print("".$row['nombre']."</a></p>");
             print('</div>');
               }
@@ -48,8 +48,9 @@ include("headerAd.php");
           echo mysqli_error($conn);
           
           while($row = mysqli_fetch_array($result)){
+            $idUs=$row['idUser'];
                 print('<div class="usuarios"');
-                print("<p>".$row['idUser']." - ");
+                print("<p><a href='fichaUsuario.php?usuario=$idUs'>".$row['idUser']." - ");
                 print("".$row['nombre']."</p>");
                 print('</div>');
               }

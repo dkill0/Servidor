@@ -11,34 +11,36 @@
 <body>
 <?php
     include("headerCli.php");
-    ?>
-    <section>
-    <div class="productos"><a href="entrantes.php">
+    $codPed = $_GET['codPed'];
+    echo "<section>
+    <div class=productos><a href=entrantes.php>
     <h2>Entrantes</h2>
     </a>
     </div>
 
     
-    <div class="productos"><a href="platos.php">
+    <div class=productos><a href=platos.php>
     <h2>Platos</h2>
     </a>
     </div>
 
 
     
-    <div class="productos"><a href="postres.php">
+    <div class=productos><a href=postres.php>
     <h2>Postres</h2>
     </a>
     </div>
 
     
-    <div class="productos"><a href="bebidas.php">
+    <div class=productos><a href=bebidas.php?codPed=$codPed>
     <h2>Bebidas</h2>
     </a>
     </div>
 
     
-</section>
+</section>";
+    ?>
+    
 
  
 </body>

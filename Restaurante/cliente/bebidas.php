@@ -8,8 +8,8 @@
 <script>
     function insertaProducto(param) {
         var cant = prompt("Inserte la cantidad:");
-        window.location.href = window.location.href + "?w2=" + param;
-        window.location.href = window.location.href + "?w1=" + cant;
+        window.location.href = window.location.href + "&w2=" + param + "&w1=" + cant;
+     
        
     }
 </script>
@@ -20,29 +20,24 @@
     include("headerCli.php");
 ?>
 <section>
-    <?php
-      if(isset($_GET['w1']) && isset($_GET['w2'])){
-       
+  
+<?php
+    if(isset($_GET['w1']) && isset($_GET['w2'])){
+     
         $canti=$_GET['w1'];
         $idPro=$_GET['w2'];
-        
-        include("../conexion.php");
-
-
-        $consulta= "INSERT INTO lineapedido (idPedido,idProducto,cantidad) VALUES (null,'$idPro','$canti')";
-        //Ejecutamos la sentencia SQL
-        $result = mysqli_query($conn ,$consulta);
-        //Imprimos el error si se ha producido. mysql_error siempre va a mostrar el error de la última función mysql ejecutada
-        echo mysqli_error($conn);
+        $codPed=$_GET['codPed'];
+        $sitio="window.location.href";
+        header("LOCATION: insertaProd.php?codPed=$codPed&canti=$canti&idPro=$idPro&sitio=$sitio");
+       
     }
     ?>
-    
     <?php
             include("../conexion.php");
 
           
 
-
+          $codPed=$_GET['codPed'];
           $consulta= "SELECT * FROM productos WHERE tipo=4";
           //Ejecutamos la sentencia SQL
           $result = mysqli_query($conn ,$consulta);
@@ -74,10 +69,11 @@
                 $i++;
               }
               
-          
+
+                 
+    echo"<a href=cartaCli.php?codPed=$codPed>Volver</a>"          
     ?>
-   
-    <a href="cartaCli.php">Volver</a>
+
 
 </section>
 </body>
