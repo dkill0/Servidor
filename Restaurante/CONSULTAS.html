@@ -1,0 +1,7 @@
+SELECT DISTINCT pr.precio*SUM(cantidad) as precioFin
+          FROM lineapedido l, pedido p,  productos pr, tipo t
+          WHERE l.idPedido=15 and pr.idProducto=l.idProducto and cliente=3 and pr.tipo=t.idTipo
+          group by l.idProducto        
+          ORDER BY t.descripcion;
+
+

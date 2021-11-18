@@ -5,6 +5,14 @@
 <html lang="es">
 <head>
 <?php include("meta2.php");?>
+<script>
+    function insertaProducto(param) {
+        var cant = prompt("Inserte la cantidad:");
+        window.location.href = window.location.href + "&w2=" + param + "&w1=" + cant;
+     
+       
+    }
+</script>
     <title>Carta</title>
 </head>
 <body>
@@ -13,6 +21,17 @@
     
 ?>
 <section>
+<?php
+    if(isset($_GET['w1']) && isset($_GET['w2'])){
+     
+        $canti=$_GET['w1'];
+        $idPro=$_GET['w2'];
+        $codPed=$_GET['codPed'];
+        $sitio=$_SERVER['REQUEST_URI'];
+        header("LOCATION: insertaProd.php?codPed=$codPed&canti=$canti&idPro=$idPro&sitio=$sitio");
+       
+    }
+    ?>
     <?php
             include("../conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=5";
@@ -22,22 +41,32 @@
           echo mysqli_error($conn);
           
           
-                  
-          
+          $codPed=$_GET['codPed'];
+          $i=0;
           while($row = mysqli_fetch_array($result)){
-              
-              
+            $idPro[$i]=$row['idProducto'];
+
+            $idParaGuardar=$row['idProducto'];
+
             print('<div class="productos">');
-                print("<h3>".$row['nombre']."</h3>");
-                print("<h4>Descripción</h4>");
-                print("<p>".$row['descripcion']."</p>");
-                print("<p>".$row['precio']."</p>");
-                print("</div>");
+            print(' <button value="');
+            print("$idPro[$i]");
+            print('" onclick="insertaProducto('.$idParaGuardar.')">');
+            print("<h3>".$row['nombre']."</h3>");
+            print("<h4>Descripción</h4>");
+            print("<p>".$row['descripcion']."</p>");
+            print("<p>".$row['precio']."</p>");
+            //print("<a href=anadirLineaProductos.php?idPro=$idParaGuardar>Añadir el carrito.php</a>");
+            print("</button></div>");
+            //print("</div>");
+
+                
+                $i++;
               }
               
-          
+              echo"<a href=cartaCli.php?codPed=$codPed>Volver</a>"; 
     ?>
-    <a href="cartaCli.php">Volver</a>
+   
 </section>
 </body>
 </html>

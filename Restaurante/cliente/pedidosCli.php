@@ -40,6 +40,7 @@
             }
             else {
                 echo "<div><a href=cartaCli.php?codPed=$codPed>Continuar pedido</a></div>";
+                echo "<div><a href=finalPedido.php?codPed=$codPed>Finalizar Pedido</a></div>";
             }
             
         ?>

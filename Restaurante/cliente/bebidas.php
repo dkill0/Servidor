@@ -27,7 +27,7 @@
         $canti=$_GET['w1'];
         $idPro=$_GET['w2'];
         $codPed=$_GET['codPed'];
-        $sitio="window.location.href";
+        $sitio=$_SERVER['REQUEST_URI'];
         header("LOCATION: insertaProd.php?codPed=$codPed&canti=$canti&idPro=$idPro&sitio=$sitio");
        
     }
@@ -53,7 +53,6 @@
             $idParaGuardar=$row['idProducto'];
 
             print('<div class="productos">');
-            print("<h3>".$row['idProducto']."</h3>");
             print(' <button value="');
             print("$idPro[$i]");
             print('" onclick="insertaProducto('.$idParaGuardar.')">');
@@ -61,9 +60,9 @@
             print("<h4>Descripción</h4>");
             print("<p>".$row['descripcion']."</p>");
             print("<p>".$row['precio']."</p>");
-            //print("<a href=anadirLineaProductos.php?idPro=$idParaGuardar>Añadir el carrito.php</a>");
+            
             print("</button></div>");
-            //print("</div>");
+          
 
                 
                 $i++;
@@ -71,7 +70,7 @@
               
 
                  
-    echo"<a href=cartaCli.php?codPed=$codPed>Volver</a>"          
+    echo"<a href=cartaCli.php?codPed=$codPed>Volver</a>";          
     ?>
 
 
