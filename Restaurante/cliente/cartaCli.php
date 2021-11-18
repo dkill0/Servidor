@@ -41,6 +41,7 @@
 </section>";
     ?>
     
+<a href="pedidosCli.php">Volver</a>
 
  
 </body>

@@ -34,4 +34,8 @@ header ("LOCATION:listado.php");
 ?>
 
 
+UPDATE usuario SET (email= cliente,nombre= Victoria, contrasena=123, tipo=3) WHERE codigo=12;
+
+
+
 
