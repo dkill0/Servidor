@@ -13,7 +13,6 @@ if(isset($_GET['canti']) && isset($_GET['idPro'])){
    echo mysqli_error($conn);
 
    $sitio=$_GET['sitio'];
-   echo $sitio;
    if ($sitio === "/Servidor/Restaurante/cliente/bebidas.php?codPed=$codPed") {
        header("LOCATION: bebidas.php?codPed=$codPed");
    }elseif ($sitio === "/Servidor/Restaurante/cliente/postres.php?codPed=$codPed") {

@@ -31,7 +31,50 @@
             print("<p>Contrasena: ".$row['contrasena']."</p>");
             print("<p>Tipo: ".$row['descripcion']."</p>");
             print('</div>');
+            $descri=$row['descripcion'];
+           
+         
+          }
+              //Muestra los pedidos asignados al camarero
+              if ($descri=="camarero") {
+                echo "<h2>Pedidos del usuario</h2>";
+                $consulta2="SELECT idPedido
+                FROM pedido
+                WHERE camarero='$identificador'
+                ORDER BY idPedido DESC";
+                $result2 = mysqli_query($conn ,$consulta2);
+            
+              echo mysqli_error($conn);
+              $idUs=$identificador;
+              while ($row2 = mysqli_fetch_array($result2)) {
+                
+                $codPed=$row2['idPedido'];
+                include("imprimePedido.php");
+                
               }
+              }
+
+              //Muestra los pedidos pagados de los clientes
+              if ($descri=="cliente") {
+                echo "<h2>Pedidos del usuario</h2>";
+                $consulta2="SELECT idPedido
+                FROM pedido
+                WHERE cliente='$identificador' AND pagado=1
+                ORDER BY idPedido DESC";
+                $result2 = mysqli_query($conn ,$consulta2);
+            
+              echo mysqli_error($conn);
+              $idUs=$identificador;
+              while ($row2 = mysqli_fetch_array($result2)) {
+                
+                $codPed=$row2['idPedido'];
+                include("imprimePedido.php");
+                
+              }
+              }
+             
+            
+              
               
     ?>
     <a href="usuariosAd.php">Volver</a>

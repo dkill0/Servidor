@@ -19,6 +19,9 @@ include("meta2.php");
     if (isset($_GET['codPed'])) {
         $codPed=$_GET['codPed'];
         include("imprimePedido.php");
+        
+
+
     }else{
         echo"No tienes pedidos pendientes.";
     }
@@ -32,10 +35,14 @@ include("meta2.php");
     ORDER BY idPedido DESC";
     $result3= mysqli_query($conn,$consulta3);
     echo mysqli_error($conn);
-    while($row2 = mysqli_fetch_array($result3)){
-        $codPed=$row2['idPedido'];
+    while($row6 = mysqli_fetch_array($result3)){
+        $codPed=$row6['idPedido'];
+        
         include("imprimePedido.php");
+        echo "<a href=imprimirTicket.php?codPed=$codPed>Imprimir ticket en pdf</a>";
+        
     }
+    
     ?>
 
 <a href=pedidosCli.php>Volver</a>

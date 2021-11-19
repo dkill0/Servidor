@@ -22,7 +22,7 @@ include("headerAd.php");
 
 <article>
     <h2>Entrantes</h2>
-    <button name="edita" onclick="">Editar</button>
+    
     <div>
     <?php
             include("../conexion.php");
@@ -43,6 +43,8 @@ include("headerAd.php");
                 print("<h4>Descripción</h4>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
+                $idProd=$row['idProducto'];
+                print("<a href=modifProd.php?idProd=$idProd>Editar producto</a>");
                 print("</div>");
               }
               
@@ -52,7 +54,7 @@ include("headerAd.php");
 </article>
 <article>
     <h2>Platos</h2>
-    <button name="edita" onclick="">Editar</button>
+    
     <div>
     <?php
             include("../conexion.php");
@@ -73,6 +75,7 @@ include("headerAd.php");
                 print("<h4>Descripción</h4>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
+                print("<a href=modifProd.php>Editar producto</a>");
                 print("</div>");
               }
               
@@ -82,7 +85,7 @@ include("headerAd.php");
 </article>
 <article>
     <h2>Postres</h2>
-    <button name="edita" onclick="">Editar</button>
+    
     <div>
     <?php
             include("../conexion.php");
@@ -103,6 +106,7 @@ include("headerAd.php");
                 print("<h4>Descripción</h4>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
+                print("<a href=modifProd.php>Editar producto</a>");
                 print("</div>");
               }
               
@@ -112,7 +116,7 @@ include("headerAd.php");
 </article>
 <article>
     <h2>Bebidas</h2>
-    <button name="edita" onclick="">Editar</button>
+    
     <div>
     <?php
             include("../conexion.php");
@@ -133,6 +137,7 @@ include("headerAd.php");
                 print("<h4>Descripción</h4>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
+                print("<a href=modifProd.php>Editar producto</a>");
                 print("</div>");
               }
               
