@@ -55,9 +55,9 @@
              
             }
 
-            echo mysqli_error($conn);
+             mysqli_error($conn);
           
-         
+            
       
               $consulta2="SELECT DISTINCT SUM(pr.precio*cantidad) as precioTotal
               FROM lineapedido l, pedido p,  productos pr, tipo t
@@ -69,14 +69,19 @@
               $result2 = mysqli_query($conn ,$consulta2);
             //Imprimos el error si se ha producido. mysql_error siempre va a mostrar el error de la última función mysql ejecutada
             echo mysqli_error($conn);
-            while($row4 = mysqli_fetch_array($result2)){
+            if (empty($result2)||is_null($result2)){
+            
+            }else{
+              while($row4 = mysqli_fetch_array($result2)){
                 $TOTAL=$row4['precioTotal'];
-                
+                echo '<tr >
+                <th>Total:</th>
+                <td align="right" colspan=3>'.$TOTAL.'</td>
+                </table>';  
             }
-            echo '<tr >
-            <th>Total:</th>
-            <td align="right" colspan=3>'.$TOTAL.'</td>
-            </table>';  
+            }
+            
+           
           }
           
           
