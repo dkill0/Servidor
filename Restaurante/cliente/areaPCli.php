@@ -27,6 +27,7 @@
 </script>
 </head>
 <body>
+<div class="container-fluid">
 <?php
     include("headerCli.php");
 
@@ -107,28 +108,28 @@ if(isset($_GET['w3'])){
    
     
 
-<section>
-        <article>
+<section class="row">
+        <article class="col text-center">
             <h3>Datos Personales</h3>
-            <div>
+            
                 
                 <p>Nombre</p>
                 <p><?php echo $_SESSION['name']?></p>
-                <button name="edita" onclick="cambioNom()" >Editar</button>
+                <button class="btn btn-primary" name="edita" onclick="cambioNom()" >Editar</button>
                 <p>Email</p>
                 <p><?php echo $_SESSION['email']?></p>
-                <button name="edita" onclick="cambioEmail()" >Editar</button>
+                <button class="btn btn-primary" name="edita" onclick="cambioEmail()" >Editar</button>
                 <p>Contraseña</p>
                 <p><?php echo $_SESSION['password']?></p>
-                <button name="edita" onclick="cambioContra()" >Editar</button>
+                <button class="btn btn-primary" name="edita" onclick="cambioContra()" >Editar</button>
                 
 
-            </div>
+            
         </article>
 <footer></footer>
         
     </section>
     
-
+    </div>
 </body>
 </html>

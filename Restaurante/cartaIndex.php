@@ -6,9 +6,12 @@
 
 </head>
 <body>
+<div class="container-fluid">
 <?php
+
     include("headerIndex.php");
     include("productos.php");
     ?>
+    </div>
 </body>
 </html>

@@ -10,13 +10,13 @@
 
 </head>
 <body>
- 
-    <?php
-    include("headerCli.php");
+<div class="container-fluid">
 
-    ?>
+ <?php include("headerCli.php");?>
    
 
+ </div>
+ 
 
     
   

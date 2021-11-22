@@ -8,8 +8,13 @@
 
 </head>
 <body>
+  <div class="container-fluid">
   <?php include("headerIndex.php");
   ?>
+
+
+  </div>
+ 
      
 
     

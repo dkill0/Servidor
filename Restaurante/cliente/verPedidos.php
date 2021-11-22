@@ -14,6 +14,7 @@ include("meta2.php");
     include("headerCli.php");
 
     ?>
+    <div>
     <h1>En proceso</h1>
     <?php
     if (isset($_GET['codPed'])) {
@@ -25,6 +26,7 @@ include("meta2.php");
     }else{
         echo"No tienes pedidos pendientes.";
     }
+    echo"</div><div>";
 
     echo "<h1>Finalizados</h1>";
     $idusuario=$_SESSION['idUsuario'];
@@ -42,9 +44,11 @@ include("meta2.php");
         echo "<a href=imprimirTicket.php?codPed=$codPed>Imprimir ticket en pdf</a>";
         
     }
-    
+    echo "</div>";
     ?>
-
+<div>
+ <p>Boton desplegable</p>
+</div>
 <a href=pedidosCli.php>Volver</a>
 </body>
 </html>

@@ -8,9 +8,11 @@ include("../Seguridad.php");
 
 </head>
 <body>
+<div class="container-fluid">
 <?php
     include("headerCli.php");
     include("../productos.php");
     ?>
+</div>
 </body>
 </html>

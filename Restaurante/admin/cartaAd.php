@@ -75,7 +75,8 @@ include("headerAd.php");
                 print("<h4>Descripción</h4>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
-                print("<a href=modifProd.php>Editar producto</a>");
+                $idProd=$row['idProducto'];
+                print("<a href=modifProd.php?idProd=$idProd>Editar producto</a>");
                 print("</div>");
               }
               
@@ -106,7 +107,8 @@ include("headerAd.php");
                 print("<h4>Descripción</h4>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
-                print("<a href=modifProd.php>Editar producto</a>");
+                $idProd=$row['idProducto'];
+                print("<a href=modifProd.php?idProd=$idProd>Editar producto</a>");
                 print("</div>");
               }
               
@@ -137,7 +139,8 @@ include("headerAd.php");
                 print("<h4>Descripción</h4>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
-                print("<a href=modifProd.php>Editar producto</a>");
+                $idProd=$row['idProducto'];
+                print("<a href=modifProd.php?idProd=$idProd>Editar producto</a>");
                 print("</div>");
               }
               

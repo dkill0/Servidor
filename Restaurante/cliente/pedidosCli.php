@@ -8,7 +8,7 @@
     <title>Mis pedidos</title>
 </head>
 <body>
-    
+    <div class="container-fluid">
 <?php
     include("headerCli.php");
        
@@ -17,9 +17,10 @@
 
     ?>
 
-    <section>
-        <div><a href="verCarta.php">Ver carta</a>
-        </div>
+    <section class="row justify-content-around">
+        
+        <div class="columna col-12 col-sm-5 text-center"><a href="verCarta.php">Ver carta</a></div>
+        
         
         <?php
             include("../conexion.php");
@@ -36,21 +37,22 @@
                 $codPed=$row['idPedido'];
             }
             if($NumFilas==0){
-                echo ('<div><a href="nuevoPedido.php">Nuevo pedido</a></div>');
-                echo "<div><a href=verPedidos.php>Historial de pedidos</a></div>";
+                echo ('<div class="columna col-12 col-sm-5 col-5 text-center"><a href="nuevoPedido.php">Nuevo pedido</a></div>');
+                echo '<div class="col-5 text-center"><a href=verPedidos.php>Historial de pedidos</a></div>';
             }
             else {
-                echo "<div><a href=cartaCli.php?codPed=$codPed>Continuar pedido</a></div>";
-                echo "<div><a href=finalPedido.php?codPed=$codPed>Finalizar Pedido</a></div>";
-                echo "<div><a href=verPedidos.php?codPed=$codPed>Historial de pedidos</a></div>";
+                echo '<div class="columna col-12 col-sm-5 text-center"><a href=cartaCli.php?codPed=$codPed>Continuar pedido</a></div>';
+                echo '<div class="columna col-12 col-sm-5 text-center"><a href=finalPedido.php?codPed=$codPed>Finalizar Pedido</a></div>';
+                echo '<div class="columna col-12 col-sm-5 text-center"><a href=verPedidos.php?codPed=$codPed>Historial de pedidos</a></div>';
             }
             
             
         ?>
 
-
+        </div>
         
 
     </section>
+</div>
 </body>
 </html>
