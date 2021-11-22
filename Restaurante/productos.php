@@ -1,7 +1,8 @@
-<article class="col-12">
-    <h2>Entrantes</h2>
-    <hr>
-    <div class="row justify-content-between">
+<article class=" col-12 mt-3">
+<div class="fondoT  m-auto row mb-3">
+    <h2 class="fw-bold titulo text-center text-uppercase">Entrantes</h2>
+</div>
+    <div class="row justify-content-between ">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=5";
@@ -16,11 +17,12 @@
           while($row = mysqli_fetch_array($result)){
               
              
-                print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
-                print("<h3>".$row['nombre']."</h3>");
-                print("<h6>Descripción</h6>");
+                print('<div class="mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
+                print('<h3 class="fw-bold text-center">');
+                print($row['nombre']."</h3>");
+                print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
-                print("<p>".$row['precio']."</p>");
+                print("<p class=text-end>".$row['precio']."€</p>");
                 print("</div>");
                 
               }
@@ -29,10 +31,12 @@
     ?>
     </div>
 </article>
-<article class="col-12">
-    <h2>Platos</h2>
+<article class=" col-12 mt-3">
+<div class="fondoT  row">
+    <h2 class="titulo">Platos</h2>
     <hr>
-    <div class="row justify-content-around">
+</div>
+    <div class="row justify-content-between">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=6";
@@ -47,11 +51,11 @@
           while($row = mysqli_fetch_array($result)){
               
               
-            print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
+            print('<div class="mb-3 m-auto prod col-11 col-sm-5 col-md-2">');
                 print("<h3>".$row['nombre']."</h3>");
-                print("<h6>Descripción</h6>");
+                print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
-                print("<p>".$row['precio']."</p>");
+                print("<p class=text-end>".$row['precio']."€</p>");
                 print("</div>");
               }
               
@@ -59,10 +63,12 @@
     ?>
     </div>
 </article>
-<article class="col-12">
+<article class=" col-12 mt-3">
+<div class="titulo  row">
     <h2>Postres</h2>
     <hr>
-    <div class="row justify-content-around">
+</div>
+    <div class="row justify-content-between">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=7";
@@ -77,11 +83,11 @@
           while($row = mysqli_fetch_array($result)){
               
               
-            print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
+            print('<div class="mb-3 m-auto prod col-11 col-sm-5 col-md-2">');
                 print("<h3>".$row['nombre']."</h3>");
-                print("<h6>Descripción</h6>");
+                print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
-                print("<p>".$row['precio']."</p>");
+                print("<p class=text-end>".$row['precio']."€</p>");
                 print("</div>");
               }
               
@@ -89,10 +95,13 @@
     ?>
     </div>
 </article>
-<article class="col-12">
-    <h2>Bebidas</h2>
+<article class=" col-12 mt-3">
+  <div class="titulo  row">
+  <h2>Bebidas</h2>
     <hr>
-    <div class="row justify-content-around">
+  </div>
+    
+    <div class="row justify-content-between">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=4";
@@ -107,11 +116,11 @@
           while($row = mysqli_fetch_array($result)){
               
               
-            print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
+            print('<div class="mb-3 m-auto prod col-11 col-sm-5 col-md-5">');
                 print("<h3>".$row['nombre']."</h3>");
                 print("<h6>Descripción</h6>");
                 print("<p>".$row['descripcion']."</p>");
-                print("<p>".$row['precio']."</p>");
+                print("<p class=text-end>".$row['precio']."€</p>");
                 print("</div>");
               }
               

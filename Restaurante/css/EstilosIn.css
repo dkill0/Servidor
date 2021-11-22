@@ -1,8 +1,50 @@
 
+header h1{
+    font-size: 4em;
+    font-family: 'Road Rage';
+}
 .columna{
-    background-color: aqua;
-
+    
+    
+    background-color: #cbde6f;
+    
 }
 .prod{
     border: 1px solid black;
+    
 }
+div.prod{
+    width: 300px;
+    background-color: #cbde6f;
+}
+nav.navbar {
+    background-color: #002626;
+}
+.fondoT{
+    background-color: #0e4749;
+    opacity: .8;
+}
+.titulo{
+    color: white;
+}
+.container-fluid{
+   
+    font-style: bold;
+    background-image: url("../img/fondo.jpg");
+     /* Fijar la imagen de fondo este vertical y
+    horizontalmente y centrado */
+  background-position: center center;
+
+  /* Esta imagen no debe de repetirse */
+  background-repeat: no-repeat;
+
+  /* COn esta regla fijamos la imagen en la pantalla. */
+  background-attachment: fixed;
+
+  /* La imagen ocupa el 100% y se reescala */
+  background-size: cover;
+
+  /* Damos un color de fondo mientras la imagen está cargando  */
+  background-color: #464646;
+}
+
