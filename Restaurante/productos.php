@@ -1,8 +1,7 @@
-<section>
-
-<article>
+<article class="col-12">
     <h2>Entrantes</h2>
-    <div>
+    <hr>
+    <div class="row justify-content-between">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=5";
@@ -16,22 +15,24 @@
           
           while($row = mysqli_fetch_array($result)){
               
-              
-            print('<div class="productos">');
+             
+                print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
                 print("<h3>".$row['nombre']."</h3>");
-                print("<h4>Descripción</h4>");
+                print("<h6>Descripción</h6>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
                 print("</div>");
+                
               }
               
           
     ?>
     </div>
 </article>
-<article>
+<article class="col-12">
     <h2>Platos</h2>
-    <div>
+    <hr>
+    <div class="row justify-content-around">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=6";
@@ -46,9 +47,9 @@
           while($row = mysqli_fetch_array($result)){
               
               
-                print('<div class="productos">');
+            print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
                 print("<h3>".$row['nombre']."</h3>");
-                print("<h4>Descripción</h4>");
+                print("<h6>Descripción</h6>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
                 print("</div>");
@@ -58,9 +59,10 @@
     ?>
     </div>
 </article>
-<article>
+<article class="col-12">
     <h2>Postres</h2>
-    <div>
+    <hr>
+    <div class="row justify-content-around">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=7";
@@ -75,9 +77,9 @@
           while($row = mysqli_fetch_array($result)){
               
               
-                print('<div class="productos">');
+            print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
                 print("<h3>".$row['nombre']."</h3>");
-                print("<h4>Descripción</h4>");
+                print("<h6>Descripción</h6>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
                 print("</div>");
@@ -87,9 +89,10 @@
     ?>
     </div>
 </article>
-<article>
+<article class="col-12">
     <h2>Bebidas</h2>
-    <div>
+    <hr>
+    <div class="row justify-content-around">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=4";
@@ -104,9 +107,9 @@
           while($row = mysqli_fetch_array($result)){
               
               
-                print('<div class="productos">');
+            print('<div class="mb-3 ml-3 prod col-5 col-sm-4 col-md-2">');
                 print("<h3>".$row['nombre']."</h3>");
-                print("<h4>Descripción</h4>");
+                print("<h6>Descripción</h6>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p>".$row['precio']."</p>");
                 print("</div>");
@@ -116,5 +119,3 @@
     ?>
     </div>
 </article>
-
-</section>

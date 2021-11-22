@@ -15,6 +15,7 @@
     </script>
 </head>
 <body>
+<div class="container-fluid">
 <?php
 include("headerAd.php");
 ?>
@@ -151,6 +152,6 @@ include("headerAd.php");
 
 </section>
 
-
+            </div>
 </body>
 </html>

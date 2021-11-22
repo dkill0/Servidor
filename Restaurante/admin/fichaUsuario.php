@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
+<div class="container-fluid">
     <?php
     include("headerAd.php");
         $identificador = $_GET['usuario'];
@@ -61,13 +62,15 @@
                 FROM pedido
                 WHERE cliente='$identificador' AND pagado=1
                 ORDER BY idPedido DESC";
-                $result2 = mysqli_query($conn ,$consulta2);
-            
+                
+                $resultCarlos = mysqli_query($conn ,$consulta2);
+                $numerito = mysqli_num_rows($resultCarlos);
+
               echo mysqli_error($conn);
               $idUs=$identificador;
-              while ($row2 = mysqli_fetch_array($result2)) {
-                
-                $codPed=$row2['idPedido'];
+              while ($rowCarlos = mysqli_fetch_array($resultCarlos)) {
+                echo "Hola";
+                $codPed=$rowCarlos['idPedido'];
                 include("imprimePedido.php");
                 
               }
@@ -78,5 +81,6 @@
               
     ?>
     <a href="usuariosAd.php">Volver</a>
+            </div>
 </body>
 </html>

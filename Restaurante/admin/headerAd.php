@@ -1,24 +1,30 @@
-<header>
+<header class="columna row">
+    <div class="col-12">
         <h1>Lentejas los jueves</h1>
         <figure>
             <img src="" alt="">
         </figure>
-    </header>
-    <div class="sesion">
+    </div> 
+    <div class="col-12 text-end">
     <?php
     $nom=$_SESSION['name'];
-        echo "<p>Hola,  $nom. </p>";
+        echo "Hola,  $nom.";
      
     ?>
-    <p><a href="../cierre.php">Salir</a></p>
+    <a href="../cierre.php">Salir</a>
     </div>
-    <nav>
-    <ul>
-        <li><a href="mesasAd.php">Mesas</a></li>
-        <li><a href="cartaAd.php">Carta</a></li>
-        <li><a href="usuariosAd.php">Usuarios</a></li>
-        <li><a href="pedidosAd.php">Pedidos</a></li>
-        <li><a href="areaPAd.php">Area Personal</a></li>
-    </ul>
+</header>
+   
+    </div>
+<div class="row">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark flex-column flex-sm-row sticky-top">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="mesasAd.php">Mesas</a></li>
+            <li class="nav-item"><a class="nav-link active" href="cartaAd.php">Carta</a></li>
+            <li class="nav-item"><a class="nav-link active" href="usuariosAd.php">Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link active" href="pedidosAd.php">Pedidos</a></li>
+            <li class="nav-item"><a class="nav-link active" href="areaPAd.php">Area Personal</a></li>
+        </ul>
 
-</nav>
+    </nav>
+</div>

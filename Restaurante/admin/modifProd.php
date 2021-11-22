@@ -9,7 +9,7 @@
 </head>
 <body>
 
-
+<div class="container-fluid">
 <?php
     //Igual que ficha usuario pero con productos cambialo makina
 include("headerAd.php");
@@ -42,5 +42,6 @@ include("headerAd.php");
               
     ?>
     <a href="cartaAd.php">Volver</a>
+        </div>
 </body>
 </html>

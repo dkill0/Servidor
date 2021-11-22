@@ -22,6 +22,9 @@
           ORDER BY t.descripcion";
           //Ejecutamos la sentencia SQL
           $result5 = mysqli_query($conn ,$consulta);
+          $numeritoCarlos = mysqli_num_rows($result5);
+
+          if ($numeritoCarlos!=0){
 
             echo ' <table class="table table-striped">
             <tr>
@@ -62,5 +65,9 @@
                   </tr>
                  ';
               }
-           echo "</table>";   
+           echo "</table>"; 
+            } else {
+              
+              echo"Sin productos.";
+            }
     ?>

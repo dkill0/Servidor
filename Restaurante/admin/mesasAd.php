@@ -8,8 +8,10 @@
     <title>Mesas</title>
 </head>
 <body>
+    <div class="container-fluid">
 <?php
 include("headerAd.php");
 ?>
+</div>
 </body>
 </html>

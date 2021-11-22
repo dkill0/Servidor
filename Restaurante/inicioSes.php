@@ -65,25 +65,29 @@
         ?>
 </head>
 <body>
+<div class="container-fluid">
     <?php
     include("headerIndex.php");
     ?>
-<section>
-            <article>
-            <form action="" method="POST">
-                <div class="inicioS">
-                <p>Email</p>
-                <input name="email" type="text" maxlength="25" size="30"> 
-                <p>Contraseña</p>
-                <input name="contrasena" type="password" maxlength="25" size=30>
-                <br><br>
-                <input type="submit" value="Enviar">
-                <a href="registroCli.php">Registrarse</a>
+<section class="row">
+            <article class="col-12">
+                
+            <form action="" method="POST" class="row  justify-content-around">
+                <div class="col-auto mt-5">
+                <h1 class="mb-3">Inicio</h1>
+                <hr>
+                <label for="email" class="form-label">Correo</label>
+                <input id="email" name="email" type="text" maxlength="25" size="30" class="form-control mb-3"> 
+                <label class="form-label" for="pass">Contraseña</label>
+                <input id="pass" name="contrasena" type="password" maxlength="25" size=30 class="mb-3 form-control">
+                
+                <button class=" btn btn-primary" type="submit">Iniciar sesión</button>
+                <a class="" href="registroCli.php">Registrarse</a>
                 </div>
                 </form>
             </article>
 
         </section>
-     
+</div>
 </body>
 </html>

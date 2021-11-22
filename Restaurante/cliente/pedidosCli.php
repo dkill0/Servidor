@@ -41,9 +41,9 @@
                 echo '<div class="col-5 text-center"><a href=verPedidos.php>Historial de pedidos</a></div>';
             }
             else {
-                echo '<div class="columna col-12 col-sm-5 text-center"><a href=cartaCli.php?codPed=$codPed>Continuar pedido</a></div>';
-                echo '<div class="columna col-12 col-sm-5 text-center"><a href=finalPedido.php?codPed=$codPed>Finalizar Pedido</a></div>';
-                echo '<div class="columna col-12 col-sm-5 text-center"><a href=verPedidos.php?codPed=$codPed>Historial de pedidos</a></div>';
+                echo '<div class="columna col-12 col-sm-5 text-center"><a href=cartaCli.php?codPed='.$codPed.'>Continuar pedido</a></div>';
+                echo '<div class="columna col-12 col-sm-5 text-center"><a href=finalPedido.php?codPed='.$codPed.'>Finalizar Pedido</a></div>';
+                echo '<div class="columna col-12 col-sm-5 text-center"><a href=verPedidos.php?codPed='.$codPed.'>Historial de pedidos</a></div>';
             }
             
             

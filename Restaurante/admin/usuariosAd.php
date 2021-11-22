@@ -8,6 +8,7 @@
     <title>Usuarios</title>
 </head>
 <body>
+<div class="container-fluid">
 <?php
 include("headerAd.php");
 ?>  
@@ -59,6 +60,6 @@ include("headerAd.php");
     ?>
     </div>
 </article>
-
+            </div>
 </body>
 </html>

@@ -27,6 +27,7 @@
 </script>
 </head>
 <body>
+    <div class="container-fluid">
 <?php
     include("headerAd.php");
 
@@ -128,7 +129,7 @@ if(isset($_GET['w3'])){
 <footer></footer>
         
     </section>
-    
+    </div>
 
 </body>
 </html>

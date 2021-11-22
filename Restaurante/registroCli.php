@@ -19,9 +19,11 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
     $consulta = "INSERT INTO usuario (email,nombre,contrasena,tipo) 
     VALUES ('$email','$nom','$pass','$tipo')";
     //ejecutamos la sentencia SQL
-    mysqli_query($conn,$consulta);
-    echo mysqli_error($conn );
+    $result =mysqli_query($conn,$consulta);
     
+    if (mysqli_error($conn )) {
+        echo "<script>alert(Usuario no encontrado, vuelva a intentarlo o registrese.);</script>";
+    }
     header ("LOCATION:areaPIndex.php");
 }
 
@@ -30,24 +32,33 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
 
 </head>
 <body>
+    <div class="container-fluid">
     <?php
     include("headerIndex.php");
     ?>
-    <section>
-        <article>
-            <div class="inicioS">
-                <form action="" method="post">
-                    <p>Nombre</p>
-                    <input type="text" name="nombre">
-                    <p>Correo Electronico</p>
-                    <input type="text" name="email">
-                    <p>Contraseña</p>
-                    <input type="password" name="contra">
+    <section class="row">
+        <article class="col-12">
+                <form action="" method="post" class="row  justify-content-center"">
+                <div class="col-auto mt-5">
+                    <h1 class="mb-3">Regístrate</h1>
+                    <hr>
+                    <label for="us" class="form-label">Nombre</label>
+                    <input class="form-control" id="us" type="text" name="nombre">
+                    <label class="form-label" for="ema">Email </label>
+                    <input id="ema" class="form-control" type="text" name="email">
+                    <label class="form-label" for="pas">Contraseña </label>
+                    <input  id="pas"class="form-control" type="password" name="contra">
                     <br><br>
-                    <input type="submit" name="enviar">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
                 </form>
-            </div>
+            
         </article>
+        
     </section>
+    
+   
+    </div>
+    
 </body>
 </html>

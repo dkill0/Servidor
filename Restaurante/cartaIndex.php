@@ -7,11 +7,10 @@
 </head>
 <body>
 <div class="container-fluid">
-<?php
-
-    include("headerIndex.php");
-    include("productos.php");
-    ?>
+    <?php include("headerIndex.php");?>
+    <div class="row">
+    <?php include("productos.php");?>
+    </div>
     </div>
 </body>
 </html>
