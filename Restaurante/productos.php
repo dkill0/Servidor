@@ -1,5 +1,5 @@
-<article class=" col-12 mt-3">
-<div class="fondoT  m-auto row mb-3">
+<article class=" col-12">
+<div class="sticky-top-navbar fondoT row mb-3">
     <h2 class="fw-bold titulo text-center text-uppercase">Entrantes</h2>
 </div>
     <div class="row justify-content-between g-3 ">
@@ -15,11 +15,18 @@
                   
           
           while($row = mysqli_fetch_array($result)){
+              $imag = $row['imagen'];
+              print"
+              <style>
+              div.prod{
+                backgroud-image: url('.$imag.');
+              }
+              </style>
+              ";
               
-             
-                print('<div class=" rounded mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
+                print('<div class=" rounded mt-3 mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
                 print('<h3 class="fw-bold text-center">');
-                print($row['nombre']."</h3>");
+                print($row['nombre']."</h3>$imag");
                 print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
                 print("<p class=text-end>".$row['precio']."€</p>");
@@ -33,8 +40,8 @@
 </article>
 <article class=" col-12 mt-3">
 <div class="fondoT  row">
-    <h2 class="titulo">Platos</h2>
-    <hr>
+<h2 class="fw-bold titulo text-center text-uppercase">Platos</h2>
+    
 </div>
     <div class="row justify-content-between">
     <?php
