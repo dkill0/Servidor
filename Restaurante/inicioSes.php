@@ -76,10 +76,24 @@
                 <div class="col-auto mt-5">
                 <h1 class="mb-3">Inicio</h1>
                 <hr>
-                <label for="email" class="form-label">Correo</label>
-                <input id="email" name="email" type="text" maxlength="25" size="30" class="form-control mb-3"> 
-                <label class="form-label" for="pass">Contraseña</label>
-                <input id="pass" name="contrasena" type="password" maxlength="25" size=30 class="mb-3 form-control">
+               
+                <div class="form-floating mb-3 mt-3">
+				<input type="text" name="email" class="form-control" id="email" placeholder="Enter email" name="email">
+ 
+				<label for="email" class="form-label">Email</label>
+		
+                
+                </div>
+
+                <div class="form-floating mb-3 mt-3">
+				<input  maxlength="25" size=30 type="text" name="contrasena" class="form-control" id="pass" placeholder="Enter email" name="email">
+ 
+				<label class="form-label" for="pass">Contraseña</label>
+		
+                
+                </div>
+               
+                
                 
                 <button class=" btn btn-primary" type="submit">Iniciar sesión</button>
                 <a class="" href="registroCli.php">Registrarse</a>

@@ -3,6 +3,10 @@ header h1{
     font-size: 4em;
     font-family: 'Road Rage';
 }
+.datos{
+    background-color: white;
+    width: 300px;
+}
 .columna{
     
     
@@ -10,11 +14,12 @@ header h1{
     
 }
 .prod{
-    border: 1px solid black;
+    
+  opacity: .9;
     
 }
 div.prod{
-    width: 300px;
+    width: 400px;
     background-color: #cbde6f;
 }
 nav.navbar {

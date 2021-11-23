@@ -108,21 +108,34 @@ if(isset($_GET['w3'])){
    
     
 
-<section class="row">
-        <article class="col text-center">
+<section class="row justify-content-center">
+        <article class="col-4 text-start datos">
+           
             <h3>Datos Personales</h3>
             
-                
-                <p>Nombre</p>
-                <p><?php echo $_SESSION['name']?></p>
-                <button class="btn btn-primary" name="edita" onclick="cambioNom()" >Editar</button>
-                <p>Email</p>
-                <p><?php echo $_SESSION['email']?></p>
-                <button class="btn btn-primary" name="edita" onclick="cambioEmail()" >Editar</button>
-                <p>Contraseña</p>
-                <p><?php echo $_SESSION['password']?></p>
-                <button class="btn btn-primary" name="edita" onclick="cambioContra()" >Editar</button>
-                
+            <div class="row justify-content-around">
+            <p>Nombre</p>
+            <hr>
+            <p class="col-4"><?php echo $_SESSION['name']?></p>
+            <button class="btn btn-primary col-3" name="edita" onclick="cambioNom()" >Editar</button>
+            </div>  
+            <div class="row justify-content-around">
+            <p>Email</p>
+            <hr>
+            <p class="col-4"><?php echo $_SESSION['email']?></p>
+            <button class="btn btn-primary col-3" name="edita" onclick="cambioEmail()" >Editar</button>
+            </div>
+            <div class="row justify-content-around">
+            <p class="col-4">Contraseña</p>
+            <hr>
+            <p class="col-4"><?php echo $_SESSION['password']?></p>
+            <button class="btn btn-primary col-3" name="edita" onclick="cambioContra()" >Editar</button>
+            </div>
+            
+           
+           
+           
+            
 
             
         </article>

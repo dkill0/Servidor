@@ -2,7 +2,7 @@
 <div class="fondoT  m-auto row mb-3">
     <h2 class="fw-bold titulo text-center text-uppercase">Entrantes</h2>
 </div>
-    <div class="row justify-content-between ">
+    <div class="row justify-content-between g-3 ">
     <?php
             include("conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=5";
@@ -17,7 +17,7 @@
           while($row = mysqli_fetch_array($result)){
               
              
-                print('<div class="mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
+                print('<div class=" rounded mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
                 print('<h3 class="fw-bold text-center">');
                 print($row['nombre']."</h3>");
                 print("<h6>Ingredientes</h6>");
