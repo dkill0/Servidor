@@ -25,13 +25,15 @@
           while($row = mysqli_fetch_array($result)){
             $idUs=$row['idUser'];
             $nom=$row['nombre'];
-            print('<div class="usuarios"');
+            print("<div class=row>");
+            print('<div class="usuarios col-auto"');
             print("<p>Identificador: ".$row['idUser']."</p> ");
             print("<p>Email: ".$row['email']."</p>");
             print("<p>Nombre: ".$row['nombre']."</p>");
             print("<p>Contrasena: ".$row['contrasena']."</p>");
             print("<p>Tipo: ".$row['descripcion']."</p>");
             print('</div>');
+            print("</div>");
             $descri=$row['descripcion'];
            
          
@@ -69,7 +71,7 @@
               echo mysqli_error($conn);
               $idUs=$identificador;
               while ($rowCarlos = mysqli_fetch_array($resultCarlos)) {
-                echo "Hola";
+                
                 $codPed=$rowCarlos['idPedido'];
                 include("imprimePedido.php");
                 

@@ -4,3 +4,6 @@
 <link href="../css/EstilosIn.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/bootstrap.min.css" rel="stylesheet">
 <script src="../js/bootstrap.bundle.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
+</style>

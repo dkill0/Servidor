@@ -70,7 +70,7 @@
     include("headerIndex.php");
     ?>
 <section class="row">
-            <article class="col-12">
+            <article class="iniS col-12">
                 
             <form action="" method="POST" class="row  justify-content-around">
                 <div class="col-auto mt-5">
@@ -80,15 +80,15 @@
                 <div class="form-floating mb-3 mt-3">
 				<input type="text" name="email" class="form-control" id="email" placeholder="Enter email" name="email">
  
-				<label for="email" class="form-label">Email</label>
+				<label for="email" class="texto form-label">Email</label>
 		
                 
                 </div>
 
                 <div class="form-floating mb-3 mt-3">
 				<input  maxlength="25" size=30 type="text" name="contrasena" class="form-control" id="pass" placeholder="Enter email" name="email">
+				<label class="texto form-label" for="pass">Contraseña</label>
  
-				<label class="form-label" for="pass">Contraseña</label>
 		
                 
                 </div>
@@ -102,6 +102,10 @@
             </article>
 
         </section>
+
+        <footer>
+            
+        </footer>
 </div>
 </body>
 </html>

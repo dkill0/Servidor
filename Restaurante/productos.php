@@ -17,13 +17,22 @@
           while($row = mysqli_fetch_array($result)){
               
 
-                print('<div class=" rounded mt-3 mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
-                print('<h3 class="fw-bold text-center">');
+                print('<div class="rounded mt-3 mb-3 prod col-11 col-md-5 col-lg-5 col-xxl-5>');
+               // print("<div class=row>");
+                print('<h3 class="row fw-bold text-center">');
                 print($row['nombre']."</h3>");
+               
+                //print("</div>");
+                print("<div class=row>");
                 print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
+                print("</div>");
+                print("<figure class=row>");
                 print('<img class="rounded float-end img-fluid"src=.'.$row['imagen'].'>');
+                print("</figure>");
+                print("<div class=row>");
                 print("<p class=text-end>".$row['precio']."€</p>");
+                print("</div>");
                 print("</div>");
                 
               }
@@ -31,6 +40,7 @@
           
     ?>
     </div>
+  
 </article>
 <article class=" col-12 mt-3">
 <div class="fondoT  row">
@@ -89,7 +99,7 @@
                 print("<h3>".$row['nombre']."</h3>");
                 print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
-                print("<p class=text-end>".$row['precio']."€</p>");
+                print("<footer class=text-end>".$row['precio']."€</footer>");
                 print("</div>");
               }
               

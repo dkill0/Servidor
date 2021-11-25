@@ -37,19 +37,27 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
     include("headerIndex.php");
     ?>
     <section class="row">
-        <article class="col-12">
+        <article class="iniS col-12">
                 <form action="" method="post" class="row  justify-content-center"">
-                <div class="col-auto mt-5">
-                    <h1 class="mb-3">Regístrate</h1>
+                <div class="col-6 mt-5">
+                    <h1 class="row mb-3">Regístrate</h1>
                     <hr>
-                    <label for="us" class="form-label">Nombre</label>
-                    <input class="form-control" id="us" type="text" name="nombre">
-                    <label class="form-label" for="ema">Email </label>
-                    <input id="ema" class="form-control" type="text" name="email">
-                    <label class="form-label" for="pas">Contraseña </label>
-                    <input  id="pas"class="form-control" type="password" name="contra">
+                    <div class="row form-floating mb-3">
+                    <input class="form-control" id="us" type="text" name="nombre" placeholder="nombre" required>
+                    <label for="us" class="texto form-label">Nombre</label>
+                    </div>
+                    <div class="row form-floating mb-3">
+                    <input id="ema" class="form-control" type="text" placeholder="email" name="email" required>
+                    <label class="texto form-label" for="ema">Email </label>
+                    </div>
+                    <div class="row form-floating">
+                    <input  id="pas"class="form-control" type="password" placeholder="contra" name="contra" required>
+                    <label class="texto form-label" for="pas">Contraseña </label>
+                    </div>
                     <br><br>
-                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <div class="row d-grid">
+                    <button class="d-grid btn btn-primary" type="submit">Enviar</button>
+                    </div>
                 </div>
                 </form>
             

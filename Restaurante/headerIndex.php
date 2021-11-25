@@ -4,7 +4,7 @@
     <h1 class="display">Lentejas los jueves</h1>
     </div>
     
-    <div class="sticky-top col-12 text-end iniS">
+    <div class="col-12 text-end iniS">
         <a class="iniS" href="inicioSes.php">Iniciar sesión</a>
         <a class="iniS"  href="registroCli.php">Registrar</a>
     </div>

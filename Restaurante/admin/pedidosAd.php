@@ -9,6 +9,9 @@
 
 </head>
 <body>
+    <div class="container-fluid">
+
+
 <?php
 include("headerAd.php");
 echo"<div>";
@@ -18,14 +21,14 @@ $consulta2="SELECT idPedido, cliente
 FROM pedido
 WHERE pagado=0
 ORDER BY idPedido DESC";
-$result2 = mysqli_query($conn ,$consulta2);
+$result9 = mysqli_query($conn ,$consulta2);
 echo mysqli_error($conn);
-while ($row2 = mysqli_fetch_array($result2)) {
+while ($row9 = mysqli_fetch_array($result9)) {
 
-$codPed=$row2['idPedido'];
-$idUs=$row2['cliente'];
+$codPed=$row9['idPedido'];
+$idUs=$row9['cliente'];
 include("imprimePedido.php");
-echo"</div";
+echo"</div>";
 
 }
 
@@ -33,5 +36,6 @@ echo"</div";
 
 
 ?>
+</div>
 </body>
 </html>
