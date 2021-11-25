@@ -12,10 +12,10 @@
    
 <nav class="row navbar navbar-expand navbar-dark flex-sm-row sticky-top">
 
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link active" href="index.php">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link active" href="cartaIndex.php">Carta</a></li>
-            <li class="nav-item"><a class="nav-link active" href="contactoIndex.php">Contacto</a></li>
+        <ul class="navbar-nav nav-fill nav-tabs">
+            <li class="nav-item"><a class="nav-link " href="index.php">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link " href="cartaIndex.php">Carta</a></li>
+            <li class="nav-item"><a class="nav-link " href="contactoIndex.php">Contacto</a></li>
         </ul>
     </nav>
 
