@@ -65,12 +65,12 @@
         ?>
 </head>
 <body>
-<div class="container-fluid">
     <?php
     include("headerIndex.php");
     ?>
-<section class="row">
-            <article class="iniS col-12">
+    <div class="container-fluid iniS">
+<section class=" row">
+            <article class=" col-12">
                 
             <form action="" method="POST" class="row  justify-content-around">
                 <div class="col-auto mt-5">

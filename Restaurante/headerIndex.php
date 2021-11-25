@@ -1,6 +1,6 @@
 
-<header class="row">
-    <div class="cabe col-12 text-uppercase text-center">
+<header class="cabe row">
+    <div class=" col-12 text-uppercase text-center">
     <h1 class="display">Lentejas los jueves</h1>
     </div>
     
@@ -12,7 +12,7 @@
    
 <nav class="navbar navbar-expand sticky-top navbar-dark bg-dark">
         <div class="container-fluid justify-content-start">
-            <a class="navbar-brand"href="index.php">Lentejas los jueves</a>
+            <a class="navbar-brand"href="index.php"><img class="rounded" src="./img/logoLent.png"></a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link " href="index.php">Inicio</a></li>
             <li class="nav-item"><a class="nav-link " href="cartaIndex.php">Carta</a></li>

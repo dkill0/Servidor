@@ -32,10 +32,10 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
 
 </head>
 <body>
-    <div class="container-fluid">
     <?php
     include("headerIndex.php");
     ?>
+    <div class="container-fluid">
     <section class="row">
         <article class="iniS col-12">
                 <form action="" method="post" class="row  justify-content-center"">

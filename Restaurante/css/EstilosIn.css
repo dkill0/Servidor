@@ -3,11 +3,14 @@ header h1{
     font-size: 6em;
     font-family: 'Road Rage';
     color: black;
-   opacity: none;
 }
 
 .cabe{
     background-image: url("../img/prueba2.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     
 }
 
