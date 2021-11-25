@@ -26,15 +26,14 @@ header h1{
 .prod{
     
   opacity: .9;
+  
     
 }
 div.prod{
     
     background-color: #cbde6f;
 }
-nav.navbar {
-    background-color: #002626;
-}
+
 .fondoT{
     background-color: #0e4749;
     opacity: .8;
@@ -42,7 +41,7 @@ nav.navbar {
 .titulo{
     color: white;
 }
-.container-fluid{
+body{
    
     font-style: bold;
     background-image: url("../img/fondo.jpg");

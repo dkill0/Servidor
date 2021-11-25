@@ -6,10 +6,10 @@
  
 </head>
 <body>
-    <div class="container-fluid">
-<?php
+    <?php
     include("headerIndex.php");
     ?>
+    <div class="container-fluid">
     </div>
 </body>
 </html>

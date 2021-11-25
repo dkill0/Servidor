@@ -5,17 +5,19 @@
     </div>
     
     <div class="col-12 text-end iniS">
-        <a class="iniS" href="inicioSes.php">Iniciar sesión</a>
-        <a class="iniS"  href="registroCli.php">Registrar</a>
+        <a class="iniS me-2" href="inicioSes.php">Iniciar sesión</a>
+        <a class="iniS me-2"  href="registroCli.php">Registrarse</a>
     </div>
 </header>
    
-<nav class="row navbar navbar-expand navbar-dark flex-sm-row sticky-top">
-
-        <ul class="navbar-nav nav-fill nav-tabs">
+<nav class="navbar navbar-expand sticky-top navbar-dark bg-dark">
+        <div class="container-fluid justify-content-start">
+            <a class="navbar-brand"href="index.php">Lentejas los jueves</a>
+        <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link " href="index.php">Inicio</a></li>
             <li class="nav-item"><a class="nav-link " href="cartaIndex.php">Carta</a></li>
             <li class="nav-item"><a class="nav-link " href="contactoIndex.php">Contacto</a></li>
         </ul>
-    </nav>
 
+        </div>
+    </nav>

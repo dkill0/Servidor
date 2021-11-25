@@ -6,11 +6,14 @@
 
 </head>
 <body>
+    <?php include("headerIndex.php");
+    
+    ?>
+
 <div class="container-fluid">
-    <?php include("headerIndex.php");?>
     <div class="row">
     <?php include("productos.php");?>
     </div>
-    </div>
+</div>
 </body>
 </html>
