@@ -12,23 +12,17 @@
           echo mysqli_error($conn);
           
           
-                  
+              
           
           while($row = mysqli_fetch_array($result)){
-              $imag = $row['imagen'];
-              print"
-              <style>
-              div.prod{
-                backgroud-image: url('.$imag.');
-              }
-              </style>
-              ";
               
+
                 print('<div class=" rounded mt-3 mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
                 print('<h3 class="fw-bold text-center">');
-                print($row['nombre']."</h3>$imag");
+                print($row['nombre']."</h3>");
                 print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
+                print('<img class="rounded float-end img-fluid"src=.'.$row['imagen'].'>');
                 print("<p class=text-end>".$row['precio']."€</p>");
                 print("</div>");
                 
@@ -58,10 +52,11 @@
           while($row = mysqli_fetch_array($result)){
               
               
-            print('<div class="mb-3 m-auto prod col-11 col-sm-5 col-md-2">');
+            print('<div class=" rounded mt-3 mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
                 print("<h3>".$row['nombre']."</h3>");
                 print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
+                print('<img class="rounded float-end img-fluid"src=.'.$row['imagen'].'>');
                 print("<p class=text-end>".$row['precio']."€</p>");
                 print("</div>");
               }
@@ -90,7 +85,7 @@
           while($row = mysqli_fetch_array($result)){
               
               
-            print('<div class="mb-3 m-auto prod col-11 col-sm-5 col-md-2">');
+            print('<div class=" rounded mt-3 mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
                 print("<h3>".$row['nombre']."</h3>");
                 print("<h6>Ingredientes</h6>");
                 print("<p>".$row['descripcion']."</p>");
@@ -123,7 +118,7 @@
           while($row = mysqli_fetch_array($result)){
               
               
-            print('<div class="mb-3 m-auto prod col-11 col-sm-5 col-md-5">');
+                print('<div class=" rounded mt-3 mb-3 m-auto prod col-11 col-md-4 col-lg-5">');
                 print("<h3>".$row['nombre']."</h3>");
                 print("<h6>Descripción</h6>");
                 print("<p>".$row['descripcion']."</p>");
