@@ -1,6 +1,6 @@
 <article class=" col-12">
 <div class=" fondoT row mb-3">
-    <h2 class="fw-bold titulo text-center text-uppercase">Entrantes</h2>
+    <h2 class=" fw-bold titulo text-center text-uppercase">Entrantes</h2>
 </div>
     <div class="row justify-content-around g-3 ">
     <?php
@@ -47,7 +47,7 @@
 </article>
 <article class=" col-12 mt-3">
 <div class=" fondoT  row">
-<h2 class="fw-bold titulo text-center text-uppercase">Platos</h2>
+<h2 class=" fw-bold titulo text-center text-uppercase">Platos</h2>
     
 </div>
     <div class="row justify-content-between">

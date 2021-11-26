@@ -7,27 +7,7 @@
 <?php   include("meta.php");?>
     <title>Regístrate</title>
 
-    <?php
-//Estableciendo la conexión
-include ("conexion.php");
-//recogida de datos
-if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
-    $nom=$_POST['nombre'];
-    $email=$_POST['email'];
-    $pass=$_POST['contra'];
-    $tipo=3;
-    $consulta = "INSERT INTO usuario (email,nombre,contrasena,tipo) 
-    VALUES ('$email','$nom','$pass','$tipo')";
-    //ejecutamos la sentencia SQL
-    $result =mysqli_query($conn,$consulta);
-    
-    if (mysqli_error($conn )) {
-        echo "<script>alert(Usuario no encontrado, vuelva a intentarlo o registrese.);</script>";
-    }
-    header ("LOCATION:areaPIndex.php");
-}
-
-?>
+ 
 
 
 </head>
@@ -39,7 +19,7 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
     <section class="row">
         <article class="iniS col-12">
                 <form action="" method="post" class="row  justify-content-center"">
-                <div class="col-6 mt-5">
+                <div class="col-auto">
                     <h1 class="row mb-3">Regístrate</h1>
                     <hr>
                     <div class="row form-floating mb-3">
@@ -68,5 +48,41 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
    
     </div>
     
+    <?php
+//Estableciendo la conexión
+include ("conexion.php");
+//recogida de datos
+if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
+    $nom=$_POST['nombre'];
+    $email=$_POST['email'];
+    $pass=$_POST['contra'];
+    $tipo=3;
+
+
+    $consulta1 = "SELECT * where email='$email'";
+    $result3 =mysqli_query($conn,$consulta1);
+
+    
+    $numeritoCarlos = mysqli_num_rows($result3);
+    if($numeritoCarlos != 0){ 
+        $consulta = "INSERT INTO usuario (email,nombre,contrasena,tipo) 
+        VALUES ('$email','$nom','$pass','$tipo')";
+        //ejecutamos la sentencia SQL
+       mysqli_query($conn,$consulta);
+       
+    
+        
+     
+        
+        header ("LOCATION: inicioSes.php");
+        
+    }else{
+       echo '<div class="alert alert-danger" role="alert">
+        Usuario ya registrado, prueba a <a <a class="alert-link" href="inicioSes.php">iniciar sesion</a>.';
+    }
+    
+}
+
+?>
 </body>
 </html>
