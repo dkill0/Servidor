@@ -10,9 +10,9 @@
 
 </head>
 <body>
-<div class="container-fluid">
-
- <?php include("headerCli.php");?>
+    
+    <?php include("headerCli.php");?>
+    <div class="container-fluid">
    
 
  </div>

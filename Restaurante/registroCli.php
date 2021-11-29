@@ -61,10 +61,8 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
 
     $consulta1 = "SELECT * where email='$email'";
     $result3 =mysqli_query($conn,$consulta1);
-
-    
-    $numeritoCarlos = mysqli_num_rows($result3);
-    if($numeritoCarlos != 0){ 
+    $numeritoCarlos=mysqli_num_rows($result3);
+    if($numeritoCarlos!=0){ 
         $consulta = "INSERT INTO usuario (email,nombre,contrasena,tipo) 
         VALUES ('$email','$nom','$pass','$tipo')";
         //ejecutamos la sentencia SQL
@@ -77,7 +75,8 @@ if(isset($_POST['nombre'])&& isset($_POST['email']) && isset($_POST['contra'])){
         header ("LOCATION: inicioSes.php");
         
     }else{
-       echo '<div class="alert alert-danger" role="alert">
+       echo '<div class="alert alert-danger alert-dismissible">
+       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         Usuario ya registrado, prueba a <a <a class="alert-link" href="inicioSes.php">iniciar sesion</a>.';
     }
     

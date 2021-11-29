@@ -27,9 +27,14 @@
 </script>
 </head>
 <body>
+
+    <?php
+         include("headerCli.php");
+    ?>
+  
 <div class="container-fluid">
 <?php
-    include("headerCli.php");
+   
 
     $idUs=$_SESSION['idUsuario'];
     $nombre1=$_SESSION['name'];

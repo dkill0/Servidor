@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="form-floating mb-3 mt-3">
-				<input  maxlength="25" size=30 type="text" name="contrasena" class="form-control" id="pass" placeholder="Enter email" name="email">
+				<input  maxlength="25" size=30 type="password" name="contrasena" class="form-control" id="pass" placeholder="Enter email" name="email">
 				<label class="texto form-label" for="pass">Contraseña</label>
  
 		
@@ -99,7 +99,8 @@
 
 
                 }else {
-                    echo '<div class="alert alert-danger" role="alert">
+                    echo '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     Usuario no encontrado o contraseña incorrecta. Si no estás registrado, prueba a registrarte <a class="alert-link" href="registroCli.php">aquí</a>
                   </div>';
                   

@@ -14,6 +14,7 @@ include("meta2.php");
     include("headerCli.php");
 
     ?>
+    <div class="container-fluid">
     <div>
     <h1>En proceso</h1>
     <?php
@@ -50,5 +51,6 @@ include("meta2.php");
  <p>Boton desplegable</p>
 </div>
 <a href=pedidosCli.php>Volver</a>
+</div>
 </body>
 </html>

@@ -8,9 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-        
 <?php
     include("headerCli.php");
+   
+    ?>
+    <div class="container-fluid">
+<?php
     $codPed=$_GET['codPed'];
     include("imprimePedido.php");
 
@@ -22,6 +25,6 @@
     echo "<a href=tarjeta.php?codPed=$codPed>Tarjeta</a>";
     //<a href=cierrePedido.php?codPed=$codPed>Tarjeta</a>
     ?>
-    
+    </div>
 </body>
 </html>

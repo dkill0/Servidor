@@ -9,11 +9,12 @@
 
 </head>
 <body>
-    <div class="container-fluid">
 <?php
     include("headerCli.php");
    
     ?>
+    <div class="container-fluid">
+
     </div>
 </body>
 </html>

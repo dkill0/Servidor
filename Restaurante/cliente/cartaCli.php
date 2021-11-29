@@ -10,7 +10,11 @@
 </head>
 <body>
 <?php
-    include("headerCli.php");
+         include("headerCli.php");
+    ?>
+    <div class="container-fluid">
+<?php
+   
     $codPed = $_GET['codPed'];
     echo "<section>
     <div class=productos><a href=entrantes.php?codPed=$codPed>
@@ -43,6 +47,6 @@
     
 <a href="pedidosCli.php">Volver</a>
 
- 
+</div>
 </body>
 </html>

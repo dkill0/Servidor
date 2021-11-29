@@ -13,11 +13,11 @@ include("../Seguridad.php");
 	</style>
 </head>
 <body>
-	<div class="container-fluid">
-		<?php
+	<?php
 		include("headerCli.php");
 		?>
 		
+		<div class="container-fluid">
 			<form action="" class="iniS row justify-content-between columna">
 				
 				<div class="col-12  mb-3">

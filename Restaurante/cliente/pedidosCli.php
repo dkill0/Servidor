@@ -8,14 +8,14 @@
     <title>Mis pedidos</title>
 </head>
 <body>
-    <div class="container-fluid">
-<?php
+    <?php
     include("headerCli.php");
-       
     
-
-
+    
+    
+    
     ?>
+    <div class="container-fluid">
 
     <section class="row justify-content-around">
         

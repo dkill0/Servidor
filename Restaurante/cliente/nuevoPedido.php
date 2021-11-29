@@ -1,7 +1,4 @@
-<script>
-   alert("kdf");
-    
-</script>
+
 
 <?php 
     include("../Seguridad.php");
