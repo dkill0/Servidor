@@ -17,7 +17,7 @@
     ?>
     <div class="container-fluid">
     <section class="row">
-        <article class="iniS col-12">
+        <article class="col-12">
                 <form action="" method="post" class="row  justify-content-center"">
                 <div class="col-auto">
                     <h1 class="row mb-3">Regístrate</h1>

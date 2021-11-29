@@ -8,8 +8,8 @@ header h1{
 .cabe{
     background-image: url("../img/prueba2.png");
     background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: repeat-x ;
+    background-attachment: scroll;
     background-size: cover;
     
 }
@@ -20,18 +20,15 @@ header h1{
 }
 .iniS{
     color: #e8e8f4 ;
-    background-color: black ;
-    opacity: .8;
+    background-color: rgba(0, 0, 0, .5);
+    
+
 }
+
 .texto{
     color: black;
 }
-.prod{
-    
-  opacity: .9;
-  
-    
-}
+
 div.prod{
     
     background-color: #cbde6f;
@@ -47,7 +44,8 @@ div.prod{
 body{
    
     font-style: bold;
-    background-image: url("../img/fondo.jpg");
+ 
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/fondo.jpg");
      /* Fijar la imagen de fondo este vertical y
     horizontalmente y centrado */
   background-position: center center;

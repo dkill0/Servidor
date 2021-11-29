@@ -31,8 +31,9 @@
     <?php
          include("headerCli.php");
     ?>
-  
-<div class="container-fluid">
+
+
+<div class=" container-fluid">
 <?php
    
 

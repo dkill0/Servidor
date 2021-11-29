@@ -48,7 +48,7 @@
             $idParaGuardar=$row['idProducto'];
             $codPed=$_GET['codPed'];
             print('<div class="productos">');
-            print(' <button value="');
+            print(' <button type="button" class="btn btn-warning" value="');
             print("$idPro[$i]");
             print('" onclick="insertaProducto('.$idParaGuardar.')">');
             print("<h3>".$row['nombre']."</h3>");
@@ -62,7 +62,7 @@
                 
                 $i++;
               }
-              echo"<a href=cartaCli.php?codPed=$codPed>Volver</a>"; 
+              echo'<a class="btn btn-info" href=cartaCli.php?codPed=$codPed>Volver</a>'; 
           
     ?>
 

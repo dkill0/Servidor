@@ -15,11 +15,10 @@
     
     
     ?>
-    <div class="container-fluid">
-
-    <section class="row justify-content-around">
+    <div class=" iniS container-fluid">
+        <div class="row   justify-content-center">
         
-        <div class="columna col-12 col-sm-5 text-center"><a href="verCarta.php">Ver carta</a></div>
+        <div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="verCarta.php">Ver carta</a></div>
         
         
         <?php
@@ -37,13 +36,13 @@
                 $codPed=$row['idPedido'];
             }
             if($NumFilas==0){
-                echo ('<div class="columna col-12 col-sm-5 col-5 text-center"><a href="nuevoPedido.php">Nuevo pedido</a></div>');
-                echo '<div class="col-5 text-center"><a href=verPedidos.php>Historial de pedidos</a></div>';
+                echo ('<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="nuevoPedido.php">Nuevo pedido</a></div>');
+                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php>Historial de pedidos</a></div>';
             }
             else {
-                echo '<div class="columna col-12 col-sm-5 text-center"><a href=cartaCli.php?codPed='.$codPed.'>Continuar pedido</a></div>';
-                echo '<div class="columna col-12 col-sm-5 text-center"><a href=finalPedido.php?codPed='.$codPed.'>Finalizar Pedido</a></div>';
-                echo '<div class="columna col-12 col-sm-5 text-center"><a href=verPedidos.php?codPed='.$codPed.'>Historial de pedidos</a></div>';
+                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=cartaCli.php?codPed='.$codPed.'>Continuar pedido</a></div>';
+                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=finalPedido.php?codPed='.$codPed.'>Finalizar Pedido</a></div>';
+                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php?codPed='.$codPed.'>Historial de pedidos</a></div>';
             }
             
             

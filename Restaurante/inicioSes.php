@@ -13,7 +13,7 @@
     <?php
     include("headerIndex.php");
     ?>
-    <div class="container-fluid iniS">
+    <div class="container-fluid">
 <section class=" row">
             <article class=" col-12">
                 
