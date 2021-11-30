@@ -7,7 +7,7 @@
 <?php include("meta2.php");?>
 <script>
     function insertaProducto(param) {
-        var cant = prompt("Inserte la cantidad:");
+        var cant = parseInt(document.getElementById('cantidad').value);
         window.location.href = window.location.href + "&w2=" + param + "&w1=" + cant;
      
        
@@ -20,7 +20,7 @@
     include("headerCli.php");
     
 ?>
-<section>
+<div class="container-fluid">
 <?php
     if(isset($_GET['w1']) && isset($_GET['w2'])){
      
@@ -32,6 +32,7 @@
        
     }
     ?>
+    <div class="row">
     <?php
             include("../conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=5";
@@ -44,29 +45,50 @@
           $codPed=$_GET['codPed'];
           $i=0;
           while($row = mysqli_fetch_array($result)){
-            $idPro[$i]=$row['idProducto'];
+            $idPro=$row['idProducto'];
 
-            $idParaGuardar=$row['idProducto'];
+           
 
-            print('<div class="productos">');
-            print(' <button value="');
-            print("$idPro[$i]");
-            print('" onclick="insertaProducto('.$idParaGuardar.')">');
+            print('<div class="col-auto">');
+            print(' <button data-bs-toggle="modal" data-bs-target="#producto'.$idPro.'" class="btn btn-success">');
             print("<h3>".$row['nombre']."</h3>");
             print("<h4>Descripción</h4>");
             print("<p>".$row['descripcion']."</p>");
             print("<p>".$row['precio']."</p>");
-            //print("<a href=anadirLineaProductos.php?idPro=$idParaGuardar>Añadir el carrito.php</a>");
             print("</button></div>");
-            //print("</div>");
 
+
+            print'<div class="modal fade" data-bs-backdrop="static" id="producto'.$idPro.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">'.$row['nombre'].'</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form role="form">
+                    <div class="mb-3">
+                        
+                      <label for="cantidad" class="col-form-label">Cantidad:</label>
+                      <input  type="number" class="form-control" pattern="[1-20]{1-2}" id="cantidad" required>
+                    </div>
+                   
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <input type="submit" class="btn btn-success" onclick="insertaProducto('.$idPro.')" >
+                </div>
+              </div>
+            </div>
+          </div>';
                 
                 $i++;
               }
               
               echo"<a href=cartaCli.php?codPed=$codPed>Volver</a>"; 
     ?>
-   
-</section>
+   </div>
+   </div>
 </body>
 </html>

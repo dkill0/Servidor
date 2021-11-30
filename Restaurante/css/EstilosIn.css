@@ -6,10 +6,8 @@ header h1{
 }
 
 .cabe{
-    background-image: url("../img/prueba2.png");
+    background-image: url("../img/prueba.png");
     background-position: center center;
-    background-repeat: repeat-x ;
-    background-attachment: scroll;
     background-size: cover;
     
 }

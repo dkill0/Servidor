@@ -1,7 +1,7 @@
 <?php
         include("../conexion.php");
 
-          echo "<h3>Pedido numero: ".$codPed."</h3>";
+          echo '<h3 style="color:white;">Pedido numero: '.$codPed.'</h3>';
 
           $consulta4 = "SELECT fecha from pedido where idPedido='$codPed'";
          //Ejecutamos la sentencia SQL
@@ -10,7 +10,7 @@
         echo mysqli_error($conn);
           while($row2 = mysqli_fetch_array($result4)){
             $fechaPed=$row2['fecha'];
-            echo "<h4>Fecha: ".$fechaPed."</h4>";
+            echo '<h4 style="color:white;">Fecha: '.$fechaPed.'</h4>';
            
           }
    
@@ -26,7 +26,7 @@
 
           if ($numeritoCarlos!=0){
 
-            echo ' <table class="table table-striped">
+            echo ' <table class="table table-dark">
             <tr>
             <th>Nombre</th>
             <th>Cantidad</th>

@@ -7,7 +7,7 @@
 <?php include("meta2.php");?>
 <script>
     function insertaProducto(param) {
-        var cant = prompt("Inserte la cantidad:");
+        var cant = parseInt(document.getElementById('cantidad').value);
         window.location.href = window.location.href + "&w2=" + param + "&w1=" + cant;
      
        
@@ -48,16 +48,37 @@
             $idParaGuardar=$row['idProducto'];
             $codPed=$_GET['codPed'];
             print('<div class="productos">');
-            print(' <button type="button" class="btn btn-warning" value="');
-            print("$idPro[$i]");
-            print('" onclick="insertaProducto('.$idParaGuardar.')">');
+            print(' <button data-bs-toggle="modal" data-bs-target="#producto" class="btn btn-success">');
             print("<h3>".$row['nombre']."</h3>");
             print("<h4>Descripción</h4>");
             print("<p>".$row['descripcion']."</p>");
             print("<p>".$row['precio']."</p>");
-           
             print("</button></div>");
-         
+
+            print'<div class="modal fade" data-bs-backdrop="static" id="producto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Lentejas</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form role="form">
+                    <div class="mb-3">
+                        
+                      <label for="cantidad" class="col-form-label">Cantidad:</label>
+                      <input pattern="[1-20]" type="number" class="form-control" id="cantidad">
+                    </div>
+                   
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success" onclick="insertaProducto('.$idParaGuardar.')" >Pedir</button>
+                </div>
+              </div>
+            </div>
+          </div>';
 
                 
                 $i++;

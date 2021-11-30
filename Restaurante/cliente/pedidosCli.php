@@ -15,10 +15,10 @@
     
     
     ?>
-    <div class=" iniS container-fluid">
+    <div class="container-fluid">
         <div class="row   justify-content-center">
         
-        <div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="verCarta.php">Ver carta</a></div>
+        <div class=" mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="verCarta.php">Ver carta</a></div>
         
         
         <?php
@@ -36,8 +36,8 @@
                 $codPed=$row['idPedido'];
             }
             if($NumFilas==0){
-                echo ('<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="nuevoPedido.php">Nuevo pedido</a></div>');
-                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php>Historial de pedidos</a></div>';
+                echo ('<div class=" mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="nuevoPedido.php">Nuevo pedido</a></div>');
+                echo '<div class=" mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php>Historial de pedidos</a></div>';
             }
             else {
                 echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=cartaCli.php?codPed='.$codPed.'>Continuar pedido</a></div>';

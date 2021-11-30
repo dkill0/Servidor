@@ -16,7 +16,7 @@ include("meta2.php");
     ?>
     <div class="container-fluid">
     <div>
-    <h1>En proceso</h1>
+    <h1 style="color:white;" class="bg-success">En proceso</h1>
     <?php
     if (isset($_GET['codPed'])) {
         $codPed=$_GET['codPed'];

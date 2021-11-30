@@ -14,7 +14,7 @@ include("../Seguridad.php");
 <div class="container-fluid">
 <?php
 
-    include("../productos.php");
+    include("./productos.php");
     ?>
 </div>
 </body>

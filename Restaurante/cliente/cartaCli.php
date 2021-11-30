@@ -18,26 +18,26 @@
    
     $codPed = $_GET['codPed'];
     echo '
-    <div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=entrantes.php?codPed=$codPed>
+    <div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=entrantes.php?codPed='.$codPed.'>
     <h2>Entrantes</h2>
     </a>
     </div>
 
     
-    <div class="productos mb-3 d-grid col-12"><a class="btn btn-success" href=platos.php?codPed=$codPed>
+    <div class="productos mb-3 d-grid col-12"><a class="btn btn-success" href=platos.php?codPed='.$codPed.'>
     <h2>Platos</h2>
     </a>
     </div>
 
 
     
-    <div class="productos mb-3 d-grid col-12"><a class="btn btn-success" href=postres.php?codPed=$codPed>
+    <div class="productos mb-3 d-grid col-12"><a class="btn btn-success" href=postres.php?codPed='.$codPed.'>
     <h2>Postres</h2>
     </a>
     </div>
 
     
-    <div class="productos mb-3 d-grid col-12"><a class="btn btn-success"  href=bebidas.php?codPed=$codPed>
+    <div class="productos mb-3 d-grid col-12"><a class="btn btn-success"  href=bebidas.php?codPed='.$codPed.'>
     <h2>Bebidas</h2>
     </a>
     </div>
