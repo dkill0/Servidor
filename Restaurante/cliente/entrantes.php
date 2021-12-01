@@ -5,16 +5,6 @@
 <html lang="es">
 <head>
 <?php include("meta2.php");?>
-<script>
-    function insertaProducto(param) {
-      let cantidadCompleta="cantidad"+param;
-
-       var cant = parseInt(document.getElementById(cantidadCompleta).value);
-        window.location.href = window.location.href + "&w2=" + param + "&w1=" + cant;
-      
-       
-    }
-</script>
     <title>Carta</title>
 </head>
 <body>
@@ -32,16 +22,6 @@
         $sitio=$_SERVER['REQUEST_URI'];
         header("LOCATION: insertaProd.php?codPed=$codPed&canti=$canti&idPro=$idPro&sitio=$sitio");
    }  
-    
-
-
-    /*if (isset($_POST['cantidad']) && isset($_POST['idProd'])) {
-      $canti=$_POST['cantidad'];
-        $idPro=$_POST['idProd'];
-        $codPed=$_GET['codPed'];
-        $sitio=$_SERVER['REQUEST_URI'];
-        header("LOCATION: insertaProd.php?codPed=$codPed&canti=$canti&idPro=$idPro&sitio=$sitio");
-    }*/
     ?>
     <div class="row justify-content-around g-3 mt-2">
       
@@ -69,7 +49,6 @@
             print("<h5 class=text-start>Ingredientes</h5>");
             print("<p class=text-start >".$row['descripcion']."</p>");
             print("<p class=text-end>".$row['precio']."€</p>");
-            
             print("</button></div>");
             print'<div class="modal fade" data-bs-backdrop="static" id="producto'.$idPro.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog  modal-sm">
@@ -79,21 +58,25 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                        <div class="mb-3">                        
-                          <label for="cantidad" class="col-form-label">Cantidad:</label>
-                          <input  type="number" class="form-control" id="'.$conta.'">
-                          <input class="form-control" type="text" placeholder="" value="'.$idPro.'" id="idProd" readonly>
+                        <div class="mb-3">
+
+                          <label for="cantidad" class="col-form-label">Cantidad:</label> <br>
+                          <button class="btn btn-success" type="button" onclick="resta('.$idPro.')">-</button>
+                          <label class="col-form-label" id="cantidad'.$idPro.'">1</label>
+                          <button class="btn btn-success" type="button" onclick="suma('.$idPro.')" >+</button>
+                          
                         </div>
-                  </div>
-                      
-                  <div class="modal-footer">
-                      <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      <button type="button" class="btn btn-success " onclick=insertaProducto('.$idPro.')>Pedir</button>
-                     
-                  </div>
-          </div>
-                      </div>
-                      </div>';
+                </div>
+                          
+                          <div class="modal-footer">
+                          <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                          <button type="button" class="btn btn-success " onclick=insertaProducto('.$idPro.')>Pedir</button>
+                          
+                          </div>
+                          </div>
+                          </div>
+                          </div>';
+                          //<input  type="number" class="form-control" id="'.$conta.'">
             
 
             
@@ -110,3 +93,40 @@
    </div>
 </body>
 </html>
+
+<script>
+    function insertaProducto(param) {
+      let cantidadCompleta="cantidad"+param;
+
+       var cant = parseInt(document.getElementById(cantidadCompleta).innerHTML);
+        window.location.href = window.location.href + "&w2=" + param + "&w1=" + cant;
+      
+       
+    }
+
+    function suma(param){
+      let cantidadCompleta="cantidad"+param;
+      var numero = parseInt(document.getElementById(cantidadCompleta).innerHTML);
+      numero++;
+      if (numero >=1 && numero<=10) {
+        
+      document.getElementById(cantidadCompleta).innerHTML = numero;
+      }else if(numero>10){
+        alert("Son demasiados, solo pedir de 1 a 10 unidades.");
+      }
+    }
+
+    function resta(param){
+      let cantidadCompleta="cantidad"+param;
+      var numero = parseInt(document.getElementById(cantidadCompleta).innerHTML);
+      numero--;
+      console.log(numero);
+      if (numero >=1 && numero<=10) {
+        
+      document.getElementById(cantidadCompleta).innerHTML = numero;
+      }else if (numero<1){
+        alert("Qué listo eres.");
+      }
+     
+    }
+</script>
