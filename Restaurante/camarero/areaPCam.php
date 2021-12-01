@@ -27,6 +27,7 @@
 </script>
 </head>
 <body>
+
 <?php
     include("headerCam.php");
 
@@ -106,7 +107,7 @@ if(isset($_GET['w3'])){
 
    
     
-
+<div class="container-fluid">
 <section>
         <article>
             <h3>Datos Personales</h3>
@@ -129,6 +130,6 @@ if(isset($_GET['w3'])){
         
     </section>
     
-
+    </div>
 </body>
 </html>

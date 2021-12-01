@@ -10,9 +10,12 @@
     <title>Document</title>
 </head>
 <body>
+  <?php
+
+include("headerAd.php");
+  ?>
 <div class="container-fluid">
     <?php
-    include("headerAd.php");
         $identificador = $_GET['usuario'];
 
         include("../conexion.php");

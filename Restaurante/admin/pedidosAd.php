@@ -9,11 +9,13 @@
 
 </head>
 <body>
-    <div class="container-fluid">
-
-
-<?php
+    <?php
 include("headerAd.php");
+    ?>
+
+
+<div class="container-fluid">
+<?php
 echo"<div>";
 echo ("<h2>Pedidos en marcha</h2>");
 include("../conexion.php");

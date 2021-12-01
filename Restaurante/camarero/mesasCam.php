@@ -10,5 +10,6 @@
 </head>
 <body>
 <?php include("headerCam.php");?>
+<div class="container-fluid"></div>
 </body>
 </html>

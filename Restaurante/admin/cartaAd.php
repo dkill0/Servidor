@@ -15,10 +15,10 @@
     </script>
 </head>
 <body>
-<div class="container-fluid">
-<?php
+  <?php
 include("headerAd.php");
 ?>
+  <div class="container-fluid">
 <section>
 
 <article>

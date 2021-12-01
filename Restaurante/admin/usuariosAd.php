@@ -8,10 +8,10 @@
     <title>Usuarios</title>
 </head>
 <body>
-<div class="container-fluid">
-<?php
+  <?php
 include("headerAd.php");
 ?>  
+<div class="container-fluid">
 <article class="usuarios2">
 <h2>Empleados</h2>
 <div class="inicioS">

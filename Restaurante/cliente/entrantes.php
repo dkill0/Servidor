@@ -7,9 +7,11 @@
 <?php include("meta2.php");?>
 <script>
     function insertaProducto(param) {
-        var cant = parseInt(document.getElementById('cantidad').value);
+      let cantidadCompleta="cantidad"+param;
+
+       var cant = parseInt(document.getElementById(cantidadCompleta).value);
         window.location.href = window.location.href + "&w2=" + param + "&w1=" + cant;
-     
+      
        
     }
 </script>
@@ -22,17 +24,27 @@
 ?>
 <div class="container-fluid">
 <?php
-    if(isset($_GET['w1']) && isset($_GET['w2'])){
+   if(isset($_GET['w1']) && isset($_GET['w2'])){
      
         $canti=$_GET['w1'];
         $idPro=$_GET['w2'];
         $codPed=$_GET['codPed'];
         $sitio=$_SERVER['REQUEST_URI'];
         header("LOCATION: insertaProd.php?codPed=$codPed&canti=$canti&idPro=$idPro&sitio=$sitio");
-       
-    }
+   }  
+    
+
+
+    /*if (isset($_POST['cantidad']) && isset($_POST['idProd'])) {
+      $canti=$_POST['cantidad'];
+        $idPro=$_POST['idProd'];
+        $codPed=$_GET['codPed'];
+        $sitio=$_SERVER['REQUEST_URI'];
+        header("LOCATION: insertaProd.php?codPed=$codPed&canti=$canti&idPro=$idPro&sitio=$sitio");
+    }*/
     ?>
-    <div class="row">
+    <div class="row justify-content-around g-3 mt-2">
+      
     <?php
             include("../conexion.php");
           $consulta= "SELECT * FROM productos WHERE tipo=5";
@@ -43,52 +55,58 @@
           
           
           $codPed=$_GET['codPed'];
-          $i=0;
+          $sitio=$_SERVER['REQUEST_URI'];
           while($row = mysqli_fetch_array($result)){
             $idPro=$row['idProducto'];
+            $conta="cantidad".$idPro;
+            
 
            
 
-            print('<div class="col-auto">');
-            print(' <button data-bs-toggle="modal" data-bs-target="#producto'.$idPro.'" class="btn btn-success">');
-            print("<h3>".$row['nombre']."</h3>");
-            print("<h4>Descripción</h4>");
-            print("<p>".$row['descripcion']."</p>");
-            print("<p>".$row['precio']."</p>");
+            print('<div class="text-start ms-0 mt-3 mb-3 m-auto me-0 col-auto" > ');
+            print(' <button style="width: 400px; height:200px ;" data-bs-toggle="modal" data-bs-target="#producto'.$idPro.'" class="btn btn-success">');
+            print("<h3 class=text-center>".$row['nombre']."</h3>");
+            print("<h5 class=text-start>Ingredientes</h5>");
+            print("<p class=text-start >".$row['descripcion']."</p>");
+            print("<p class=text-end>".$row['precio']."€</p>");
+            
             print("</button></div>");
-
-
             print'<div class="modal fade" data-bs-backdrop="static" id="producto'.$idPro.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog  modal-sm">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">'.$row['nombre'].'</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form role="form">
-                    <div class="mb-3">
-                        
-                      <label for="cantidad" class="col-form-label">Cantidad:</label>
-                      <input  type="number" class="form-control" pattern="[1-20]{1-2}" id="cantidad" required>
-                    </div>
-                   
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                  <input type="submit" class="btn btn-success" onclick="insertaProducto('.$idPro.')" >
-                </div>
-              </div>
-            </div>
-          </div>';
-                
-                $i++;
+                        <div class="mb-3">                        
+                          <label for="cantidad" class="col-form-label">Cantidad:</label>
+                          <input  type="number" class="form-control" id="'.$conta.'">
+                          <input class="form-control" type="text" placeholder="" value="'.$idPro.'" id="idProd" readonly>
+                        </div>
+                  </div>
+                      
+                  <div class="modal-footer">
+                      <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-success " onclick=insertaProducto('.$idPro.')>Pedir</button>
+                     
+                  </div>
+          </div>
+                      </div>
+                      </div>';
+            
+
+            
+                      
+               
               }
+
               
-              echo"<a href=cartaCli.php?codPed=$codPed>Volver</a>"; 
-    ?>
+              
+              
+              ?>
    </div>
+   <a class="btn btn-info"href=cartaCli.php?codPed=$codPed>Volver</a>'
    </div>
 </body>
 </html>

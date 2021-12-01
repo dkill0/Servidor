@@ -8,11 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-
+<?php 
+    include("headerAd.php");
+?>
 <div class="container-fluid">
 <?php
     //Igual que ficha usuario pero con productos cambialo makina
-include("headerAd.php");
         $identificador = $_GET['idProd'];
 
         include("../conexion.php");
