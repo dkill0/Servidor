@@ -57,18 +57,26 @@
                   <h5 class="modal-title" id="exampleModalLabel">'.$row['nombre'].'</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                        <div class="mb-3">
+                <div class="modal-body  justify-content-between">
+                        <div class="row mb-3">
+                           <label for="cantidad" class="col-form-label">Cantidad:</label>
+                        </div>
+                        <div class="row mb-3">
 
-                          <label for="cantidad" class="col-form-label">Cantidad:</label> <br>
-                          <button class="btn btn-success" type="button" onclick="resta('.$idPro.')">-</button>
-                          <label class="col-form-label" id="cantidad'.$idPro.'">1</label>
-                          <button class="btn btn-success" type="button" onclick="suma('.$idPro.')" >+</button>
+                          <div class="col-4">
+                            <button style="width: 80px;" class="btn btn-success" type="button" onclick="resta('.$idPro.')"><span class="badge text-light"><img style="color: white;"width="15" src="../img/menos.svg"></span></button>
+                          </div>
+                          <div class="col-4 text-center">
+                            <label class="col-form-label" id="cantidad'.$idPro.'">1</label>
+                          </div>
+                          <div class="col-4">
+                           <button style="width: 80px;" class="btn btn-success " type="button" onclick="suma('.$idPro.')" ><span class="badge text-dark"><img width="15" src="../img/mas.svg"></span></button>
+                          </div>
                           
                         </div>
                 </div>
                           
-                          <div class="modal-footer">
+                          <div class="modal-footer justify-content-between">
                           <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                           <button type="button" class="btn btn-success " onclick=insertaProducto('.$idPro.')>Pedir</button>
                           

@@ -66,13 +66,13 @@
                         <div class="row mb-3">
 
                           <div class="col-4">
-                            <button style="width: 80px;" class="btn btn-success" type="button" onclick="resta('.$idPro.')">-</button>
+                            <button style="width: 80px;" class="btn btn-success" type="button" onclick="resta('.$idPro.')"><span class="badge text-light"><img style="color: white;"width="15" src="../img/menos.svg"></span></button>
                           </div>
                           <div class="col-4 text-center">
                             <label class="col-form-label" id="cantidad'.$idPro.'">1</label>
                           </div>
                           <div class="col-4">
-                           <button style="width: 80px;" class="btn btn-success" type="button" onclick="suma('.$idPro.')" ><span class="badge"><img src="../img/mas.svg"</span></button>
+                           <button style="width: 80px;" class="btn btn-success " type="button" onclick="suma('.$idPro.')" ><span class="badge text-dark"><img width="15" src="../img/mas.svg"></span></button>
                           </div>
                           
                         </div>
@@ -86,7 +86,7 @@
                           </div>
                           </div>
                           </div>';
-                          //<input  type="number" class="form-control" id="'.$conta.'">
+                          
             
 
             
@@ -95,7 +95,7 @@
               }
 
               
-              
+            
               
               ?>
    </div>
