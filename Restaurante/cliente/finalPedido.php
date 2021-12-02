@@ -22,8 +22,9 @@
     <a href="#">Efectivo</a>
     <?php
     $codPed=$_GET['codPed'];
+    
     echo "<a href=tarjeta.php?codPed=$codPed>Tarjeta</a>";
-    //<a href=cierrePedido.php?codPed=$codPed>Tarjeta</a>
+    
     ?>
     </div>
 </body>

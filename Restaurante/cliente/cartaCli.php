@@ -17,6 +17,7 @@
 <?php
    
     $codPed = $_GET['codPed'];
+    
     echo '
     <div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=entrantes.php?codPed='.$codPed.'>
     <h2>Entrantes</h2>

@@ -94,12 +94,13 @@
               }
 
               
+            print ' </div>
+            <a class="btn btn-info"href=cartaCli.php?codPed='.$codPed.'>Volver</a>
+            </div>';
+                      
               
               
               ?>
-   </div>
-   <a class="btn btn-info"href=cartaCli.php?codPed=$codPed>Volver</a>'
-   </div>
 </body>
 </html>
 

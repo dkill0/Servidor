@@ -17,6 +17,34 @@
     ?>
     <div class="container-fluid">
         <div class="row   justify-content-center">
+            <?php
+
+            if(isset($_GET['error'])){
+                $error=$_GET['error'];
+               if($error = 1){
+                   print'
+                   <div class="alert alert-danger" role="alert">
+                    Error. No hay camareros disponibles, consulte con el encargado.
+                    </div>
+                   ';
+               }
+            } 
+
+            if (isset($_GET['sitio'])) {
+               print'
+               <div class="row ">
+               <div class="alert alert-info text-center alert-dismissible" role="alert">
+               <span>¡Pedido pagado correctamente!</span>
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+             </div>
+             </div>
+               ';
+
+            }
+
+
+
+            ?>
         
         <div class=" mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="verCarta.php">Ver carta</a></div>
         

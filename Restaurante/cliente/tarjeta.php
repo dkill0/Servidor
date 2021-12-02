@@ -71,15 +71,21 @@ include("../Seguridad.php");
 					<input type="checkbox" class="form-check-input" required id="terminos" value="factura" checked>
 				<label class="form-check-label" for="terminos">He leído y acepto las condiciones de uso y compra</label>
 				</div>
+				<?php
+							
+				$codPed=$_GET['codPed'];
 
-				<div class="d-grid col-5 float-start" >
-					<button type="submit" class=" btn btn-warning">COMPRAR</button>
-				</div>
-					
-				<div class="col-2">
-					<button type="reset" class=" float-end btn btn-danger">CANCELAR</button>
+				
+				print '<div class="d-grid col-5 float-start" >
+				<a href="cierrePedido.php?codPed='.$codPed.'" class=" btn btn-warning">COMPRAR</a>
+			</div>
+				
+			<div class="col-2">
+				<a href="pedidosCli.php?codPed='.$codPed.'"  class=" float-end btn btn-danger">CANCELAR</a>
 
-				</div>
+			</div>';
+				?>
+				
 				</div>
 
 			</form>

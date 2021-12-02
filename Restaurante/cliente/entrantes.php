@@ -84,7 +84,7 @@
                           </div>
                           </div>
                           </div>';
-                          //<input  type="number" class="form-control" id="'.$conta.'">
+                         
             
 
             
@@ -93,12 +93,14 @@
               }
 
               
+            print ' </div>
+            <a class="btn btn-info"href=cartaCli.php?codPed='.$codPed.'>Volver</a>
+            </div>';
+                      
               
               
               ?>
-   </div>
-   <a class="btn btn-info"href=cartaCli.php?codPed=$codPed>Volver</a>'
-   </div>
+ 
 </body>
 </html>
 
