@@ -45,15 +45,28 @@ include("../Seguridad.php");
 
 
 
+        print('<div class="rounded col-auto"><button style="width: 400px; height:450px ;" data-bs-toggle="modal" data-bs-target="#producto'.$idPro.'" class="btn btn-success">');
 
-        print('<div class="text-start ms-0 mt-3 mb-3 m-auto me-0 col-auto" > ');
-        print(' <button style="width: 400px; height:200px ;" data-bs-toggle="modal" data-bs-target="#producto' . $idPro . '" class="btn btn-success">');
-        print("<h3 class=text-center>" . $row['nombre'] . "</h3>");
-        print("<h5 class=text-start>Ingredientes</h5>");
-        print("<p class=text-start >" . $row['descripcion'] . "</p>");
+
+        print('<h2 class="fw-bold text-center">');
+        print($row['nombre'] . "</h2>");
+  
+        print("<div class=row>");
+        print("<h6>Ingredientes</h6>");
+        print('<p class="mb-4" style="height: 50px;">');
+        print($row['descripcion'] . "</p>");
+        print("</div>");
+  
+  
+        print('<img class=" m-auto row rounded float-end img-fluid" style="width: 400px; height: 250px;" src=..' . $row['imagen'] . '>');
+  
+  
+        print("<div class=row>");
         print("<p class=text-end>" . $row['precio'] . "€</p>");
-
+        print("</div>");
         print("</button></div>");
+       
+        
         print '<div class="modal fade" data-bs-backdrop="static" id="producto' . $idPro . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog  modal-sm">
               <div class="modal-content">

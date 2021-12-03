@@ -25,9 +25,9 @@
             <div class="collapse navbar-collapse" id="navbar_plegable">
                 <ul class="navbar-nav me-auto text-end">
                 <li class="nav-item">
-                <li class="nav-item"><a class="nav-link active" href="mesasCam.php">Mesas</a></li>
-                </li>
-                <li class="nav-item"><a class="nav-link active" href="pedidosCam.php">Pedidos</a></li>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="pedidosCam.php">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="incidenciasCam.php">Incidencias</a></li>
                 <li class="nav-item"><a class="nav-link active" href="areaPCam.php">Area Personal</a></li>
             </ul>
             <br>

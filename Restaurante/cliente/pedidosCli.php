@@ -65,33 +65,40 @@ include("../Seguridad.php");
                 $codPed = $row['idPedido'];
             }
 
-            $consulta = "SELECT enviado FROM pedido WHERE idPedido='$codPed' ";
-            $result4 = mysqli_query($conn, $consulta);
-            mysqli_error($conn);
-            $numero;
-            while ($row = mysqli_fetch_array($result4)) {
-                $numero = $row['enviado'];
-            }
-
-
-
-
-            //por aqui
-
             if ($NumFilas == 0) {
                 echo '<div class=" mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href="nuevoPedido.php">Nuevo pedido</a></div>';
                 echo '<div class=" mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php>Historial de pedidos</a></div>';
-            } else if ($numero == 0) {
-                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=cartaCli.php?codPed=' . $codPed . '>Continuar pedido</a></div>';
-                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=finalPedido.php?codPed=' . $codPed . '>Enviar pedido</a></div>';
-                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php?codPed=' . $codPed . '>Historial de pedidos</a></div>';
-              
             } else {
-                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=cartaCli.php?codPed=' . $codPed . '>Continuar pedido</a></div>';
-                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=finalPedido.php?codPed=' . $codPed . '>Finalizar Pedido</a></div>';
-                echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php?codPed=' . $codPed . '>Historial de pedidos</a></div>';
-            }
+                $consulta = "SELECT enviado FROM pedido WHERE idPedido='$codPed' ";
+                $result4 = mysqli_query($conn, $consulta);
+                mysqli_error($conn);
+                $numero;
+                while ($row = mysqli_fetch_array($result4)) {
+                    $numero = $row['enviado'];
+                }
+                if ($numero == 0) {
 
+                    echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=cartaCli.php?codPed=' . $codPed . '>Continuar pedido</a></div>';
+                    $consulta= "SELECT DISTINCT l.idProducto as prod, nombre, SUM(cantidad) AS cant, t.descripcion,  pr.precio as precioIn, (pr.precio*SUM(cantidad)) as precioFin
+                    FROM lineapedido l, pedido p,  productos pr, tipo t
+                    WHERE l.idPedido='$codPed' AND p.idPedido=l.idPedido  and pr.idProducto=l.idProducto and cliente='$idCli' and pr.tipo=t.idTipo
+                    GROUP BY l.idProducto
+                    ORDER BY t.descripcion";
+                    //Ejecutamos la sentencia SQL
+                    $result5 = mysqli_query($conn ,$consulta);
+                    $numeritoCarlos = mysqli_num_rows($result5);
+          
+                    if ($numeritoCarlos!=0){
+                        echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=finalPedido.php?codPed=' . $codPed . '>Enviar pedido</a></div>';
+                    }
+          
+                    echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php?codPed=' . $codPed . '>Historial de pedidos</a></div>';
+                } else {
+
+                    echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=finalPedido.php?codPed=' . $codPed . '>Finalizar Pedido</a></div>';
+                    echo '<div class="productos mt-3 mb-3 d-grid  col-12"><a class="btn btn-success" href=verPedidos.php?codPed=' . $codPed . '>Historial de pedidos</a></div>';
+                }
+            }
 
             ?>
 
