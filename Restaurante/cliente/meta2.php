@@ -7,3 +7,4 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
 </style>
+<link  rel="icon"   href="../img/favicon.png" type="image/png" />

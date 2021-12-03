@@ -13,9 +13,9 @@ while($row2 = mysqli_fetch_array($result4)){
  
 }
 
-$consulta7= "SELECT DISTINCT l.idProducto as prod, nombre, SUM(cantidad) AS cant, l.fecha as fecha
+$consulta7= "SELECT DISTINCT l.idProducto as prod, nombre, SUM(cantidad) AS cant, servido, l.fecha as fecha
 FROM lineapedido l, pedido p,  productos pr, tipo t
-WHERE l.idPedido='$codPed' AND p.idPedido=l.idPedido  and pr.idProducto=l.idProducto and camarero='$idUs' and enviado=0 and pr.tipo=t.idTipo
+WHERE l.idPedido='$codPed' AND p.idPedido=l.idPedido AND l.servido=0 and pr.idProducto=l.idProducto and camarero='$idUs' and enviado=0 and pr.tipo=t.idTipo
 GROUP BY l.idProducto
 ORDER BY t.descripcion";
 //Ejecutamos la sentencia SQL
@@ -34,15 +34,29 @@ if ($numeritoCarlos!=0){
   $conta=0;
   while($row3 = mysqli_fetch_array($result5)){
     $idProd= $row3['prod'];
-    $fecha= $row3['fecha'];
-    $fecha1=strval($fecha);
+    $servido= $row3['servido'];
+    
 
     print("<tr>
     <td>".$row3['nombre']."</td>
     <td class=text-end>".$row3['cant']."</td>
-    
+    <td class=text-end>
         ");
-        print'<td class="text-end"> <button class="btn btn-primary" type="button" onclick=sirve('.$idProd.','.$codPed.','.$fecha1.','.$conta.')>Servir</button> <p id="servido'.$conta.'">No servido</p></td>
+        
+        
+        if($servido == 1){
+          print'<p id="servido'.$conta.'">Ya servido</p>';
+        } else{
+          print'<form action="servido.php" method="post"> 
+          <input type=hidden name=prod value='.$idProd.'>
+          
+         
+          <input type=hidden name=codPed value='.$codPed.'>
+
+          <button class="btn btn-primary" type="submit">Servir</button></form>';
+        }
+        print'
+        </td>
     
         </tr>';
         $conta++;
