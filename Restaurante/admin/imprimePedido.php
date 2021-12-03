@@ -1,8 +1,7 @@
 <?php
-        include("../conexion.php");
-
-          echo "<h3>Pedido numero: ".$codPed."</h3>";
-
+      
+          echo '<h3 style="color:white;" class="text-center">Pedido numero: '.$codPed.'</h3>';
+          echo '<h4 style="color:white;" class="text-center">Cliente numero: '.$idUs.' </h4>';
           $consulta4 = "SELECT fecha from pedido where idPedido='$codPed'";
          //Ejecutamos la sentencia SQL
          $result4 = mysqli_query($conn ,$consulta4);
@@ -10,9 +9,10 @@
         echo mysqli_error($conn);
           while($row2 = mysqli_fetch_array($result4)){
             $fechaPed=$row2['fecha'];
-            echo "<h4>Fecha: ".$fechaPed."</h4>";
+            echo '<h4 class="text-center"style="color:white;">Fecha: '.$fechaPed.'</h4>';
            
           }
+   
           
           $consulta= "SELECT DISTINCT l.idProducto as prod, nombre, SUM(cantidad) AS cant, t.descripcion,  pr.precio as precioIn, (pr.precio*SUM(cantidad)) as precioFin
           FROM lineapedido l, pedido p,  productos pr, tipo t
@@ -21,22 +21,25 @@
           ORDER BY t.descripcion";
           //Ejecutamos la sentencia SQL
           $result5 = mysqli_query($conn ,$consulta);
+          $numeritoCarlos = mysqli_num_rows($result5);
 
-            echo " <table border=1>
+          if ($numeritoCarlos!=0){
+
+            echo ' <table class="table table-dark table-responsive">
             <tr>
             <th>Nombre</th>
-            <th>Cantidad</th>
-            <th>Precio individual</th>
-            <th>Total producto</th>
-            </tr>";
+            <th class=text-end>Cantidad</th>
+            <th class=text-end>Precio individual</th>
+            <th class=text-end>Total producto</th>
+            </tr>';
   
             while($row3 = mysqli_fetch_array($result5)){
 
               print("<tr>
               <td>".$row3['nombre']."</td>
-              <td>".$row3['cant']."</td>
-              <td>".$row3['precioIn']."</td>
-              <td>".$row3['precioFin']."</td>    
+              <td class=text-end>".$row3['cant']."</td>
+              <td class=text-end>".$row3['precioIn']."€</td>
+              <td class=text-end>".$row3['precioFin']."€</td>    
                   </tr>
                   ");
             }
@@ -57,9 +60,13 @@
              
                   echo '<tr >
                   <th>Total:</th>
-                  <td align="right" colspan=3>'.$TOTAL.'</td>
+                  <td align="right" colspan=3>'.$TOTAL.'€</td>
                   </tr>
                  ';
               }
-           echo "</table>";   
+           echo "</table>"; 
+            } else {
+              
+              echo"Sin productos.";
+            }
     ?>

@@ -5,7 +5,7 @@
 <html lang="es">
 <head>
 <?php include("../cliente/meta2.php");?>
-    <title>Mesas</title>
+    <title>incidencias</title>
 </head>
 <body>
     <?php

@@ -51,7 +51,9 @@ $idUs=$_SESSION['idUsuario'];
 <script>
     function sirve(producto, pedido, fecha, conta){
         var servidoCompleto = "servido" + conta;
-        window.location.href = window.location.href + "?w2=" + producto + "&w1=" + pedido + "&w3" + fecha;
+        
+        alert(fecha);
+        //window.location.href = window.location.href + "?w2=" + producto + "&w1=" + pedido;
         document.getElementById(servidoCompleto).innerHTML = "Ya servido";
     }
 

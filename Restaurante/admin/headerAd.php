@@ -25,10 +25,10 @@
             </button> 
             <div class="collapse navbar-collapse" id="navbar_plegable">
             <ul class="navbar-nav me-auto text-end">
-            <li class="nav-item"><a class="nav-link active" href="mesasAd.php">Mesas</a></li>
-            <li class="nav-item"><a class="nav-link active" href="cartaAd.php">Carta</a></li>
-            <li class="nav-item"><a class="nav-link active" href="usuariosAd.php">Usuarios</a></li>
-            <li class="nav-item"><a class="nav-link active" href="pedidosAd.php">Pedidos</a></li>
+                <li class="nav-item"><a class="nav-link active" href="pedidosAd.php">Pedidos</a></li>
+                <li class="nav-item"><a class="nav-link active" href="cartaAd.php">Carta</a></li>
+                <li class="nav-item"><a class="nav-link active" href="usuariosAd.php">Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link active" href="incidenciasAd.php">Incidencias</a></li>
             <li class="nav-item"><a class="nav-link active" href="areaPAd.php">Area Personal</a></li>
             </ul>
             <br>

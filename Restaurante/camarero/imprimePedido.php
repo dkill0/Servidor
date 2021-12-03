@@ -35,15 +35,18 @@ if ($numeritoCarlos!=0){
   while($row3 = mysqli_fetch_array($result5)){
     $idProd= $row3['prod'];
     $fecha= $row3['fecha'];
+    $fecha1=strval($fecha);
+
     print("<tr>
     <td>".$row3['nombre']."</td>
     <td class=text-end>".$row3['cant']."</td>
     
         ");
-        print'<td class="text-end"> <button class="btn btn-primary" type="button" onclick=sirve('.$idProd.','.$codPed.','.$fecha.','.$conta.')>Servir</button> <p id="servido'.$conta.'">No servido</p></td>
+        print'<td class="text-end"> <button class="btn btn-primary" type="button" onclick=sirve('.$idProd.','.$codPed.','.$fecha1.','.$conta.')>Servir</button> <p id="servido'.$conta.'">No servido</p></td>
     
         </tr>';
         $conta++;
+        
   }
     mysqli_error($conn);
 
