@@ -27,10 +27,10 @@ if (isset($_POST['motivo'])) {
     //Se elige de manera aleatoria una posicion del array de admin y se guarda el resultado
     $idAdmin = $admin[mt_rand(0, $numero)];
     
-    if (isset($_POST['comentario'])) {
-        $mensaje=$_POST['comentario'];
-    } elseif (isset($_POST['codPed'])) {
-        $mensaje=$_POST['codPed'];
+    if (isset($_POST['comentario1'])) {
+        $mensaje=$_POST['comentario1'];
+    } elseif (isset($_POST['comentario2'])) {
+        $mensaje=$_POST['comentario2'];
     }
     if(empty($mensaje)){
         $mensaje="No introducido";

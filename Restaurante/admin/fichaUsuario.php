@@ -7,7 +7,7 @@
     <?php
     include("../cliente/meta2.php");
     ?>
-    <title>Document</title>
+    <title>Usuarios</title>
 </head>
 <body>
   <?php

@@ -55,7 +55,7 @@
               
     ?>
     </div>
-    <a href="cartaAd.php">Volver</a>
+    <a href="cartaAd.php" class="btn btn-info">Volver</a>
         </div>
 </body>
 </html>

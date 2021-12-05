@@ -23,5 +23,15 @@ include("../Seguridad.php");
         $result = mysqli_query($conn, $consulta);
         
     }
+
+    if(isset($_POST['codigo'])){
+        $codigo=$_POST['codigo'];
+
+        $consulta3 = "UPDATE pedido SET servido=1 WHERE idPedido='$codigo'";
+        echo $consulta3;
+        $result3 = mysqli_query($conn, $consulta3);
+        
+
+    }
     header("LOCATION: pedidosCam.php");
 ?>

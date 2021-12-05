@@ -33,9 +33,9 @@ include("../Seguridad.php");
                         <input type="radio" name="motivo" id="motivo" value="producto" required> Falta de producto<br>
                         <input type="radio" name="motivo" id="motivo" value="pago" required> Fallo en el pago<br>
                         <input type="radio" name="motivo" id="motivo" value="reclamacion " required> Incidencias con clientes<br>
-                        <textarea class="form-control" name="comentario" id="comentario" placeholder="Introduzca el motivo..."></textarea>
+                        <textarea class="form-control" name="comentario1" id="comentario" placeholder="Introduzca el motivo..."></textarea>
                         <input type="radio" name="motivo" id="motivo" value="otro" required> Otro<br>
-                        <textarea class="form-control" name="comentario" id="comentario" placeholder="Introduzca el motivo..."></textarea>
+                        <textarea class="form-control" name="comentario2" id="comentario" placeholder="Introduzca el motivo..."></textarea>
                     </div>
                     <button class="btn btn-primary" type="submit">Enviar</button>
                 </form>

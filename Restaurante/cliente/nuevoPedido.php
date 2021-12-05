@@ -21,6 +21,7 @@ if ($numero != 0) {
   while ($row = mysqli_fetch_array($result6)) {
     //Guardamos en el array los id de los camareros existentes
     $camareros[$i] = $row['idUser'];
+    
     $i++;
   }
 
@@ -30,19 +31,21 @@ if ($numero != 0) {
 
 
   //Insertamos los datos obtenidos
-  $consulta = "INSERT INTO pedido (cliente,camarero,fecha,pagado,enviado) VALUES ('$idUs','$idCamarero', NOW(),false, false)";
+  $consulta = "INSERT INTO pedido (cliente,camarero,fecha,pagado,enviado,servido) VALUES ('$idUs','$idCamarero', NOW(),false, false,false)";
   $result = mysqli_query($conn, $consulta);
   //Se comprueba el error
   mysqli_error($conn);
 
   //Guardamos la id del pedido para poder trabajar con ella mas adelante
   $consulta2 = "SELECT idPedido FROM pedido WHERE cliente='$idUs' AND pagado=false";
+  echo $consulta;
   $result2 = mysqli_query($conn, $consulta2);
   //Comprobamos si hay error.
   echo mysqli_error($conn);
   //Se guarda y se envia
   while ($row = mysqli_fetch_array($result2)) {
     $codPed = $row['idPedido'];
+    
   }
 
   //Redireccion a la carta con el id del pedido

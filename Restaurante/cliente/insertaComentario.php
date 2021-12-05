@@ -30,22 +30,23 @@ if (isset($_POST['motivo'])) {
 
     if (isset($_POST['comentario'])) {
         $mensaje=$_POST['comentario'];
-        echo "Hola";
+        
     } 
     if (isset($_POST['codPed'])) {
         $mensaje=$_POST['codPed'];
-        echo "Hola1";
+       
     }
 
     if(empty($mensaje)){
         $mensaje="No introducido";
-        echo "Hola2";
+        
     }
 
     
-    $consulta2="INSERT INTO notificacion VALUES ('$idAdmin','$idUser', '$mensaje','$motivo', false, NOW())";
+    $consulta2="INSERT INTO incidencias VALUES (null,'$idAdmin','$idUser', '$mensaje','$motivo', false, NOW())";
   
     $result = mysqli_query($conn, $consulta2);
+    echo mysqli_error($conn, $result);
 
 }else{
     echo"No hay admins disponibles";

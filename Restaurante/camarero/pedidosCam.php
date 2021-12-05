@@ -17,7 +17,7 @@ include("../conexion.php");
 $idUs=$_SESSION['idUsuario'];
 
 
-    $consulta="SELECT idPedido from pedido where camarero='$idUs' and enviado=0 and servido=0 ";
+    $consulta="SELECT idPedido from pedido where camarero='$idUs' and enviado=1 and servido=0 ";
     
     $result15=mysqli_query($conn, $consulta);
      

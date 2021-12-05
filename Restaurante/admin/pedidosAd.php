@@ -16,7 +16,8 @@ include("../Seguridad.php");
     ?>
 
 
-    <div class="container-fluid">
+
+
         <div class="row justify-content-around">
           
 
@@ -27,7 +28,7 @@ include("../Seguridad.php");
             include("../conexion.php");
             $consulta2 = "SELECT idPedido, cliente
 FROM pedido
-WHERE enviado=0
+WHERE enviado=1 AND servido=0
 ORDER BY fecha DESC";
             $result9 = mysqli_query($conn, $consulta2);
             echo mysqli_error($conn);
@@ -48,7 +49,7 @@ ORDER BY fecha DESC";
             include("../conexion.php");
             $consulta2 = "SELECT idPedido, cliente
 FROM pedido
-WHERE pagado=0 AND enviado=1
+WHERE pagado=0 AND enviado=1 AND servido=1
 ORDER BY fecha DESC";
             $result9 = mysqli_query($conn, $consulta2);
             echo mysqli_error($conn);
