@@ -49,7 +49,7 @@ include("../Seguridad.php");
 
 
 
-          print('<div class="rounded mt-3 mb-3 m-auto prod col-auto" style="width: 400px;"> ');
+          print('<div class=" prod col-auto" style="width: 400px;"> ');
 
 
           print('<h2 class="fw-bold text-center">');

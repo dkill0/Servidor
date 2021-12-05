@@ -42,7 +42,7 @@ include("headerAd.php");
             
             <br><br>
             <button type="submit" class="btn btn-primary">Modificar</button>
-            <form action="" method="post">
+            </form>
            </div>
             
            
@@ -67,7 +67,7 @@ echo "hola";
         $imagen=$_POST['imagen'];
         $tipo=$_POST['tipo'];
         $precio=$_POST['precio'];
-        echo $nombre.$descripcion.$imagen.$tipo.$precio;
+        
         include("../conexion.php");
 
         $consulta="INSERT INTO productos (nombre, descripcion, precio, tipo, imagen) values ('$nombre','$descripcion','$precio','$tipo','$imagen')";
