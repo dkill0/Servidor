@@ -65,13 +65,15 @@ session_start();
         $result3 = mysqli_query($conn, $consulta1);
         
         $numeritoCarlos = mysqli_num_rows($result3);
-        if ($numeritoCarlos != 0) {
+        if ($numeritoCarlos == 0) {
             $consulta = "INSERT INTO usuario (email,nombre,contrasena,tipo) 
         VALUES ('$email','$nom','$pass','$tipo')";
             //ejecutamos la sentencia SQL
             mysqli_query($conn, $consulta);
-
-            header("LOCATION: inicioSes.php");
+            $sitio=$_SERVER['REQUEST_URI'];
+            //redireccionamos a la pagina pedido
+            header ("LOCATION:inicioSes.php?sitio=$sitio");
+        
         } else {
             echo '<div class=" fixed-bottom mt-5 alert alert-danger alert-dismissible">
        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>

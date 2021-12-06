@@ -122,20 +122,20 @@ if(isset($_GET['w3'])){
             <div class="row justify-content-around">
             <p>Nombre</p>
             <hr>
-            <p class="col-4"><?php echo $_SESSION['name']?></p>
-            <button class="btn btn-primary col-3" name="edita" onclick="cambioNom()" >Editar</button>
+            <p class="col-4 text-capitalize"><?php echo $_SESSION['name']?></p>
+            <button class="btn btn-primary col-3" name="edita" onclick="cambioNom()" ><span class="badge"><img src="../img/editar.svg" alt=""></span></button>
             </div>  
             <div class="row justify-content-around">
             <p>Email</p>
             <hr>
             <p class="col-4"><?php echo $_SESSION['email']?></p>
-            <button class="btn btn-primary col-3" name="edita" onclick="cambioEmail()" >Editar</button>
+            <button class="btn btn-primary col-3" name="edita" onclick="cambioEmail()" ><span class="badge"><img src="../img/editar.svg" alt=""></span></button>
             </div>
             <div class="row justify-content-around">
-            <p class="col-4">Contraseña</p>
+            <p>Contraseña</p>
             <hr>
             <p class="col-4"><?php echo $_SESSION['password']?></p>
-            <button class="btn btn-primary col-3" name="edita" onclick="cambioContra()" >Editar</button>
+            <button class="btn btn-primary col-3" name="edita" onclick="cambioContra()" ><span class="badge"><img src="../img/editar.svg" alt=""></span></button>
             </div>
             
            

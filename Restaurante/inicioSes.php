@@ -18,7 +18,18 @@ session_start();
     <div class="container-fluid">
         <section class="row">
             <article class=" col-12">
-
+            <?php
+            if (isset($_GET['sitio'])) {
+                print '
+               <div class="row ">
+               <div class="alert alert-info text-center alert-dismissible" role="alert">
+               <span>¡Usuario registrado correctamente!</span>
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+             </div>
+             </div>
+               ';
+            }
+            ?>
                 <form action="" method="POST" class="row  justify-content-around">
                     <div class="col-auto mt-5">
                         <h1 style="color:white;" class="mb-3">Inicio</h1>

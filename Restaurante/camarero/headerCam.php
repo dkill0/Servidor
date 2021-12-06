@@ -1,4 +1,4 @@
-<header class="cabe row">
+<header>
     <div class=" col-12 text-uppercase text-center">
     <h1 class="display">Lentejas los jueves</h1>
     </div>
@@ -17,7 +17,7 @@
             </a>
             <?php
                 $nom=$_SESSION['name'];
-                echo '<p class="d-block d-sm-none mb-2 h6 me-2"style="color: white;" >Hola,  '.$nom.'. </p>';
+                echo '<p class="d-block d-sm-none mb-2 h6 me-2 text-capitalize"style="color: white;" >Hola,  '.$nom.'. </p>';
                 ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_plegable">
                 <span class="navbar-toggler-icon"></span>

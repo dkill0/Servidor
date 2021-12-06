@@ -1,4 +1,4 @@
-<header class="cabe row">
+<header>
     <div class=" col-12 text-uppercase text-center">
     <h1 class="display">Lentejas los jueves</h1>
     </div>

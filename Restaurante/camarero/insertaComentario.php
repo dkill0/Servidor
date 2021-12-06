@@ -3,7 +3,38 @@ include("../Seguridad.php");
 include("../conexion.php");
 if (isset($_POST['motivo'])) {
     
-    $motivo=$_POST['motivo'];
+    $tipo=$_POST['motivo'];
+    $motivo="";
+    switch ($tipo) {
+        case 'pedido':
+            $motivo="Error en el pedido";
+           break;
+           case 'plato':
+            $motivo="Error en un plato";
+           break;
+           case 'pago':
+            $motivo="Error en el pago";
+           break; 
+           case 'accidenteL':
+            $motivo="Accidente Laboral";
+           break; 
+           case 'material':
+            $motivo="Rotura de material";
+           break; 
+           case 'producto':
+            $motivo="Falta de producto";
+           break; 
+           case 'reclamacion':
+            $motivo="Incidencia con cliente";
+           break; 
+           
+           case 'otro':
+            $motivo="Otro (ver mensaje)";
+           break;
+        default:
+            $motivo="Error";
+            break;
+    }
 
     $idUser=$_SESSION['idUsuario'];
   
@@ -27,19 +58,17 @@ if (isset($_POST['motivo'])) {
     //Se elige de manera aleatoria una posicion del array de admin y se guarda el resultado
     $idAdmin = $admin[mt_rand(0, $numero)];
     
-    if (isset($_POST['comentario1'])) {
-        $mensaje=$_POST['comentario1'];
-    } elseif (isset($_POST['comentario2'])) {
-        $mensaje=$_POST['comentario2'];
+    if (isset($_POST['comentario'])) {
+        $mensaje=$_POST['comentario'];
     }
     if(empty($mensaje)){
         $mensaje="No introducido";
     }
 
     
-    $consulta2="INSERT INTO notificacion VALUES ('$idAdmin','$idUser', '$mensaje','$motivo', false, NOW())";
+    $consulta2="INSERT INTO incidencias VALUES (null,'$idAdmin','$idUser', '$mensaje','$motivo', false, NOW())";
   
-    $result = mysqli_query($conn, $consulta2);
+    mysqli_query($conn, $consulta2);
 
 }else{
     echo"No hay admins disponibles";
