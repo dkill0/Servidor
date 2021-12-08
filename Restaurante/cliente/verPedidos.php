@@ -7,7 +7,7 @@ include("../Seguridad.php");
 <?php
 include("meta2.php");
 ?>
-    <title>Document</title>
+    <title>Mis pedidos</title>
 </head>
 <body>
     <?php
@@ -15,7 +15,7 @@ include("meta2.php");
 
     ?>
     <div class="container-fluid">
-    <div>
+    <div class="row justify-content-around">
     <h1 style="color:white;" class="bg-success">En proceso</h1>
     <?php
     if (isset($_GET['codPed'])) {
@@ -27,9 +27,10 @@ include("meta2.php");
     }else{
         echo"No tienes pedidos pendientes.";
     }
-    echo"</div><div>";
+    echo'</div><div class="row justify-content-around">';
+    echo '<h1 class="text-center" style="color:white;" >Finalizados</h1>';
 
-    echo "<h1>Finalizados</h1>";
+    echo '<div class=col-5>';
     $idusuario=$_SESSION['idUsuario'];
     include("../conexion.php");
     $consulta3="SELECT idPedido
@@ -45,7 +46,7 @@ include("meta2.php");
         echo "<a href=imprimirTicket.php?codPed=$codPed>Imprimir ticket en pdf</a>";
         
     }
-    echo "</div>";
+    echo "</div></div>";
     ?>
 <div>
  <p>Boton desplegable</p>

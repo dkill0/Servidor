@@ -82,6 +82,9 @@ session_start();
     }
 
     ?>
+     <?php
+ include("footerIndex.php");
+ ?>
 </body>
 
 </html>

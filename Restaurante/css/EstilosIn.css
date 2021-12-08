@@ -5,12 +5,6 @@ header h1{
     color: black;
 }
 
-.cabe{
-    background-image: url("../img/prueba.png");
-    background-position: center center;
-    background-size: cover;
-    
-}
 
 .datos{
     background-color: white;
@@ -35,6 +29,7 @@ header h1{
 .fondoT{
     background-color: #0e4749;
     opacity: .8;
+    position: sticky; top:65px; z-index: 2;
 }
 .titulo{
     color: white;

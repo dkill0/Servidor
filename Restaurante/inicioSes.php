@@ -103,9 +103,9 @@ session_start();
         }
 
         ?>
-        <footer>
-
-        </footer>
+    <?php
+ include("footerIndex.php");
+ ?>
     </div>
 </body>
 

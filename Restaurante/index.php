@@ -13,13 +13,24 @@
   
   ?>
 
+<div class="container-fluid">
 
+  <div class="row justify-content-around">
+    <div class="mt-2 col-11 prod rounded">
+        <h1 class="text-center">Te damos la bienvenida a nuestro restaurante </h1>
+
+
+    </div>
+  </div>
+</div>
 
 
  
      
 
-    
+<?php
+ include("footerIndex.php");
+ ?>
 
 </body>
 </html>
