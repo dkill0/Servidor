@@ -50,10 +50,6 @@ include("../Seguridad.php");
             }
         }
         ?>
-
-
-
-
         <section class="row justify-content-center">
             <article class="col-7 datos">
                 <div class="row  justify-content-around">

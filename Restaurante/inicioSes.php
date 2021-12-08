@@ -95,7 +95,7 @@ session_start();
                     header("Location:./cliente/indexCli.php");
                 }
             } else {
-                echo '<div class="fixed-bottom alert alert-danger alert-dismissible">
+                echo '<div class="alert alert-danger alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     Usuario no encontrado o contraseña incorrecta. Si no estás registrado, prueba a registrarte <a class="alert-link" href="registroCli.php">aquí</a>
                   </div>';

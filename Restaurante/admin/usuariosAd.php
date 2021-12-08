@@ -12,9 +12,10 @@
 include("headerAd.php");
 ?>  
 <div class="container-fluid">
-<article class="usuarios2">
+<article class="row justify-content-around">
+
+<div  class=" bg-secondary col-5">
 <h2>Empleados</h2>
-<div class="inicioS">
 <?php
             include("../conexion.php");
           $consulta= "SELECT idUser, nombre FROM usuario WHERE tipo=2";
@@ -26,8 +27,8 @@ include("headerAd.php");
           while($row = mysqli_fetch_array($result)){
             $idUs=$row['idUser'];
             
-            print('<div class="usuarios"');
-            print("<p><a href='fichaUsuario.php?usuario=$idUs'>".$row['idUser']." - ");
+            print('<div>');
+            print("<p><a class=btn href='fichaUsuario.php?usuario=$idUs'>".$row['idUser']." - ");
             print("".$row['nombre']."</a></p>");
             print('</div>');
               }
@@ -35,11 +36,8 @@ include("headerAd.php");
           
     ?>
     </div>
-</article>
-
-<article class="usuarios2">
-    <h2>Clientes</h2>
-    <div class="inicioS">
+    <div  class="bg-secondary col-5">
+      <h2>Clientes</h2>
     <?php
             include("../conexion.php");
           $consulta= "SELECT idUser, nombre FROM usuario WHERE tipo=3";
@@ -50,8 +48,8 @@ include("headerAd.php");
           
           while($row = mysqli_fetch_array($result)){
             $idUs=$row['idUser'];
-                print('<div class="usuarios"');
-                print("<p><a href='fichaUsuario.php?usuario=$idUs'>".$row['idUser']." - ");
+                print('<div>');
+                print("<p><a class=btn href='fichaUsuario.php?usuario=$idUs'>".$row['idUser']." - ");
                 print("".$row['nombre']."</p>");
                 print('</div>');
               }

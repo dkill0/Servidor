@@ -24,7 +24,7 @@ $numeritoCarlos = mysqli_num_rows($result5);
 
 if ($numeritoCarlos!=0){
 
-  echo ' <table class="table table-dark table-responsive">
+  echo ' <table class="table table-hover table-dark table-responsive">
   <tr>
   <th>Nombre</th>
   <th class=text-end>Cantidad</th>
@@ -70,7 +70,7 @@ if ($numeritoCarlos!=0){
     $numero = mysqli_num_rows($result6);
     if ($numero == 0){
       print '
-        <tr class="text-end">
+        <tr class=" text-end">
         <form action="servido.php" method="post">
         
         <input type=hidden name=codigo value='.$codPed.'>
