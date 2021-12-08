@@ -2,6 +2,9 @@
       
           echo '<h3 style="color:white;" class="text-center">Pedido numero: '.$codPed.'</h3>';
           echo '<h4 style="color:white;" class="text-center">Cliente numero: '.$idUs.' </h4>';
+          echo '<h5 style="color:white;" class="text-center">Camarero numero: '.$idCam.' </h5>';
+
+
           $consulta4 = "SELECT fecha from pedido where idPedido='$codPed'";
          //Ejecutamos la sentencia SQL
          $result4 = mysqli_query($conn ,$consulta4);

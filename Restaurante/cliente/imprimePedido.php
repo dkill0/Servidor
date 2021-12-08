@@ -26,7 +26,7 @@
 
           if ($numeritoCarlos!=0){
 
-            echo ' <table class="table table-dark table-responsive">
+            echo ' <table class="table table-secondary table-responsive">
             <tr>
             <th>Nombre</th>
             <th class=text-end>Cantidad</th>

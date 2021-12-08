@@ -75,7 +75,7 @@ session_start();
             header ("LOCATION:inicioSes.php?sitio=$sitio");
         
         } else {
-            echo '<div class=" fixed-bottom mt-5 alert alert-danger alert-dismissible">
+            echo '<div class=" mt-5 alert alert-danger alert-dismissible">
        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         Usuario ya registrado, prueba a <a <a class="alert-link" href="inicioSes.php">iniciar sesion</a>.';
         }
