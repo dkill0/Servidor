@@ -1,5 +1,5 @@
 <article class=" col-12">
-<div style="position: sticky; top:65px; z-index: 2;" class=" fondoT row mb-3">
+<div class=" fondoT row mb-3">
     <h2 class=" fw-bold titulo text-center text-uppercase">Entrantes</h2>
 </div>
     <div class="row justify-content-around g-3 ">
@@ -46,7 +46,7 @@
   
 </article>
 <article class=" col-12 mt-3">
-<div style="position: sticky; top:65px; z-index: 2;"class=" fondoT  row">
+<div class=" fondoT  row">
 <h2 class=" fw-bold titulo text-center text-uppercase">Platos</h2>
     
 </div>
@@ -93,7 +93,7 @@
     </div>
 </article>
 <article class=" col-12 mt-3">
-<div style="position: sticky; top:65px; z-index: 2;"class=" fondoT  row">
+<div class=" fondoT  row">
 <h2 class=" fw-bold titulo text-center text-uppercase">Postres</h2>
 </div>
     <div class="row justify-content-between">
@@ -139,7 +139,7 @@
     </div>
 </article>
 <article class=" col-12 mt-3">
-<div style="position: sticky; top:65px; z-index: 2;"class=" fondoT  row">
+<div class=" fondoT  row">
 <h2 class=" fw-bold titulo text-center text-uppercase">Bebidas</h2>
   </div>
     

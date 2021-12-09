@@ -7,7 +7,7 @@ include("../Seguridad.php");
 <?php
 include("meta2.php");
 ?>
-    <title>Document</title>
+    <title>Mis pedidos</title>
 </head>
 <body>
     <?php
@@ -15,8 +15,12 @@ include("meta2.php");
 
     ?>
     <div class="container-fluid">
-    <div>
-    <h1 style="color:white;" class="bg-success">En proceso</h1>
+    <div class="row justify-content-around">
+        
+
+       
+    <h1 style="color:white;" class="text-center fondoT">En proceso</h1>
+    <div class="col-12 col-lg-5 mb-3" style="background-color:#212529;">
     <?php
     if (isset($_GET['codPed'])) {
         $codPed=$_GET['codPed'];
@@ -27,9 +31,9 @@ include("meta2.php");
     }else{
         echo"No tienes pedidos pendientes.";
     }
-    echo"</div><div>";
+    echo'</div></div><div class="row justify-content-around">';
+    echo '<h1 class="text-center fondoT" style="color:white;" >Finalizados</h1>';
 
-    echo "<h1>Finalizados</h1>";
     $idusuario=$_SESSION['idUsuario'];
     include("../conexion.php");
     $consulta3="SELECT idPedido
@@ -41,16 +45,16 @@ include("meta2.php");
     while($row6 = mysqli_fetch_array($result3)){
         $codPed=$row6['idPedido'];
         
+        echo '<div style="background-color:#212529;" class="col-12 col-lg-5 g-0 mb-3 card">';
+        echo"<div class=card-body>";
         include("imprimePedido.php");
-        echo "<a href=imprimirTicket.php?codPed=$codPed>Imprimir ticket en pdf</a>";
-        
+        echo"</div><div class=card-footer>";
+        echo '<a class=" d-grid mb-3 btn btn-primary" href=imprimirTicket.php?codPed='.$codPed.'>Imprimir ticket en pdf</a>';
+       echo '</div></div>'; 
     }
     echo "</div>";
     ?>
-<div>
- <p>Boton desplegable</p>
-</div>
-<a href=pedidosCli.php>Volver</a>
+<a class="btn btn-info" href=pedidosCli.php>Volver</a>
 </div>
 </body>
 </html>

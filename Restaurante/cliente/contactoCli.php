@@ -29,8 +29,8 @@ include("../Seguridad.php");
 
                         <input type="radio" name="motivo" id="motivo" value="plato" required>Error en el plato<br>
                         <input type="radio" name="motivo" id="motivo" value="pago" required>Fallo en el pago<br>
-                        <input type="radio" name="motivo" id="motivo" value="reclamacion " required>Solicitud de la hoja de reclamaciones<br>
-                        <input class="form-control" type="number" name="codPed" placeholder="Número del pedido"><br>
+                        <input type="radio" name="motivo" id="motivo" value="reclamacion" required>Solicitud de la hoja de reclamaciones<br>
+                        
                         <input type="radio" name="motivo" id="motivo" value="otro" required>Otro<br>
                         <textarea class="form-control" name="comentario" id="comentario" cols="30" rows="10" placeholder="Introduzca el motivo..."></textarea>
                     </div>

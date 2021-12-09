@@ -13,9 +13,9 @@ while($row2 = mysqli_fetch_array($result4)){
  
 }
 
-$consulta7= "SELECT DISTINCT l.idProducto as prod, nombre, SUM(cantidad) AS cant, servido, l.fecha as fecha
+$consulta7= "SELECT DISTINCT l.idProducto as prod, nombre, SUM(cantidad) AS cant, l.servido as servido
 FROM lineapedido l, pedido p,  productos pr, tipo t
-WHERE l.idPedido='$codPed' AND p.idPedido=l.idPedido AND l.servido=0 and pr.idProducto=l.idProducto and camarero='$idUs' and enviado=0 and pr.tipo=t.idTipo
+WHERE l.idPedido='$codPed' AND p.idPedido=l.idPedido AND p.servido=0 and pr.idProducto=l.idProducto and camarero='$idUs' and enviado=1 and pr.tipo=t.idTipo
 GROUP BY l.idProducto
 ORDER BY t.descripcion";
 //Ejecutamos la sentencia SQL
@@ -24,7 +24,7 @@ $numeritoCarlos = mysqli_num_rows($result5);
 
 if ($numeritoCarlos!=0){
 
-  echo ' <table class="table table-dark table-responsive">
+  echo ' <table class="table table-hover table-dark table-responsive">
   <tr>
   <th>Nombre</th>
   <th class=text-end>Cantidad</th>
@@ -35,6 +35,7 @@ if ($numeritoCarlos!=0){
   while($row3 = mysqli_fetch_array($result5)){
     $idProd= $row3['prod'];
     $servido= $row3['servido'];
+    
     
 
     print("<tr>
@@ -60,9 +61,26 @@ if ($numeritoCarlos!=0){
     
         </tr>';
         $conta++;
-        
   }
     mysqli_error($conn);
+
+
+    $consulta8 = "SELECT servido from lineapedido where idPedido='$codPed' and servido=0; "; 
+    $result6 = mysqli_query($conn ,$consulta8);
+    $numero = mysqli_num_rows($result6);
+    if ($numero == 0){
+      print '
+        <tr class=" text-end">
+        <form action="servido.php" method="post">
+        
+        <input type=hidden name=codigo value='.$codPed.'>
+          <td colspan=3><button type="submit" class="btn btn-success">Pedido finalizado</button></td>
+          </form>
+        </tr>
+      ';
+    }
+
+
 
  echo "</table>"; 
   } else {

@@ -17,6 +17,9 @@
             <?php include("productos.php"); ?>
         </div>
     </div>
+    <?php
+ include("footerIndex.php");
+ ?>
 </body>
 
 </html>

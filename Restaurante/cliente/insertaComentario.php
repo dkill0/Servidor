@@ -3,7 +3,29 @@ include("../Seguridad.php");
 include("../conexion.php");
 if (isset($_POST['motivo'])) {
     
-    $motivo=$_POST['motivo'];
+    $tipo=$_POST['motivo'];
+    $motivo="";
+    switch ($tipo) {
+        case 'pedido':
+            $motivo="Error en el pedido";
+           break;
+           case 'plato':
+            $motivo="Error en un plato";
+           break;
+           case 'pago':
+            $motivo="Error en el pago";
+           break;
+           case 'reclamacion':
+            $motivo="Reclamacion (hoja)";
+           break;
+           case 'otro':
+            $motivo="Otro (ver mensaje)";
+           break;
+        default:
+            $motivo="Error";
+            break;
+    }
+
 
     $idUser=$_SESSION['idUsuario'];
   
@@ -30,22 +52,20 @@ if (isset($_POST['motivo'])) {
 
     if (isset($_POST['comentario'])) {
         $mensaje=$_POST['comentario'];
-        echo "Hola";
-    } 
-    if (isset($_POST['codPed'])) {
-        $mensaje=$_POST['codPed'];
-        echo "Hola1";
+        
     }
 
     if(empty($mensaje)){
         $mensaje="No introducido";
-        echo "Hola2";
+        
     }
 
     
-    $consulta2="INSERT INTO notificacion VALUES ('$idAdmin','$idUser', '$mensaje','$motivo', false, NOW())";
+    $consulta2="INSERT INTO incidencias VALUES (null,'$idAdmin','$idUser', '$mensaje','$motivo', false, NOW())";
+    echo $consulta2;
   
-    $result = mysqli_query($conn, $consulta2);
+    mysqli_query($conn, $consulta2);
+    
 
 }else{
     echo"No hay admins disponibles";

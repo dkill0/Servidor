@@ -48,10 +48,7 @@ include("../Seguridad.php");
 		<div class="col-4 mb-3">
 			<small class="form-text">Año de expiración:</small>
 			<input class="col-3 form-control" type="text" required placeholder="AA">
-			<?php 
-			//echo"<input type=hidden id=codPed value=$codPed>";
 			
-			?>
 		</div>
 
 
@@ -94,7 +91,7 @@ include("../Seguridad.php");
 				<a href="pedidosCli.php?codPed='. $codPed .'"  class=" float-end btn btn-danger">CANCELAR</a>
 
 			</div>';
-		//href="cierrePedido.php?codPed=' . $codPed . '"
+		
 		?>
 
 	</div>

@@ -18,7 +18,18 @@ session_start();
     <div class="container-fluid">
         <section class="row">
             <article class=" col-12">
-
+            <?php
+            if (isset($_GET['sitio'])) {
+                print '
+               <div class="row ">
+               <div class="alert alert-info text-center alert-dismissible" role="alert">
+               <span>¡Usuario registrado correctamente!</span>
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+             </div>
+             </div>
+               ';
+            }
+            ?>
                 <form action="" method="POST" class="row  justify-content-around">
                     <div class="col-auto mt-5">
                         <h1 style="color:white;" class="mb-3">Inicio</h1>
@@ -84,7 +95,7 @@ session_start();
                     header("Location:./cliente/indexCli.php");
                 }
             } else {
-                echo '<div class="fixed-bottom alert alert-danger alert-dismissible">
+                echo '<div class="alert alert-danger alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     Usuario no encontrado o contraseña incorrecta. Si no estás registrado, prueba a registrarte <a class="alert-link" href="registroCli.php">aquí</a>
                   </div>';
@@ -92,9 +103,9 @@ session_start();
         }
 
         ?>
-        <footer>
-
-        </footer>
+    <?php
+ include("footerIndex.php");
+ ?>
     </div>
 </body>
 

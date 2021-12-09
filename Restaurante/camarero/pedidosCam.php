@@ -11,13 +11,16 @@
 <body>
 <?php include("headerCam.php");?>
 <div class="container-fluid">
+    <div class="row justify-content-around">
+
+    
 <?php
 include("../conexion.php");
 
 $idUs=$_SESSION['idUsuario'];
 
 
-    $consulta="SELECT idPedido from pedido where camarero='$idUs' and enviado=0 and servido=0 ";
+    $consulta="SELECT idPedido from pedido where camarero='$idUs' and enviado=1 and servido=0 ";
     
     $result15=mysqli_query($conn, $consulta);
      
@@ -26,7 +29,10 @@ $idUs=$_SESSION['idUsuario'];
     if($numero != 0){
         while ( $row = mysqli_fetch_array($result15) ) {
             $codPed=$row['idPedido'];
+            echo '<div class="mt-4 bg-secondary col-12 col-md-5">';
+        
             include("imprimePedido.php");
+            echo "</div>";
            
         }
 
@@ -35,7 +41,7 @@ $idUs=$_SESSION['idUsuario'];
     }
 
 ?>
-
+</div>
 </div>
 </body>
 </html>

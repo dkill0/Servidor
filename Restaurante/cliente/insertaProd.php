@@ -10,7 +10,7 @@ if(isset($_GET['canti']) && isset($_GET['idPro'])){
 
 
 
-   $consulta= "INSERT INTO lineapedido (idPedido,idProducto,cantidad,fecha) VALUES ('$codPed','$idPro','$canti', NOW())";
+   $consulta= "INSERT INTO lineapedido (idPedido,idProducto,cantidad,fecha, servido) VALUES ('$codPed','$idPro','$canti', NOW(), false)";
  
    //Ejecutamos la sentencia SQL
 $result = mysqli_query($conn ,$consulta);
