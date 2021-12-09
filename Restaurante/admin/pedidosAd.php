@@ -22,7 +22,7 @@ include("../Seguridad.php");
 
 
 
-        <h2 style="background-color:black; color: white;">Pedidos en marcha</h2>
+        <h2 style="color: white;" class="text-center fondoT">Pedidos en marcha</h2>
         <?php
 
         include("../conexion.php");
@@ -36,7 +36,7 @@ ORDER BY fecha DESC";
             $codPed = $row9['idPedido'];
             $idCam = $row9['camarero'];
             $idUs = $row9['cliente'];
-            echo '<div style="background-color:grey;" class="mb-4 col-5">';
+            echo '<div style="background-color:grey;" class="mb-4 col-12 col-lg-5">';
             include("imprimePedido.php");
             echo '</div>';
         }
@@ -44,7 +44,7 @@ ORDER BY fecha DESC";
 
     </div>
     <div class="row justify-content-around">
-        <h2 style="background-color:black; color: white;">Pedidos sin pagar</h2>
+        <h2 style="color: white;" class="text-center fondoT">Pedidos sin pagar</h2>
         <?php
 
         include("../conexion.php");
@@ -59,7 +59,7 @@ ORDER BY fecha DESC";
             $codPed = $row9['idPedido'];
             $idCam = $row9['camarero'];
             $idUs = $row9['cliente'];
-            echo '<div style="background-color:grey;" class="mb-4 col-5">';
+            echo '<div style="background-color:grey;" class="mb-4 col-12 col-lg-5">';
             include("imprimePedido.php");
             echo '</div>';
         }
@@ -68,7 +68,7 @@ ORDER BY fecha DESC";
     </div>
 
     <div class="row justify-content-around">
-        <h2 style="background-color:black; color: white;">Pedidos Finalizados</h2>
+        <h2 style="color: white;" class="text-center fondoT">Pedidos Finalizados</h2>
         <?php
 
         include("../conexion.php");
@@ -83,7 +83,7 @@ ORDER BY fecha DESC";
             $codPed = $row9['idPedido'];
             $idCam = $row9['camarero'];
             $idUs = $row9['cliente'];
-            echo '<div style="background-color:grey;" class="mb-4 col-5">';
+            echo '<div style="background-color:grey;" class="mb-4 col-12 col-lg-5">';
             include("imprimePedido.php");
             echo '</div>';
         }

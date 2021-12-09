@@ -1,6 +1,6 @@
-<header class="cabe">
+<header>
     <div class=" col-12 text-uppercase text-center">
-    <h1 class="display">Lentejas los jueves</h1>
+    <h1 style="color:white"class="display">Lentejas los jueves</h1>
     </div>
   
     
