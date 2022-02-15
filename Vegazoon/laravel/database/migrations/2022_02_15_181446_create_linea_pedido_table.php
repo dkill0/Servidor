@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePedidoTable extends Migration
+class CreateLineaPedidoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreatePedidoTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedido', function (Blueprint $table) {
-            $table->increments('idPedido');
-            $table->unsignedBigInteger('usuario');
+        Schema::create('linea_pedido', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->foreign("usuario")
-                    ->references("id")
-                    ->on("users");
         });
     }
 
@@ -30,6 +26,6 @@ class CreatePedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedido');
+        Schema::dropIfExists('linea_pedido');
     }
 }
