@@ -1,7 +1,8 @@
 <?php
 
+use App\Models;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function(){
+    Route::get('productos/', 'ProductController@index')->name('productos.index');
+   Route::get('productos/portatiles', 'ProductController@portatiles')->name('productos.portatiles');
+    Route::get('productos/libros', 'ProductController@libros')->name('productos.libros');
 });
+
+
+Auth::routes();
+
