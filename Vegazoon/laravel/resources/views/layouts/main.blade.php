@@ -16,12 +16,16 @@
             <h1 class="text-center">Vegazoon</h1>
 
         </header>
-        <div class="row justify-content-end">
-            <div class="col-2">
+        <div class="row justify-content-around">
+            <div class="col">
+            <a class="btn btn-primary" href="{{ route('productos.index')}}">Inicio</a>
+            </div>
+       
+            <div class="col">
 
                 <a href="#"> Bienvenido {{auth()->user()->name}}</a>
             </div>
-            <div class="col-1">
+            <div class="col">
                 <a href="javascript: document.getElementById('logout').submit()" class="btn btn-danger btn-sm float-end">Salir</a>
                 <form id="logout" action="{{route('logout')}}" method="POST" style="display:none">
                     @csrf
