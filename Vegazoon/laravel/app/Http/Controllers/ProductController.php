@@ -11,7 +11,7 @@ class ProductController extends Controller
    public function index()
    {
       $productos = DB::table('productos')
-         ->where('stock','!=', '0')
+         ->where('stock', '!=', '0')
          ->havingRaw('MAX(descuento)')
          ->limit(8)
          ->groupBy('idProducto')
@@ -21,7 +21,12 @@ class ProductController extends Controller
    }
    public function portatiles()
    {
-      $portatiles = DB::table('productos')->get();
+
+
+      $portatiles = DB::table('productos')
+         ->where('stock', '!=', '0')
+         ->orderBy('precio', 'DESC')
+         ->get();
       return view('productos.portatiles', compact('portatiles'));
    }
 }
