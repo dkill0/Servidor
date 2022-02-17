@@ -18,9 +18,9 @@
         </header>
         <div class="row justify-content-around">
             <div class="col">
-            <a class="btn btn-primary" href="{{ route('productos.index')}}">Inicio</a>
+                <a class="btn btn-primary" href="{{ route('productos.index')}}">Inicio</a>
             </div>
-       
+
             <div class="col">
 
                 <a href="#"> Bienvenido {{auth()->user()->name}}</a>
@@ -42,16 +42,6 @@
                     <img src="./imagen/libro.jpg" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title text-center">Portatiles</h5>
-
-                    </div>
-                </div>
-            </a>
-            <a href="{{ route('productos.libros')}}" class=" col-5 btn">
-                <div class="card">
-                    <img src="./imagen/libro.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Libros</h5>
-
                     </div>
                 </div>
             </a>

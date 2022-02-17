@@ -11,10 +11,17 @@ class ProductController extends Controller
    public function index()
    {
       $productos = DB::table('productos')
+         ->where('stock','!=', '0')
          ->havingRaw('MAX(descuento)')
          ->limit(8)
          ->groupBy('idProducto')
+         ->orderBy('descuento', 'DESC')
          ->get();
       return view('productos.index', compact('productos'));
+   }
+   public function portatiles()
+   {
+      $portatiles = DB::table('productos')->get();
+      return view('productos.portatiles', compact('portatiles'));
    }
 }

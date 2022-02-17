@@ -15,8 +15,7 @@ use Illuminate\Http\Request;
 */
 Route::middleware('auth')->group(function(){
     Route::get('productos/', 'ProductController@index')->name('productos.index');
-   Route::get('productos/portatiles', 'ProductController@portatiles')->name('productos.portatiles');
-    Route::get('productos/libros', 'ProductController@libros')->name('productos.libros');
+    Route::get('productos/portatiles', 'ProductController@portatiles')->name('productos.portatiles');
 });
 
 

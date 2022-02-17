@@ -21,8 +21,8 @@ class CreateLineaPedidoTable extends Migration
 
             $table->integer('cantidad');
             $table->timestamps();
-            //para poner dos claves primarias
-            $table->primary(['idPedido', 'idUsuario']);
+            //para poner clave primaria compuesta
+            $table->primary(['idPedido', 'idUsuario', 'created_at']);
             $table->foreign("idUsuario")
                     ->references("id")
                     ->on("users")
