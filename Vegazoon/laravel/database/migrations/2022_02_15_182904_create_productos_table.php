@@ -18,7 +18,10 @@ class CreateProductosTable extends Migration
             $table->integer('stock'); 
             $table->double('descuento');
             $table->string('imagen');
-            $table->string('tipo');
+            $table->string('marca');
+            $table->string('modelo');
+            $table->string('caracteristicas');
+            $table->double('precio');
             $table->timestamps();
         });
     }
