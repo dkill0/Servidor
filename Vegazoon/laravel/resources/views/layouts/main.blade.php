@@ -22,12 +22,14 @@
             <div class="container-fluid justify-content-between">
 
 
+                
+                <a class="navbar-brand" href="{{ route('productos.index')}}">
+                    <img src="img/logoVM.jpg" alt="" style="width:40px">
+                </a>
+                <a class="nav-link" href="">Carrito</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_plegable2">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img src="./images/logoVM.jpg" alt="" style="width:40px">
-                </a>
 
                 <div class="collapse navbar-collapse" id="navbar_plegable2">
                     <ul class="navbar-nav me-auto">
@@ -35,15 +37,21 @@
                             <a class="nav-link link-active" href="{{ route('productos.index')}}">Inicio</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('productos.portatiles')}}">Portatiles</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Pedidos</a></li>
+                        @php
+                            $user_id=auth()->user()->id;
+                        @endphp
+                        <li class="nav-item"><a class="nav-link" href="{{ route('productos.compruebaPedido', $user_id)}}">Pedidos</a></li>
+                        
+
                         
                     </ul>
                     <br>
+                   
                     <div class="d-flex justify-content-between">
                         @php
                             $user_id=auth()->user()->id;
                         @endphp
-
+                       
                         <a href="{{ route('productos.perfil', $user_id)}}" class="me-3 link-light"> Bienvenido {{auth()->user()->name}}</a>
                         <a href="javascript: document.getElementById('logout').submit()" class="btn btn-danger btn-sm float-end">Salir</a>
                         <form id="logout" action="{{route('logout')}}" method="POST" style="display:none">

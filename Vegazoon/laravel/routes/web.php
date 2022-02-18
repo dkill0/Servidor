@@ -18,6 +18,8 @@ Route::middleware('auth')->group(function(){
     Route::get('productos/portatiles', 'ProductController@portatiles')->name('productos.portatiles');
     Route::get('productos/{id}/perfil', 'ProductController@perfilUsuario')->name('productos.perfil');
     Route::get('productos/{id}/producto', 'ProductController@perfilProducto')->name('productos.producto');
+    Route::get('productos/{id}/pedidos', 'ProductController@compruebaPedido')->name('productos.compruebaPedido');
+
 
 
 });

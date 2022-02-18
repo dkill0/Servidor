@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ProductController extends Controller
 {
    public function index()
@@ -17,6 +19,8 @@ class ProductController extends Controller
          ->groupBy('idProducto')
          ->orderBy('descuento', 'DESC')
          ->get();
+
+         
       return view('productos.index', compact('productos'));
    }
    public function portatiles()
@@ -44,5 +48,17 @@ class ProductController extends Controller
          ->get();
 
       return view('productos.producto', compact('producto'));
+   }
+
+   public function compruebaPedido($id)
+   {
+      $pedido =DB::table('pedidos')
+      ->where('user', $id)
+      ->get();
+
+      if($pedido.isEmpty()){
+         {"Elige algun producto para comenzar tu pedido"}
+      }
+      return view('productos.pedidos', compact('pedido'));
    }
 }
