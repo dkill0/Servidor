@@ -21,12 +21,28 @@ class ProductController extends Controller
    }
    public function portatiles()
    {
-
-
       $portatiles = DB::table('productos')
          ->where('stock', '!=', '0')
          ->orderBy('precio', 'DESC')
          ->get();
       return view('productos.portatiles', compact('portatiles'));
+   }
+
+   public function perfilUsuario($id)
+   {
+      $persona = DB::table('users')
+         ->where('id', $id)
+         ->get();
+
+      return view('productos.perfil', compact('persona'));
+   }
+
+   public function perfilProducto($id)
+   {
+      $producto = DB::table('productos')
+         ->where('idProducto', $id)
+         ->get();
+
+      return view('productos.producto', compact('producto'));
    }
 }

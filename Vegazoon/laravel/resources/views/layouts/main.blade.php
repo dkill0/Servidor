@@ -11,41 +11,56 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <header>
             <h1 class="text-center">Vegazoon</h1>
 
         </header>
-        <div class="row justify-content-around">
-            <div class="col">
-                <a class="btn btn-primary" href="{{ route('productos.index')}}">Inicio</a>
-            </div>
-
-            <div class="col">
-
-                <a href="#"> Bienvenido {{auth()->user()->name}}</a>
-            </div>
-            <div class="col">
-                <a href="javascript: document.getElementById('logout').submit()" class="btn btn-danger btn-sm float-end">Salir</a>
-                <form id="logout" action="{{route('logout')}}" method="POST" style="display:none">
-                    @csrf
-                </form>
-
-            </div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 
 
-        </div>
+            <div class="container-fluid justify-content-between">
 
-        <div class="row justify-content-center">
-            <a href="{{ route('productos.portatiles')}}" class=" col-5 btn">
-                <div class="card">
-                    <img src="./imagen/libro.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Portatiles</h5>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_plegable2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="./images/logoVM.jpg" alt="" style="width:40px">
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbar_plegable2">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link link-active" href="{{ route('productos.index')}}">Inicio</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('productos.portatiles')}}">Portatiles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Pedidos</a></li>
+                        
+                    </ul>
+                    <br>
+                    <div class="d-flex justify-content-between">
+                        @php
+                            $user_id=auth()->user()->id;
+                        @endphp
+
+                        <a href="{{ route('productos.perfil', $user_id)}}" class="me-3 link-light"> Bienvenido {{auth()->user()->name}}</a>
+                        <a href="javascript: document.getElementById('logout').submit()" class="btn btn-danger btn-sm float-end">Salir</a>
+                        <form id="logout" action="{{route('logout')}}" method="POST" style="display:none">
+                            @csrf
+                        </form>
                     </div>
+
+
+
+
                 </div>
-            </a>
-        </div>
+
+            </div>
+        </nav>
+        
+
+      
         @yield('contenido')
     </div>
 
