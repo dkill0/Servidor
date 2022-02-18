@@ -10,7 +10,7 @@
 
         <div class="card col-12 col-md-5" style="">
 
-            <img src="{{$producto->imagen}}" class="card-img-top" alt="...">
+            <img src="{{ asset('img/'.$producto->imagen) }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$producto->marca}}</h5>
                 <h6>{{$producto->modelo}}</h6>
