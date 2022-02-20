@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models;
+use App\Models\Pedidos;
+use App\Models\Linea_pedido;
 use Illuminate\Support\Facades\DB;
 
 use function PHPUnit\Framework\isEmpty;
@@ -20,7 +22,7 @@ class ProductController extends Controller
          ->orderBy('descuento', 'DESC')
          ->get();
 
-         
+
       return view('productos.index', compact('productos'));
    }
    public function portatiles()
@@ -52,13 +54,51 @@ class ProductController extends Controller
 
    public function compruebaPedido($id)
    {
-      $pedido =DB::table('pedidos')
-      ->where('user', $id)
-      ->get();
+      $pedidos = DB::table('pedidos')
+         ->where('user', $id)
+         ->get();
+     
+      return view('productos.pedidos', compact('pedidos'));
+   }
 
-      if($pedido.isEmpty()){
-         {"Elige algun producto para comenzar tu pedido"}
-      }
-      return view('productos.pedidos', compact('pedido'));
+   public function nuevoArticulo(Request $cantidad, $idUsu, $idProd){
+      $pedidos = DB::table('pedidos')
+         ->where('user', $idUsu)
+         ->where('enviado','0')
+         ->where('pagado', '0')
+         ->get();
+
+         if($pedidos.isEmpty()){
+            $nuevoPedido = new Pedidos;
+            $nuevoPedido->user=$idUsu;
+            $nuevoPedido->enviado=0;
+            $nuevoPedido->pagado=0;
+            $nuevoPedido->save();
+            $pedidos = DB::table('pedidos')
+            ->where('user', $idUsu)
+            ->where('enviado','0')
+            ->where('pagado', '0')
+            ->get();
+
+            $linea = new Linea_pedido;
+            $linea->idPedido=$pedidos->idPedido;
+            $linea->user=$idUsu;
+            $linea->idProducto=$idProd;
+            $linea->cantidad=$cantidad->input('cantidad');
+            $linea->save();
+         }else{
+            $linea = new Linea_pedido;
+            $linea->idPedido=$pedidos->idPedido;
+            $linea->user=$idUsu;
+            $linea->idProducto=$idProd;
+            $linea->cantidad=$cantidad->input('cantidad');
+            $linea->save();
+         }
+
+
+     
+      return redirect()->route('productos.index');
+
+
    }
 }

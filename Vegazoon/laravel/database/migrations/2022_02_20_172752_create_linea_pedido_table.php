@@ -14,11 +14,9 @@ class CreateLineaPedidoTable extends Migration
     public function up()
     {
         Schema::create('linea_pedido', function (Blueprint $table) {
-          
             $table->unsignedInteger('idPedido');
             $table->unsignedBigInteger('idUsuario');
             $table->unsignedInteger('idProducto');
-
             $table->integer('cantidad');
             $table->timestamps();
             //para poner clave primaria compuesta
@@ -39,7 +37,6 @@ class CreateLineaPedidoTable extends Migration
                     ->on("productos")
                     ->onDelete("cascade")
                     ->onUpdate("cascade");
-
         });
     }
 

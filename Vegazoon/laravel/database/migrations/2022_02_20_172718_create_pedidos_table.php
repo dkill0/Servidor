@@ -14,7 +14,6 @@ class CreatePedidosTable extends Migration
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
-           
             $table->increments('idPedido');
             $table->unsignedBigInteger('user');
             $table->timestamps();
@@ -25,7 +24,6 @@ class CreatePedidosTable extends Migration
                 ->on("users")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-
         });
     }
 
