@@ -61,7 +61,7 @@ class ProductController extends Controller
       return view('productos.pedidos', compact('pedidos'));
    }
 
-   public function nuevoArticulo(Request $cantidad, $idUsu, $idProd)
+   public function nuevoArticulo(Request $cantidad, $idUs, $idProd)
    {
       $pedidos = DB::table('pedidos')
          ->where('user', $idUsu)
@@ -69,7 +69,7 @@ class ProductController extends Controller
          ->where('pagado', '0')
          ->get();
 
-     if (($pedidos != "[]")) {
+     if (($pedidos == "[]")) {
          $nuevoPedido = new Pedidos;
          $nuevoPedido->user = $idUsu;
          $nuevoPedido->enviado = 0;
