@@ -17,10 +17,11 @@
   @php
   $user_id=auth()->user()->id;
   @endphp
-  <form action="{{route('productos.nuevoArticulo', [$user_id, 'idProd'=> $producto->idProducto])}}" method="post">
-    @method('post')
-    @csrf
-    <div class="col-12 col-lg-4 mt-5  align-self-center">
+
+  <div class="col-12 col-lg-4 mt-5  align-self-center">
+    <form action="{{route('productos.nuevoArticulo', [$user_id, 'idProd'=> $producto->idProducto])}}" method="post">
+      @method('post')
+      @csrf
       <h4 class="text-center mb-3">Añadir al carrito</h4>
       <div class="row justify-content-center">
         <div class="col-2">
@@ -37,8 +38,8 @@
 
         <button type="submit" class="mt-5 col-4 btn btn-primary">Aceptar</button>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 @endforeach
 @endsection

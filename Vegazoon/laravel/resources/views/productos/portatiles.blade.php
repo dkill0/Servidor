@@ -1,10 +1,11 @@
 @extends('layouts.main')
 @section('contenido')
 
+<h1 class="text-center mt-4">Nuestros portátiles</h1>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  row-cols-lg-4 g-4 justify-content-left">
         @foreach($portatiles as $producto)
         <div class="col mt-5">
-            <div class="card" style="">
+            <div class="card" style="width: 18rem;">
                 <a href="{{ route('productos.producto', $producto->idProducto )}}" class="btn">
                     <img src="{{ asset('img/'.$producto->imagen) }}" class="card-img-top" alt="...">
                     <div class="card-body">

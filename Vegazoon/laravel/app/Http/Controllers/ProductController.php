@@ -57,49 +57,57 @@ class ProductController extends Controller
       $pedidos = DB::table('pedidos')
          ->where('user', $id)
          ->get();
-     
+
       return view('productos.pedidos', compact('pedidos'));
    }
 
-   public function nuevoArticulo(Request $cantidad, $idUsu, $idProd){
+   public function nuevoArticulo(Request $cantidad, $idUsu, $idProd)
+   {
       $pedidos = DB::table('pedidos')
          ->where('user', $idUsu)
-         ->where('enviado','0')
+         ->where('enviado', '0')
          ->where('pagado', '0')
          ->get();
 
-         if(empty($pedidos)){
-            $nuevoPedido = new Pedidos;
-            $nuevoPedido->user=$idUsu;
-            $nuevoPedido->enviado=0;
-            $nuevoPedido->pagado=0;
-            $nuevoPedido->save();
+     if (($pedidos != "[]")) {
+         $nuevoPedido = new Pedidos;
+         $nuevoPedido->user = $idUsu;
+         $nuevoPedido->enviado = 0;
+         $nuevoPedido->pagado = 0;
+         $nuevoPedido->save();
 
-            $pedidos2 = DB::table('pedidos')
+         $pedidos2 = DB::table('pedidos')
             ->where('user', $idUsu)
-            ->where('enviado','0')
+            ->where('enviado', '0')
             ->where('pagado', '0')
             ->get();
 
-            $linea = new Linea_pedido;
-            $linea->idPedido=$pedidos2->idPedido;
-            $linea->user=$idUsu;
-            $linea->idProducto=$idProd;
-            $linea->cantidad=$cantidad->input('cantidad');
-            $linea->save();
-         }else{
-            $linea = new Linea_pedido;
-            $linea->idPedido=$pedidos->idPedido;
-            $linea->user=$idUsu;
-            $linea->idProducto=$idProd;
-            $linea->cantidad=$cantidad->input('cantidad');
-            $linea->save();
-         }
+         $idPed = $pedidos2->idPedido;
+         $linea = new Linea_pedido;
+         $linea->idPedido = $idPed;
+         $linea->user = $idUsu;
+         $linea->idProducto = $idProd;
+         $linea->cantidad = $cantidad->input('cantidad');
+         $linea->save();
+      } else {
+         $idPed = $pedidos->idPedido;
+         $linea = new Linea_pedido;
+         $linea->idPedido = $idPed;
+         $linea->user = $idUsu;
+         $linea->idProducto = $idProd;
+         $linea->cantidad = $cantidad->input('cantidad');
+         $linea->save();
+      }
+   }
 
 
-     
-      return redirect()->route('productos.index');
+      return $idPed;
+   }
+   public function carrito()
+   {
 
 
+
+      return view('productos.carrito');
    }
 }
