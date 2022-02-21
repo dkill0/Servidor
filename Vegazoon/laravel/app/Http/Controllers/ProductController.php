@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models;
 use App\Models\Pedidos;
 use App\Models\Linea_pedido;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 use function PHPUnit\Framework\isEmpty;
@@ -25,15 +26,59 @@ class ProductController extends Controller
 
       return view('productos.index', compact('productos'));
    }
-   public function portatiles()
+
+
+   public function portatiles(Request $tipo)
    {
-      $portatiles = DB::table('productos')
+      $ordena=$tipo->input('filtro');
+      switch ($ordena) {
+         case '1':
+            $portatiles = DB::table('productos')
+               ->where('stock', '!=', '0')
+               ->orderBy('marca', 'ASC')
+               ->get();
+            break;
+         case '2':
+            $portatiles = DB::table('productos')
+               ->where('stock', '!=', '0')
+               ->orderBy('marca', 'DESC')
+               ->get();
+            break;
+         case '3':
+            $portatiles = DB::table('productos')
+               ->where('stock', '!=', '0')
+               ->orderBy('modelo', 'ASC')
+               ->get();
+            break;
+         case '4':
+            $portatiles = DB::table('productos')
+               ->where('stock', '!=', '0')
+               ->orderBy('modelo', 'DESC')
+               ->get();
+            break;
+         case '5':
+            $portatiles = DB::table('productos')
+               ->where('stock', '!=', '0')
+               ->orderBy('precio', 'ASC')
+               ->get();
+            break;
+         case '6':
+            $portatiles = DB::table('productos')
+               ->where('stock', '!=', '0')
+               ->orderBy('precio', 'DESC')
+               ->get();
+            break;
+
+         default:
+         $portatiles = DB::table('productos')
          ->where('stock', '!=', '0')
          ->orderBy('precio', 'DESC')
          ->get();
+            break;
+      }
+      
       return view('productos.portatiles', compact('portatiles'));
    }
-
    public function perfilUsuario($id)
    {
       $persona = DB::table('users')
@@ -61,7 +106,7 @@ class ProductController extends Controller
       return view('productos.pedidos', compact('pedidos'));
    }
 
-   public function nuevoArticulo(Request $cantidad, $idUs, $idProd)
+   public function nuevoArticulo(Request $cantidad, $idUsu, $idProd)
    {
       $pedidos = DB::table('pedidos')
          ->where('user', $idUsu)
@@ -69,7 +114,7 @@ class ProductController extends Controller
          ->where('pagado', '0')
          ->get();
 
-     if (($pedidos == "[]")) {
+      if (($pedidos == "[]")) {
          $nuevoPedido = new Pedidos;
          $nuevoPedido->user = $idUsu;
          $nuevoPedido->enviado = 0;
@@ -82,32 +127,46 @@ class ProductController extends Controller
             ->where('pagado', '0')
             ->get();
 
-         $idPed = $pedidos2->idPedido;
+
          $linea = new Linea_pedido;
-         $linea->idPedido = $idPed;
-         $linea->user = $idUsu;
+         $linea->idPedido = $pedidos2->idPedido;
+         $linea->idUsuario = $idUsu;
          $linea->idProducto = $idProd;
          $linea->cantidad = $cantidad->input('cantidad');
          $linea->save();
       } else {
-         $idPed = $pedidos->idPedido;
+         $id = $pedidos->idPedido;
          $linea = new Linea_pedido;
-         $linea->idPedido = $idPed;
-         $linea->user = $idUsu;
+         $linea->idPedido = $id;
+         $linea->idUsuario = $idUsu;
          $linea->idProducto = $idProd;
          $linea->cantidad = $cantidad->input('cantidad');
          $linea->save();
       }
+      return redirect()->route('productos.carrito');
    }
 
 
-      return $idPed;
-   }
+
    public function carrito()
    {
 
 
 
       return view('productos.carrito');
+   }
+
+   public function modificaPerfil(Request $request, $idUsu)
+   {
+      $persona = User::findOrFail($idUsu);
+      $persona->name = $request->input('name');
+      $persona->dni = $request->input('dni');
+      $persona->tlf = $request->input('tlf');
+      $persona->email = $request->input('email');
+      $persona->save();
+      $id = $persona->id;
+
+
+      return redirect()->route('productos.perfil', compact('id'))->with('info' . 'Producto modificado correctamente');
    }
 }

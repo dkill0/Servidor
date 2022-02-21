@@ -72,7 +72,7 @@ class CreateProductosTable extends Migration
             "stock" => "13",
             "descuento" => "12",
             "imagen" => "portatilLENOVO.jpg",
-            "marca" => " LENOVO",
+            "marca" => "LENOVO",
             "modelo" => "Legion 5 15IMH05",
             "caracteristicas" =>"Intel Core i7-10750H - NVIDIA GeForce GTX 1650 - RAM: 16 GB - 512 GB SSD PCIe - 15.6''",
             "precio" => '1099.00',

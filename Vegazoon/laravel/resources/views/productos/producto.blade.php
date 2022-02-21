@@ -28,7 +28,7 @@
           <a onclick="resta()" class="btn btn-primary">-</a>
         </div>
         <div class="col-5">
-          <input type="number" class="text-center form-control" id="cantidad" placeholder="" value="1" disabled>
+          <input type="number" class="text-center form-control" name="cantidad" id="cantidad" placeholder="" value="1" disabled>
         </div>
         <div class="col-2">
           <a onclick="suma()" class="btn btn-primary">+</a>

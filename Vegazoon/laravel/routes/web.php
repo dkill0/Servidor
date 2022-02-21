@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function(){
     Route::get('productos/{id}/pedidos', 'ProductController@compruebaPedido')->name('productos.compruebaPedido');
     Route::post('productos/{idUsu}/{idProd}/producto', 'ProductController@nuevoArticulo')->name('productos.nuevoArticulo');
     Route::get('productos/carrito', 'ProductController@carrito')->name('productos.carrito');
+    Route::put('productos/{id}/perfil', 'ProductController@modificaPerfil')->name('productos.modificaPerfil');
+   
+
 
 
 
