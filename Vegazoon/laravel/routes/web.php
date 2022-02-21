@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function(){
     Route::get('productos/{id}/perfil', 'ProductController@perfilUsuario')->name('productos.perfil');
     Route::get('productos/{id}/producto', 'ProductController@perfilProducto')->name('productos.producto');
     Route::get('productos/{id}/pedidos', 'ProductController@compruebaPedido')->name('productos.compruebaPedido');
-    Route::get('productos/{idUsu, idProd}/producto', 'ProductController@nuevoArticulo')->name('productos.nuevoArticulo');
+    Route::post('productos/{idUsu}/{idProd}/producto', 'ProductController@nuevoArticulo')->name('productos.nuevoArticulo');
 
 
 

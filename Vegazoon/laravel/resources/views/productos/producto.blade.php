@@ -17,8 +17,8 @@
   @php
   $user_id=auth()->user()->id;
   @endphp
-  <form action="{{route('productos.nuevoArticulo', $user_id, $producto->idProducto)}}" method="get">
-    @method('get')
+  <form action="{{route('productos.nuevoArticulo', [$user_id, 'idProd'=> $producto->idProducto])}}" method="post">
+    @method('post')
     @csrf
     <div class="col-12 col-lg-4 mt-5  align-self-center">
       <h4 class="text-center mb-3">Añadir al carrito</h4>

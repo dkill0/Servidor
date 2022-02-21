@@ -68,20 +68,21 @@ class ProductController extends Controller
          ->where('pagado', '0')
          ->get();
 
-         if($pedidos.isEmpty()){
+         if(empty($pedidos)){
             $nuevoPedido = new Pedidos;
             $nuevoPedido->user=$idUsu;
             $nuevoPedido->enviado=0;
             $nuevoPedido->pagado=0;
             $nuevoPedido->save();
-            $pedidos = DB::table('pedidos')
+
+            $pedidos2 = DB::table('pedidos')
             ->where('user', $idUsu)
             ->where('enviado','0')
             ->where('pagado', '0')
             ->get();
 
             $linea = new Linea_pedido;
-            $linea->idPedido=$pedidos->idPedido;
+            $linea->idPedido=$pedidos2->idPedido;
             $linea->user=$idUsu;
             $linea->idProducto=$idProd;
             $linea->cantidad=$cantidad->input('cantidad');
