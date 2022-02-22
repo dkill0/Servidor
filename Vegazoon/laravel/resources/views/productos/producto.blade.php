@@ -49,11 +49,11 @@
 
     let numero = parseInt(document.getElementById("cantidad").value);
     numero++;
-    if (numero >= 1 && numero <= 10) {
+    if (numero >= 1 && numero <= 9) {
 
       document.getElementById("cantidad").value = numero;
-    } else if (numero > 10) {
-      alert("Son demasiados, solo pedir de 1 a 10 unidades.");
+    } else if (numero > 9) {
+      alert("Son demasiados, solo pedir de 1 a 9 unidades.");
     }
   }
 
@@ -61,7 +61,7 @@
     let numero = parseInt(document.getElementById("cantidad").value);
     numero--;
     console.log(numero);
-    if (numero >= 1 && numero <= 10) {
+    if (numero >= 1 && numero <= 9) {
 
       document.getElementById("cantidad").value = numero;
     } else if (numero < 1) {

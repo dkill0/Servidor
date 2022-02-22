@@ -4,28 +4,27 @@
 @if(!$pedidos->isEmpty())
 @foreach ($pedidos as $pedidos)
 
-@switch($pedidos)
-    @case($pedidos->enviado == 0)
-        <h3>Pedidos pendientes de confirmacion</h3>
-        {{$pedidos->idPedido}}
-    @break
-    @case($pedidos->enviado == 1 && $pedidos->pagado==0 )
-        <h3>Pedidos pendientes de pago</h3>
-        {{$pedidos->idPedido}}
-    @break
-@endswitch
+@if($pedidos->pagado =0)
+<h1>Pedidos pendientes</h1>
+@endif
+@if($pedidos->pagado = 1)
 
-@endforeach
-
-@if($pedidos->pagado == 1)
-No tienes pedidos pedientes.
 <a href="{{ route('productos.portatiles')}}" class="btn btn-primary">Nuevo pedido</a>
 <h3>Pedidos finalizados</h3>
-        {{$pedidos->idPedido}}
+@foreach ($pedidos as $pedidos)
+
+
+
+@endforeach
 @endif
+@endforeach
+
+
 @else
-No tienes pedidos pedientes.
+<p> Todavía no has realizado ningun pedido. ¿A qué esperas?</p>
 <a href="{{ route('productos.portatiles')}}" class="btn btn-primary">Nuevo pedido</a>
 @endif
+
+
 
 @endsection

@@ -13,24 +13,18 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware('auth')->group(function(){
-    Route::get('productos/', 'ProductController@index')->name('productos.index');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', 'ProductController@index')->name('productos.index');
     Route::get('productos/portatiles', 'ProductController@portatiles')->name('productos.portatiles');
     Route::get('productos/{id}/perfil', 'ProductController@perfilUsuario')->name('productos.perfil');
     Route::get('productos/{id}/producto', 'ProductController@perfilProducto')->name('productos.producto');
-    Route::get('productos/{id}/pedidos', 'ProductController@compruebaPedido')->name('productos.compruebaPedido');
+    Route::get('productos/pedidos', 'ProductController@compruebaPedido')->name('productos.compruebaPedido');
     Route::post('productos/{idUsu}/{idProd}/producto', 'ProductController@nuevoArticulo')->name('productos.nuevoArticulo');
     Route::get('productos/carrito', 'ProductController@carrito')->name('productos.carrito');
     Route::put('productos/{id}/perfil', 'ProductController@modificaPerfil')->name('productos.modificaPerfil');
-   
-
-
-
-
-
-
+    Route::get('productos/pago', 'ProductController@pagoPedido')->name('productos.pagos');
 });
 
 
 Auth::routes();
-

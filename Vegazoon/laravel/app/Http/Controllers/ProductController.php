@@ -97,8 +97,10 @@ class ProductController extends Controller
       return view('productos.producto', compact('producto'));
    }
 
-   public function compruebaPedido($id)
+   public function compruebaPedido()
    {
+
+      $id = auth()->user()->id;
       $pedidos = DB::table('pedidos')
          ->where('user', $id)
          ->get();
@@ -106,56 +108,69 @@ class ProductController extends Controller
       return view('productos.pedidos', compact('pedidos'));
    }
 
-   public function nuevoArticulo(Request $request, $idUsu, $idProd)
+   public function nuevoArticulo(Request $request, $idUser, $idProd)
    {
       $pedidos = DB::table('pedidos')
-         ->where('user', $idUsu)
-         ->where('enviado', '0')
+         ->where('user', $idUser)
          ->where('pagado', '0')
-         ->get('idPedido');
+         ->get();
 
-      $id = $pedidos->first()->idPedido;
 
       if (($pedidos == "[]")) {
          $nuevoPedido = new Pedidos;
-         $nuevoPedido->user = $idUsu;
+         $nuevoPedido->user = $idUser;
          $nuevoPedido->enviado = 0;
          $nuevoPedido->pagado = 0;
          $nuevoPedido->save();
 
          $pedidos2 = DB::table('pedidos')
-            ->where('user', $idUsu)
-            ->where('enviado', '0')
+            ->where('user', $idUser)
             ->where('pagado', '0')
             ->get();
 
          $id = $pedidos2->first()->idPedido;
          $linea = new Linea_pedido;
          $linea->idPedido = $id;
-         $linea->idUsuario = $idUsu;
+         $linea->idUsuario = $idUser;
          $linea->idProducto = $idProd;
          $linea->cantidad = $request->input('cantidad');
          $linea->save();
       } else {
-
+         $id = $pedidos->first()->idPedido;
          $linea = new Linea_pedido;
          $linea->idPedido = $id;
-         $linea->idUsuario = $idUsu;
+         $linea->idUsuario = $idUser;
          $linea->idProducto = $idProd;
          $linea->cantidad = $request->input('cantidad');
          $linea->save();
       }
-      return $linea;
+
+      return redirect()->route('productos.carrito');
    }
 
 
 
    public function carrito()
    {
+      $idUser = auth()->user()->id;
+      $idPedido = DB::table('pedidos')
+         ->where('user', $idUser)
+         ->where('pagado', '0')
+         ->get();
+
+      $pedido = DB::table('linea_pedidos')
+         ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
+         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+         ->where('pedidos.idPedido', $idPedido->first()->idPedido)
+         ->get();
+      $total = linea_pedido::selectRaw('SUM(precio*cantidad) as total')
+         ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
+         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+         ->where('pedidos.idPedido', $idPedido->first()->idPedido)
+         ->get();
 
 
-
-      return view('productos.carrito');
+      return view('productos.carrito', compact('pedido', 'idPedido', 'total'));
    }
 
    public function modificaPerfil(Request $request, $idUsu)
@@ -170,5 +185,23 @@ class ProductController extends Controller
 
 
       return redirect()->route('productos.perfil', compact('id'))->with('info' . 'Producto modificado correctamente');
+   }
+
+   public function pagoPedido()
+   {
+      $idUser = auth()->user()->id;
+      $idPedido = DB::table('pedidos')
+         ->where('user', $idUser)
+         ->where('enviado', '0')
+         ->where('pagado', '0')
+         ->get();
+      $pagar = DB::table('pedidos')
+         ->where('user', $idUser)
+         ->where('idPedido', $idPedido->first()->idPedido)
+         ->update(['pagado' => 1]);
+
+
+
+      return redirect()->route('productos.compruebaPedido', compact('pagar'));
    }
 }
