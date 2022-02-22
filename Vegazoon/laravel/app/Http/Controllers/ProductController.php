@@ -30,7 +30,7 @@ class ProductController extends Controller
 
    public function portatiles(Request $tipo)
    {
-      $ordena=$tipo->input('filtro');
+      $ordena = $tipo->input('filtro');
       switch ($ordena) {
          case '1':
             $portatiles = DB::table('productos')
@@ -70,13 +70,13 @@ class ProductController extends Controller
             break;
 
          default:
-         $portatiles = DB::table('productos')
-         ->where('stock', '!=', '0')
-         ->orderBy('precio', 'DESC')
-         ->get();
+            $portatiles = DB::table('productos')
+               ->where('stock', '!=', '0')
+               ->orderBy('precio', 'DESC')
+               ->get();
             break;
       }
-      
+
       return view('productos.portatiles', compact('portatiles'));
    }
    public function perfilUsuario($id)
@@ -106,13 +106,15 @@ class ProductController extends Controller
       return view('productos.pedidos', compact('pedidos'));
    }
 
-   public function nuevoArticulo(Request $cantidad, $idUsu, $idProd)
+   public function nuevoArticulo(Request $request, $idUsu, $idProd)
    {
       $pedidos = DB::table('pedidos')
          ->where('user', $idUsu)
          ->where('enviado', '0')
          ->where('pagado', '0')
-         ->get();
+         ->get('idPedido');
+
+      $id = $pedidos->first()->idPedido;
 
       if (($pedidos == "[]")) {
          $nuevoPedido = new Pedidos;
@@ -127,20 +129,20 @@ class ProductController extends Controller
             ->where('pagado', '0')
             ->get();
 
-
+         $id = $pedidos2->first()->idPedido;
          $linea = new Linea_pedido;
-         $linea->idPedido = $pedidos2->idPedido;
+         $linea->idPedido = $id;
          $linea->idUsuario = $idUsu;
          $linea->idProducto = $idProd;
-         $linea->cantidad = $cantidad->input('cantidad');
+         $linea->cantidad = $request->input('cantidad');
          $linea->save();
       } else {
-         //$id = $pedidos->idPedido;
+
          $linea = new Linea_pedido;
-         $linea->idPedido = 1    ;
+         $linea->idPedido = $id;
          $linea->idUsuario = $idUsu;
          $linea->idProducto = $idProd;
-         $linea->cantidad = $cantidad->input('cantidad');
+         $linea->cantidad = $request->input('cantidad');
          $linea->save();
       }
       return $linea;

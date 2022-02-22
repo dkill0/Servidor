@@ -20,7 +20,7 @@
 
   <div class="col-12 col-lg-4 mt-5  align-self-center">
     <form action="{{route('productos.nuevoArticulo', [$user_id, 'idProd'=> $producto->idProducto])}}" method="post">
-      @method('post')
+
       @csrf
       <h4 class="text-center mb-3">Añadir al carrito</h4>
       <div class="row justify-content-center">
@@ -28,7 +28,7 @@
           <a onclick="resta()" class="btn btn-primary">-</a>
         </div>
         <div class="col-5">
-          <input type="number" class="text-center form-control" name="cantidad" id="cantidad" placeholder="" value="1" disabled>
+          <input type="text" class="text-center form-control" name="cantidad" id="cantidad" pattern="[1-9]{1}" placeholder="" value="1" >
         </div>
         <div class="col-2">
           <a onclick="suma()" class="btn btn-primary">+</a>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLineaPedidoTable extends Migration
+class CreateLineaPedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLineaPedidoTable extends Migration
      */
     public function up()
     {
-        Schema::create('linea_pedido', function (Blueprint $table) {
+        Schema::create('linea_pedidos', function (Blueprint $table) {
             $table->unsignedInteger('idPedido');
             $table->unsignedBigInteger('idUsuario');
             $table->unsignedInteger('idProducto');
@@ -22,21 +22,21 @@ class CreateLineaPedidoTable extends Migration
             //para poner clave primaria compuesta
             $table->primary(['idPedido', 'idUsuario', 'created_at']);
             $table->foreign("idUsuario")
-                    ->references("id")
-                    ->on("users")
-                    ->onDelete("cascade")
-                    ->onUpdate("cascade");
-                    
+                ->references("id")
+                ->on("users")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
+
             $table->foreign("idPedido")
-                    ->references("idPedido")
-                    ->on("pedidos")
-                    ->onDelete("cascade")
-                    ->onUpdate("cascade");
+                ->references("idPedido")
+                ->on("pedidos")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
             $table->foreign("idProducto")
-                    ->references("idProducto")
-                    ->on("productos")
-                    ->onDelete("cascade")
-                    ->onUpdate("cascade");
+                ->references("idProducto")
+                ->on("productos")
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
         });
     }
 
@@ -47,6 +47,6 @@ class CreateLineaPedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linea_pedido');
+        Schema::dropIfExists('linea_pedidos');
     }
 }
