@@ -137,7 +137,7 @@ class ProductController extends Controller
       } else {
          //$id = $pedidos->idPedido;
          $linea = new Linea_pedido;
-         $linea->idPedido = 1;
+         $linea->idPedido = 1    ;
          $linea->idUsuario = $idUsu;
          $linea->idProducto = $idProd;
          $linea->cantidad = $cantidad->input('cantidad');
