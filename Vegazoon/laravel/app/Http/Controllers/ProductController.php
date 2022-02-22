@@ -135,15 +135,15 @@ class ProductController extends Controller
          $linea->cantidad = $cantidad->input('cantidad');
          $linea->save();
       } else {
-         $id = $pedidos->idPedido;
+         //$id = $pedidos->idPedido;
          $linea = new Linea_pedido;
-         $linea->idPedido = $id;
+         $linea->idPedido = 1;
          $linea->idUsuario = $idUsu;
          $linea->idProducto = $idProd;
          $linea->cantidad = $cantidad->input('cantidad');
          $linea->save();
       }
-      return redirect()->route('productos.carrito');
+      return $linea;
    }
 
 
