@@ -1,5 +1,4 @@
 @extends('layouts.main')
-@section('contenido')
-
+@section('layouts')
 
 @endsection

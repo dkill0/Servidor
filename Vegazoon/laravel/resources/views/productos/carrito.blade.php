@@ -2,34 +2,90 @@
 @section('contenido')
 @if   (!$idPedido->isEmpty())
 <h2>Pedido en marcha</h2>
-@foreach ($idPedido as $id)
-<h4>Número de pedido: {{$id->idPedido}}</h4>
-@endforeach
-<table class="table table-sm">
-    <tr>
-        <td>Marca</td>
-        <td>Modelo</td>
-        <td>Cantidad</td>
+@php
 
-        <td>Precio</td>
-    </tr>
-    @foreach ($pedido as $pedido)  
+
+$cantidad=count($pedido);
+$linea=0;
+$total2= 0;
+$totalSinDesc2=0;
+
+@endphp
+
+@foreach ($pedido as $pedido)
+@php
+$precio = $pedido-> precio;
+$descuento = $pedido-> descuento;
+$cantidad2 = $pedido-> cantidad;
+$total= $cantidad2*($precio-($precio*($descuento/100)));
+$totalSinDesc=$cantidad2*$precio;
+
+
+if ($linea==0){
+echo '
+<h5>Número de pedido: '.$pedido->idPedido.'</h5>
+<table class="table table-sm table-primary">
+    <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Cantidad</th>
+        <th>Descuento</th>
+        <th class="text-end">Precio unidad</th>
+        <th class="text-end">Precio final</th>
+
+
+
+    </tr>';
+    }
+
+    @endphp
+
     <tr>
 
         <td>{{$pedido->marca}} </td>
         <td>{{$pedido->modelo}}</td>
         <td>{{$pedido->cantidad}}</td>
-        <td>{{$pedido->precio}}€</td>
-    </tr>
-    @endforeach
+        @php
+        if($pedido->descuento==0){
+        echo' <td></td>';
+        }else{
 
-    <tr>
-        @foreach($total as $total)
-        <td colspan="3">Total: </td>
-        <td>{{$total->total}}€</td>
-        @endforeach
+        echo'<td>'.$pedido->descuento.'% </td>';
+        }
+
+        @endphp
+        <td class="text-end">{{$pedido->precio}}€</td>
+        <td class="text-end">{{$total}}€</td>
+
+
     </tr>
-</table>
+
+    @php
+
+    $linea++;
+
+    $total2= $total + $total2;
+    $totalSinDesc2= $totalSinDesc + $totalSinDesc2;
+    if ($linea==$cantidad){
+
+
+    echo '
+    <tr>
+        <th>Total sin descuento</th>
+        <th class="text-end" colspan="4">'.$totalSinDesc2.'€</th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>Total a pagar</th>
+        <th class="text-end" colspan="5">'.$total2.'€</th>
+    </tr>
+</table>';
+
+}
+
+@endphp
+
+@endforeach
 
 <p>
     <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Pago</a>

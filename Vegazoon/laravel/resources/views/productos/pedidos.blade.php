@@ -90,7 +90,7 @@ echo '
 @endphp
 
 @endforeach
-<a href="" class="btn btn-danger">Pagar</a>
+<a href="{{ route('productos.carrito')}}" class="btn btn-danger">Pagar</a>
 @else
 <p> No tienes ningun pedido pendiente.</p>
 <a href="{{ route('productos.portatiles')}}" class="btn btn-primary">Nuevo pedido</a>
@@ -101,18 +101,18 @@ echo '
 @php
 $linea3=0;
 $cantidadPedidos=count($pedidosFin);
+@endphp
 
-
-foreach ($pedidosFin as $pedidos){
+@foreach ($pedidosFin as $pedidos)
+@php
 $linea3++;
-if($linea3<=$cantidadPedidos){ 
-    echo' <a href="" class="btn btn-primary">'.$pedidos->idPedido.'</a>';
-    }
+@endphp
+@if($linea3<=$cantidadPedidos)
+    <a href="{{ route('productos.verPedido', $pedidos->idPedido )}}" class="mt-4 me-4 btn btn-primary">Pedido número: {{$pedidos->idPedido}}</a>
+    
+    @endif
+    @endforeach
 
-    }
-
-
-    @endphp
     @else
     <p> Todavía no has realizado ningun pedido. ¿A qué esperas?</p>
     <a href="{{ route('productos.portatiles')}}" class="btn btn-primary">Nuevo pedido</a>

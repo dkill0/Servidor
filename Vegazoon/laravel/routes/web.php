@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('productos/carrito', 'ProductController@carrito')->name('productos.carrito');
     Route::put('productos/{id}/perfil', 'ProductController@modificaPerfil')->name('productos.modificaPerfil');
     Route::get('productos/pago', 'ProductController@pagoPedido')->name('productos.pagos');
+    Route::get('productos/{$id}/verPedido', 'ProductController@verPedido')->name('productos.verPedido');
+
 });
 
 

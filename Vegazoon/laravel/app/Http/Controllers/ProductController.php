@@ -104,13 +104,13 @@ class ProductController extends Controller
       $idPedido = DB::table('pedidos')
          ->where('user', $id)
          ->get();
-        
-      
+
+
       $pedidosFin = DB::table('pedidos')
          ->where('pagado', 1)
          ->where('user', $id)
          ->get('idPedido');
-      
+
       $pedidosPend = DB::table('linea_pedidos')
          ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
          ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
@@ -149,6 +149,15 @@ class ProductController extends Controller
          $linea->idProducto = $idProd;
          $linea->cantidad = $request->input('cantidad');
          $linea->save();
+         $eliminar=$request->input('cantidad');
+         $stock1 = DB::table('productos')
+         ->where('idProducto', $idProd)
+         ->get();
+
+         $producto = $stock1->first()->stock;
+         $stock = DB::table('productos')
+         ->where('idProducto', $idProd)
+         ->update(['stock' => ($producto - $eliminar)]);
       } else {
          $id = $pedidos->first()->idPedido;
          $linea = new Linea_pedido;
@@ -157,6 +166,16 @@ class ProductController extends Controller
          $linea->idProducto = $idProd;
          $linea->cantidad = $request->input('cantidad');
          $linea->save();
+
+         $eliminar=$request->input('cantidad');
+         $stock1 = DB::table('productos')
+         ->where('idProducto', $idProd)
+         ->get();
+
+         $producto = $stock1->first()->stock;
+         $stock = DB::table('productos')
+         ->where('idProducto', $idProd)
+         ->update(['stock' => ($producto - $eliminar)]);
       }
 
       return redirect()->route('productos.carrito');
@@ -218,10 +237,12 @@ class ProductController extends Controller
       return redirect()->route('productos.compruebaPedido', compact('pagar'));
    }
 
-   public function verPedidoFin($id){
+   public function verPedido($id)
+   {
+      $pedido = DB::table('pedidos')
+         ->where('idPedido', $id)
+         ->get();
 
-
-
-      return view('productos.verPedido');
+      return view('productos.producto', compact('pedido'));
    }
 }
