@@ -5,80 +5,116 @@
 
 @if(!$pedidosPend->isEmpty())
 
-@foreach ($pedidosPend as $pedido)
-hola
+@php
 
+
+$cantidad=count($pedidosPend);
+$linea=0;
+$total2= 0;
+$totalSinDesc2=0;
+
+@endphp
+
+
+@foreach ($pedidosPend as $pedido)
+@php
+$precio = $pedido-> precio;
+$descuento = $pedido-> descuento;
+$cantidad2 = $pedido-> cantidad;
+$total= $cantidad2*($precio-($precio*($descuento/100)));
+$totalSinDesc=$cantidad2*$precio;
+
+
+if ($linea==0){
+echo '
+<h5>Número de pedido: '.$pedido->idPedido.'</h5>
+<table class="table table-sm table-primary">
+    <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Cantidad</th>
+        <th>Descuento</th>
+        <th class="text-end">Precio unidad</th>
+        <th class="text-end">Precio final</th>
+
+
+
+    </tr>';
+    }
+
+    @endphp
+
+    <tr>
+
+        <td>{{$pedido->marca}} </td>
+        <td>{{$pedido->modelo}}</td>
+        <td>{{$pedido->cantidad}}</td>
+        @php
+        if($pedido->descuento==0){
+        echo' <td></td>';
+        }else{
+
+        echo'<td>'.$pedido->descuento.'% </td>';
+        }
+
+        @endphp
+        <td class="text-end">{{$pedido->precio}}€</td>
+        <td class="text-end">{{$total}}€</td>
+
+
+    </tr>
+
+    @php
+
+    $linea++;
+
+    $total2= $total + $total2;
+    $totalSinDesc2= $totalSinDesc + $totalSinDesc2;
+    if ($linea==$cantidad){
+
+
+    echo '
+    <tr>
+        <th>Total sin descuento</th>
+        <th class="text-end" colspan="4">'.$totalSinDesc2.'€</th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>Total a pagar</th>
+        <th class="text-end" colspan="5">'.$total2.'€</th>
+    </tr>
+</table>';
+
+}
+
+@endphp
 
 @endforeach
+<a href="" class="btn btn-danger">Pagar</a>
 @else
 <p> No tienes ningun pedido pendiente.</p>
 <a href="{{ route('productos.portatiles')}}" class="btn btn-primary">Nuevo pedido</a>
 
 @endif
-
-
-
+<hr>
 <h2>Finalizados</h2>
-
-@if(!$pedidosFin->isEmpty())
-
 @php
-    $repetido=-1;
-@endphp
+$linea3=0;
+$cantidadPedidos=count($pedidosFin);
 
 
-@foreach ($pedidosFin as $pedidos)
-
-@php
-
-
-    if ($repetido!=$pedidos->idPedido){
-        echo '
-        <h5>Número de pedido: '.$pedidos->idPedido.'</h5>
-    <table class="table table-sm">
-    <tr>
-        <th>Marca</th>
-        <th>Modelo</th>
-        <th>Cantidad</th>
-
-        <th>Precio</th>
-    </tr>';
-    }
-  
-@endphp
-
-    
-    
-    <tr>
-
-        <td>{{$pedidos->marca}} </td>
-        <td>{{$pedidos->modelo}}</td>
-        <td>{{$pedidos->cantidad}}</td>
-        <td>{{$pedidos->precio}}€</td>
-    </tr>
-    @php
-
-
-    if ($repetido==$pedidos->idPedido){
-        echo ' </table>';
+foreach ($pedidosFin as $pedidos){
+$linea3++;
+if($linea3<=$cantidadPedidos){ 
+    echo' <a href="" class="btn btn-primary">'.$pedidos->idPedido.'</a>';
     }
 
-    $repetido=$pedidos->idPedido;
-
-@endphp
-
-   
-
-@endforeach
+    }
 
 
-
-
-@endif
-
-
-@else
-<p> Todavía no has realizado ningun pedido. ¿A qué esperas?</p>
-<a href="{{ route('productos.portatiles')}}" class="btn btn-primary">Nuevo pedido</a>
-@endif
-@endsection
+    @endphp
+    @else
+    <p> Todavía no has realizado ningun pedido. ¿A qué esperas?</p>
+    <a href="{{ route('productos.portatiles')}}" class="btn btn-primary">Nuevo pedido</a>
+    @endif
+    @endsection

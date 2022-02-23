@@ -107,32 +107,18 @@ class ProductController extends Controller
         
       
       $pedidosFin = DB::table('pedidos')
-         ->join('linea_pedidos', 'pedidos.idPedido', '=', 'linea_pedidos.idPedido')
-         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
          ->where('pagado', 1)
          ->where('user', $id)
-   
-
-         ->get();
-        // return $pedidosFin;
-     
-      //return $pedidosFin;
-
-      $pedidosPend = DB::table('pedidos')
-         ->join('linea_pedidos', 'pedidos.idPedido', '=', 'linea_pedidos.idPedido')
-         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
-         ->where('user', $id)
-         ->where('pagado', 0)
-   
-         ->get();
-      $total = linea_pedido::selectRaw('SUM(precio*cantidad) as total')
+         ->get('idPedido');
+      
+      $pedidosPend = DB::table('linea_pedidos')
          ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
          ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+         ->where('pagado', 0)
          ->where('user', $id)
-   
          ->get();
 
-      return view('productos.pedidos', compact('idPedido', 'pedidosFin', 'pedidosPend', 'total'));
+      return view('productos.pedidos', compact('idPedido', 'pedidosFin', 'pedidosPend'));
    }
 
 
@@ -177,7 +163,6 @@ class ProductController extends Controller
    }
 
 
-
    public function carrito()
    {
       $idUser = auth()->user()->id;
@@ -191,14 +176,12 @@ class ProductController extends Controller
       if ($idPedido != '[]') {
 
          $pedido = DB::table('linea_pedidos')
-            ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
             ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
-            ->where('pedidos.idPedido', $idPedido->first()->idPedido)
+            ->where('idPedido', $idPedido->first()->idPedido)
             ->get();
          $total = linea_pedido::selectRaw('SUM(precio*cantidad) as total')
-            ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
             ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
-            ->where('pedidos.idPedido', $idPedido->first()->idPedido)
+            ->where('idPedido', $idPedido->first()->idPedido)
             ->get();
       }
 
@@ -232,8 +215,13 @@ class ProductController extends Controller
          ->where('idPedido', $idPedido->first()->idPedido)
          ->update(['pagado' => 1]);
 
-
-
       return redirect()->route('productos.compruebaPedido', compact('pagar'));
+   }
+
+   public function verPedidoFin($id){
+
+
+
+      return view('productos.verPedido');
    }
 }
