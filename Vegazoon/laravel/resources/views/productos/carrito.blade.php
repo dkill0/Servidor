@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('contenido')
-@if(!$idPedido->isEmpty())
+@if   (!$idPedido->isEmpty())
 <h2>Pedido en marcha</h2>
 @foreach ($idPedido as $id)
 <h4>Número de pedido: {{$id->idPedido}}</h4>
@@ -13,20 +13,19 @@
 
         <td>Precio</td>
     </tr>
-    @foreach ($pedido as $pedido)
+    @foreach ($pedido as $pedido)  
     <tr>
 
         <td>{{$pedido->marca}} </td>
         <td>{{$pedido->modelo}}</td>
         <td>{{$pedido->cantidad}}</td>
-
         <td>{{$pedido->precio}}€</td>
     </tr>
     @endforeach
 
     <tr>
         @foreach($total as $total)
-        <td colspan="2">Total: </td>
+        <td colspan="3">Total: </td>
         <td>{{$total->total}}€</td>
         @endforeach
     </tr>

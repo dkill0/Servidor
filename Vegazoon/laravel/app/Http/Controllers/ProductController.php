@@ -101,12 +101,40 @@ class ProductController extends Controller
    {
 
       $id = auth()->user()->id;
-      $pedidos = DB::table('pedidos')
+      $idPedido = DB::table('pedidos')
          ->where('user', $id)
          ->get();
+        
+      
+      $pedidosFin = DB::table('pedidos')
+         ->join('linea_pedidos', 'pedidos.idPedido', '=', 'linea_pedidos.idPedido')
+         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+         ->where('pagado', 1)
+         ->where('user', $id)
+   
 
-      return view('productos.pedidos', compact('pedidos'));
+         ->get();
+        // return $pedidosFin;
+     
+      //return $pedidosFin;
+
+      $pedidosPend = DB::table('pedidos')
+         ->join('linea_pedidos', 'pedidos.idPedido', '=', 'linea_pedidos.idPedido')
+         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+         ->where('user', $id)
+         ->where('pagado', 0)
+   
+         ->get();
+      $total = linea_pedido::selectRaw('SUM(precio*cantidad) as total')
+         ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
+         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+         ->where('user', $id)
+   
+         ->get();
+
+      return view('productos.pedidos', compact('idPedido', 'pedidosFin', 'pedidosPend', 'total'));
    }
+
 
    public function nuevoArticulo(Request $request, $idUser, $idProd)
    {
@@ -158,16 +186,21 @@ class ProductController extends Controller
          ->where('pagado', '0')
          ->get();
 
-      $pedido = DB::table('linea_pedidos')
-         ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
-         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
-         ->where('pedidos.idPedido', $idPedido->first()->idPedido)
-         ->get();
-      $total = linea_pedido::selectRaw('SUM(precio*cantidad) as total')
-         ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
-         ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
-         ->where('pedidos.idPedido', $idPedido->first()->idPedido)
-         ->get();
+      $pedido = "";
+      $total = "";
+      if ($idPedido != '[]') {
+
+         $pedido = DB::table('linea_pedidos')
+            ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
+            ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+            ->where('pedidos.idPedido', $idPedido->first()->idPedido)
+            ->get();
+         $total = linea_pedido::selectRaw('SUM(precio*cantidad) as total')
+            ->join('pedidos', 'linea_pedidos.idPedido', '=', 'pedidos.idPedido')
+            ->join('productos', 'linea_pedidos.idProducto', '=', 'productos.idProducto')
+            ->where('pedidos.idPedido', $idPedido->first()->idPedido)
+            ->get();
+      }
 
 
       return view('productos.carrito', compact('pedido', 'idPedido', 'total'));
@@ -192,7 +225,6 @@ class ProductController extends Controller
       $idUser = auth()->user()->id;
       $idPedido = DB::table('pedidos')
          ->where('user', $idUser)
-         ->where('enviado', '0')
          ->where('pagado', '0')
          ->get();
       $pagar = DB::table('pedidos')
